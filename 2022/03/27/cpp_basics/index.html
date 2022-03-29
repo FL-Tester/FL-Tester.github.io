@@ -691,7 +691,51 @@ Animal<span class="token operator">::</span><span class="token operator">~</span
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="杂项及其用法：c-11-20-新标准"><a href="#杂项及其用法：c-11-20-新标准" class="headerlink" title="杂项及其用法：c++11-20 新标准"></a>杂项及其用法：c++11-20 新标准</h2><h3 id="语言可用性的强化"><a href="#语言可用性的强化" class="headerlink" title="语言可用性的强化"></a>语言可用性的强化</h3><h4 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h4><h4 id="变量及其初始化"><a href="#变量及其初始化" class="headerlink" title="变量及其初始化"></a>变量及其初始化</h4><h4 id="类型推导"><a href="#类型推导" class="headerlink" title="类型推导"></a>类型推导</h4><h4 id="控制流"><a href="#控制流" class="headerlink" title="控制流"></a>控制流</h4><h4 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h4><h3 id="语言运行期的强化"><a href="#语言运行期的强化" class="headerlink" title="语言运行期的强化"></a>语言运行期的强化</h3><h4 id="Lambda-表达式"><a href="#Lambda-表达式" class="headerlink" title="Lambda 表达式"></a>Lambda 表达式</h4><h4 id="函数对象包装器"><a href="#函数对象包装器" class="headerlink" title="函数对象包装器"></a>函数对象包装器</h4><h4 id="右值引用"><a href="#右值引用" class="headerlink" title="右值引用"></a>右值引用</h4><h3 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h3><h4 id=""><a href="#" class="headerlink" title=""></a></h4><h4 id="-1"><a href="#-1" class="headerlink" title=""></a></h4><h4 id="-2"><a href="#-2" class="headerlink" title=""></a></h4><h3 id="智能指针与内存管理"><a href="#智能指针与内存管理" class="headerlink" title="智能指针与内存管理"></a>智能指针与内存管理</h3><p>(头文件 <memory>)</p>
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><h2 id="杂项及其用法：c-11-20-新标准"><a href="#杂项及其用法：c-11-20-新标准" class="headerlink" title="杂项及其用法：c++11-20 新标准"></a>杂项及其用法：c++11-20 新标准</h2><h3 id="语言可用性的强化"><a href="#语言可用性的强化" class="headerlink" title="语言可用性的强化"></a>语言可用性的强化</h3><h4 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h4><h4 id="变量及其初始化"><a href="#变量及其初始化" class="headerlink" title="变量及其初始化"></a>变量及其初始化</h4><h4 id="类型推导"><a href="#类型推导" class="headerlink" title="类型推导"></a>类型推导</h4><h4 id="控制流"><a href="#控制流" class="headerlink" title="控制流"></a>控制流</h4><h4 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h4><h3 id="语言运行期的强化"><a href="#语言运行期的强化" class="headerlink" title="语言运行期的强化"></a>语言运行期的强化</h3><h4 id="Lambda-表达式"><a href="#Lambda-表达式" class="headerlink" title="Lambda 表达式"></a>Lambda 表达式</h4><h4 id="函数对象包装器"><a href="#函数对象包装器" class="headerlink" title="函数对象包装器"></a>函数对象包装器</h4><h4 id="右值引用"><a href="#右值引用" class="headerlink" title="右值引用"></a>右值引用</h4><h3 id="右值引用-1"><a href="#右值引用-1" class="headerlink" title="右值引用"></a>右值引用</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//提高资源资源利用效率</span>
+<span class="token comment" spellcheck="true">//移动构造 &amp;&amp; srd:move</span>
+<span class="token keyword">class</span> <span class="token class-name">Buffer</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">Buffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        buf <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token operator">~</span><span class="token function">Buffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>buf <span class="token operator">!=</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">delete</span><span class="token punctuation">[</span><span class="token punctuation">]</span> buf<span class="token punctuation">;</span>
+            buf <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">char</span><span class="token operator">*</span> buf <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+Buffer <span class="token function">getBuffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+    Buffer buf<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> buf<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">setBuffer</span><span class="token punctuation">(</span><span class="token keyword">const</span> Buffer<span class="token operator">&amp;</span> buf<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"const Buffer&amp; buf"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//</span>
+<span class="token keyword">void</span> <span class="token function">setBuffer</span><span class="token punctuation">(</span>Buffer<span class="token operator">&amp;&amp;</span> buf<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Buffer&amp;&amp; buf"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">buftest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//这样调用会有两次内存开销 两次对象 一次为buf  一次为 getbuffer中  此处get为右值 </span>
+    <span class="token comment" spellcheck="true">//如果没有const &amp; 编译器报错 因为getBuffer已经销毁</span>
+    <span class="token comment" spellcheck="true">//让一个常引用指向一个将亡值 将亡值声明周期将和常引用一样</span>
+    Buffer buf <span class="token operator">=</span> <span class="token function">getBuffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">setBuffer</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//调用普通常引用</span>
+    <span class="token function">setBuffer</span><span class="token punctuation">(</span><span class="token function">getBuffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//调用右值引用</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="智能指针与内存管理"><a href="#智能指针与内存管理" class="headerlink" title="智能指针与内存管理"></a>智能指针与内存管理</h3><p>(头文件 <memory>)</p>
 <h4 id="Rall-amp-amp-引用计数"><a href="#Rall-amp-amp-引用计数" class="headerlink" title="Rall &amp;&amp; 引用计数"></a>Rall &amp;&amp; 引用计数</h4><p>引用计数是为了防止内存泄露 每当增加一次对同一个对象的引用 引用计数就会增加一次 每删除一次 引用计数就会减1 当引用计数为零时就会自动三处指向堆的内存。</p>
 <h4 id="std-shared-ptr"><a href="#std-shared-ptr" class="headerlink" title="std::shared_ptr"></a>std::shared_ptr</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//简单的使用方法</span>
 <span class="token keyword">void</span> <span class="token function">shared_ptr_foo</span><span class="token punctuation">(</span>shared_ptr<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -795,51 +839,7 @@ Animal<span class="token operator">::</span><span class="token operator">~</span
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><h4 id="正则表达式简介"><a href="#正则表达式简介" class="headerlink" title="正则表达式简介"></a>正则表达式简介</h4><h4 id="std-regex-及其相关"><a href="#std-regex-及其相关" class="headerlink" title="std::regex 及其相关"></a>std::regex 及其相关</h4><h3 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h3><h3 id="右值引用-1"><a href="#右值引用-1" class="headerlink" title="右值引用"></a>右值引用</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//提高资源资源利用效率</span>
-<span class="token comment" spellcheck="true">//移动构造 &amp;&amp; srd:move</span>
-<span class="token keyword">class</span> <span class="token class-name">Buffer</span>
-<span class="token punctuation">{</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token function">Buffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        buf <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token operator">~</span><span class="token function">Buffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>buf <span class="token operator">!=</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword">delete</span><span class="token punctuation">[</span><span class="token punctuation">]</span> buf<span class="token punctuation">;</span>
-            buf <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">char</span><span class="token operator">*</span> buf <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-Buffer <span class="token function">getBuffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
-<span class="token punctuation">{</span>
-    Buffer buf<span class="token punctuation">;</span>
-    <span class="token keyword">return</span> buf<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">void</span> <span class="token function">setBuffer</span><span class="token punctuation">(</span><span class="token keyword">const</span> Buffer<span class="token operator">&amp;</span> buf<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"const Buffer&amp; buf"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//</span>
-<span class="token keyword">void</span> <span class="token function">setBuffer</span><span class="token punctuation">(</span>Buffer<span class="token operator">&amp;&amp;</span> buf<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Buffer&amp;&amp; buf"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">void</span> <span class="token function">buftest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
-<span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//这样调用会有两次内存开销 两次对象 一次为buf  一次为 getbuffer中  此处get为右值 </span>
-    <span class="token comment" spellcheck="true">//如果没有const &amp; 编译器报错 因为getBuffer已经销毁</span>
-    <span class="token comment" spellcheck="true">//让一个常引用指向一个将亡值 将亡值声明周期将和常引用一样</span>
-    Buffer buf <span class="token operator">=</span> <span class="token function">getBuffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">setBuffer</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//调用普通常引用</span>
-    <span class="token function">setBuffer</span><span class="token punctuation">(</span><span class="token function">getBuffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//调用右值引用</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><h2 id="STL基础"><a href="#STL基础" class="headerlink" title="STL基础"></a>STL基础</h2><h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><h3 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h3><p>并发 两个以上的任何 同时发生<br>并发的假象 需要时间开销 任务切换<br>多个核心cpu  硬件并发<br>任务数少于核心数 可以做到真正的任务并发<br>使用并发的原因 同时执行多个任务 提高性能</p>
+<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><h4 id="正则表达式简介"><a href="#正则表达式简介" class="headerlink" title="正则表达式简介"></a>正则表达式简介</h4><h4 id="std-regex-及其相关"><a href="#std-regex-及其相关" class="headerlink" title="std::regex 及其相关"></a>std::regex 及其相关</h4><h2 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h2><h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><h3 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h3><p>并发 两个以上的任何 同时发生<br>并发的假象 需要时间开销 任务切换<br>多个核心cpu  硬件并发<br>任务数少于核心数 可以做到真正的任务并发<br>使用并发的原因 同时执行多个任务 提高性能</p>
 <h3 id="可执行程序"><a href="#可执行程序" class="headerlink" title="可执行程序"></a>可执行程序</h3><p>磁盘上的一个文件 windows下 一个扩展名为exe<br>windows下 双击 lunux./</p>
 <h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><p>就是一个可执行程序 运行起来 就创建了一个进程</p>
 <p>进程就是运行起来的可执行程序</p>
