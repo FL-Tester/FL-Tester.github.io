@@ -314,14 +314,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    3.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    15 分
                 </div>
                 
 
@@ -690,7 +690,7 @@ Animal<span class="token operator">::</span><span class="token operator">~</span
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><h2 id="杂项及其用法：c-11-20-新标准"><a href="#杂项及其用法：c-11-20-新标准" class="headerlink" title="杂项及其用法：c++11-20 新标准"></a>杂项及其用法：c++11-20 新标准</h2><h3 id="auto"><a href="#auto" class="headerlink" title="auto"></a>auto</h3><h3 id="constexpr"><a href="#constexpr" class="headerlink" title="constexpr"></a>constexpr</h3><h3 id="初始化列表"><a href="#初始化列表" class="headerlink" title="初始化列表"></a>初始化列表</h3><h3 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h3><p>(头文件 <memory>)</p>
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><h2 id="杂项及其用法：c-11-20-新标准"><a href="#杂项及其用法：c-11-20-新标准" class="headerlink" title="杂项及其用法：c++11-20 新标准"></a>杂项及其用法：c++11-20 新标准</h2><h3 id="auto-amp-amp-constexpr-amp-amp-初始化列表"><a href="#auto-amp-amp-constexpr-amp-amp-初始化列表" class="headerlink" title="auto &amp;&amp; constexpr &amp;&amp; 初始化列表"></a>auto &amp;&amp; constexpr &amp;&amp; 初始化列表</h3><h3 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h3><p>(头文件 <memory>)</p>
 <h4 id="Rall-amp-amp-引用计数"><a href="#Rall-amp-amp-引用计数" class="headerlink" title="Rall &amp;&amp; 引用计数"></a>Rall &amp;&amp; 引用计数</h4><p>引用计数是为了防止内存泄露 每当增加一次对同一个对象的引用 引用计数就会增加一次 每删除一次 引用计数就会减1 当引用计数为零时就会自动三处指向堆的内存。</p>
 <h4 id="std-shared-ptr"><a href="#std-shared-ptr" class="headerlink" title="std::shared_ptr"></a>std::shared_ptr</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//简单的使用方法</span>
 <span class="token keyword">void</span> <span class="token function">shared_ptr_foo</span><span class="token punctuation">(</span>shared_ptr<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -794,7 +794,68 @@ Animal<span class="token operator">::</span><span class="token operator">~</span
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h3><h3 id="右值引用"><a href="#右值引用" class="headerlink" title="右值引用"></a>右值引用</h3><h3 id="等等等"><a href="#等等等" class="headerlink" title="等等等"></a>等等等</h3><h2 id="持续更新"><a href="#持续更新" class="headerlink" title="持续更新"></a>持续更新</h2>
+<h3 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h3><h3 id="右值引用"><a href="#右值引用" class="headerlink" title="右值引用"></a>右值引用</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//提高资源资源利用效率</span>
+<span class="token comment" spellcheck="true">//移动构造 &amp;&amp; srd:move</span>
+<span class="token keyword">class</span> <span class="token class-name">Buffer</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">Buffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        buf <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token operator">~</span><span class="token function">Buffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>buf <span class="token operator">!=</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">delete</span><span class="token punctuation">[</span><span class="token punctuation">]</span> buf<span class="token punctuation">;</span>
+            buf <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">char</span><span class="token operator">*</span> buf <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+Buffer <span class="token function">getBuffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+    Buffer buf<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> buf<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">setBuffer</span><span class="token punctuation">(</span><span class="token keyword">const</span> Buffer<span class="token operator">&amp;</span> buf<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"const Buffer&amp; buf"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//</span>
+<span class="token keyword">void</span> <span class="token function">setBuffer</span><span class="token punctuation">(</span>Buffer<span class="token operator">&amp;&amp;</span> buf<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Buffer&amp;&amp; buf"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">buftest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//这样调用会有两次内存开销 两次对象 一次为buf  一次为 getbuffer中  此处get为右值 </span>
+    <span class="token comment" spellcheck="true">//如果没有const &amp; 编译器报错 因为getBuffer已经销毁</span>
+    <span class="token comment" spellcheck="true">//让一个常引用指向一个将亡值 将亡值声明周期将和常引用一样</span>
+    Buffer buf <span class="token operator">=</span> <span class="token function">getBuffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">setBuffer</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//调用普通常引用</span>
+    <span class="token function">setBuffer</span><span class="token punctuation">(</span><span class="token function">getBuffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//调用右值引用</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="STL基础"><a href="#STL基础" class="headerlink" title="STL基础"></a>STL基础</h2><h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><h3 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h3><p>并发 两个以上的任何 同时发生<br>并发的假象 需要时间开销 任务切换<br>多个核心cpu  硬件并发<br>任务数少于核心数 可以做到真正的任务并发<br>使用并发的原因 同时执行多个任务 提高性能</p>
+<h3 id="可执行程序"><a href="#可执行程序" class="headerlink" title="可执行程序"></a>可执行程序</h3><p>磁盘上的一个文件 windows下 一个扩展名为exe<br>windows下 双击 lunux./</p>
+<h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><p>就是一个可执行程序 运行起来 就创建了一个进程</p>
+<p>进程就是运行起来的可执行程序</p>
+<h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><p>进程存在了 主线程就出现了<br>main thread<br>main函数中的代码 有主线程执行<br>主线程和线程 唇齿相依</p>
+<p>除了主线程之外 我们可以通过自己创建其它线程 其它现场走的是别的通道 甚至去不同搞的地方</p>
+<p>没创建一个新的线程 我们就可以在同一时刻 多干一个不同的事情 </p>
+<p>多线程 并发<br>线程并不是越多越好 每个线程 都需要一个独立的堆栈空间(1M) 现场之间的切换 要保存很多中间状态；<br>切换会耗费本该属于程序的运行的时间</p>
+<p>可以同时处理不同的事情</p>
+<p>总结<br>用来执行代码<br>一个新线程 代表一条新的通路<br>一个进程包含一个主线程 主线程随着进程的启动 并运行 我们可以创建多个其它现场(非主线程)<br>但是创建的数量一般不超过200-300个(个数根据实际情况)<br>因为主线程是自动启动的 所以一个进程中最少也是有一个线程(主线程)<br>多线程程序可以同时干多个事 运行效率高<br>提高效率 需要调整和优化 资源 线程等问题</p>
+<h3 id="学习心得"><a href="#学习心得" class="headerlink" title="学习心得"></a>学习心得</h3><p>开发多线程程序 实力的体现 一个商用的必须要求<br>线程开发有一定难度 实现代码更复杂 理解上更难一些 需要一定的学习时间<br>c++线程会涉及很多新概念 对于c++道路上的成长特别关键 不要急于求成<br>方向 网络通信 网络服务器 qt等方向 都需要多线程 绝对绕不开</p>
+<h3 id="实现并发的手段"><a href="#实现并发的手段" class="headerlink" title="实现并发的手段"></a>实现并发的手段</h3><p>通过多个进程 实现并发<br>单个进程中 创建多个线程 实现并发</p>
+<h4 id="多进程并发"><a href="#多进程并发" class="headerlink" title="多进程并发"></a>多进程并发</h4><p>系统举例 启动多个软件<br>服务器进程之间的通信 账号服务器 游戏服务器 之间的通信<br>进程之间的通信<br>管道<br>文件<br>消息队列<br>共享内存<br>等等等等<br>如果不同电脑之间 可以使用socker通信 等等<br>等等</p>
+<h4 id="多线程并发"><a href="#多线程并发" class="headerlink" title="多线程并发"></a>多线程并发</h4><p>线程 (像是轻量级的进程)<br>共享内存 因为在同一个进程内<br>全局变量<br>指针<br>引用<br>等<br>多线程开销远远小于多进程<br>共享内存的新问题<br>数据一致性的问题<br>多个现场对一个变量同时操作 需要先后顺序等<br>互斥问题<br>多线程和多进程可以混合使用 但是有限考虑多线程技术开发 而不是多进程</p>
+<h3 id="c-11-新标准-线程库"><a href="#c-11-新标准-线程库" class="headerlink" title="c++11 新标准 线程库"></a>c++11 新标准 线程库</h3><p>需要主要查看官方文档 API<br>以前官方多线程代码不可以跨平台<br>可以导入库 保持代码一致性 可以跨平台 但还是需要配置 比较麻烦</p>
+<p>从c++11新标准开始<br>本身增加对多线程的支持 意味着可移植性 跨平台 windows linux</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>多线程的优点(对比进程)<br>启动速度更快 更轻量级<br>系统资源开销更少 执行速度更快 比如共享内存这种通信方式 比其他通信方式更快<br>缺点<br>使用有一定难度<br>需要处理数据的一致性问题</p>
+<h3 id="thread-code"><a href="#thread-code" class="headerlink" title="thread code"></a>thread code</h3><h2 id="等等等-持续更新"><a href="#等等等-持续更新" class="headerlink" title="等等等 持续更新"></a>等等等 持续更新</h2>
                 
             </div>
             <hr/>
@@ -1354,13 +1415,13 @@ Animal<span class="token operator">::</span><span class="token operator">~</span
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/03/14/code_thread/">
+                <a href="/2022/03/11/record20210311/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="cpp thread">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="开学记录">
                         
-                        <span class="card-title">cpp thread</span>
+                        <span class="card-title">开学记录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1371,14 +1432,14 @@ Animal<span class="token operator">::</span><span class="token operator">~</span
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-11
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/CPP/" class="post-category">
-                                    CPP
+                            <a href="/categories/recordlife/" class="post-category">
+                                    recordlife
                                 </a>
                             
                             
@@ -1388,8 +1449,8 @@ Animal<span class="token operator">::</span><span class="token operator">~</span
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/thread/">
-                        <span class="chip bg-color">thread</span>
+                    <a href="/tags/record-life/">
+                        <span class="chip bg-color">record-life</span>
                     </a>
                     
                 </div>
@@ -1593,7 +1654,7 @@ Animal<span class="token operator">::</span><span class="token operator">~</span
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">3.6k</span>
+                        class="white-color">3.8k</span>
             
             
             
