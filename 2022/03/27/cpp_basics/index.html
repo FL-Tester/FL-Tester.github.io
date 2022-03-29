@@ -342,8 +342,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本文为C到C++的记录<br>所以类似变量 函数 语句 等不会多赘述</p>
-<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>可以作为参数 返回值 局部变量 无法返回 因为随着函数声明周期的结束 函数内局部变量会被销毁<br>const int&amp; value2 防止形参改变实参<br>函数中利用常量引用防止误操作修改实参<br>引用的好处之一就是在函数调用时在内存中不会生成副本。<br>用引用传递函数的参数，能保证参数传递中不产生副本，提高传递的效率，且通过const的使用，保证了引用传递的安全性。<br>流操作符&lt;&lt;和&gt;&gt;、赋值操作符=的返回值、拷贝构造函数的参数、赋值操作符=的参数</p>
+                <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>本文为C到C++的记录<br>所以类似变量 函数 语句 等不会多赘述</p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>可以作为参数 返回值 局部变量 无法返回 因为随着函数声明周期的结束 函数内局部变量会被销毁<br>const int&amp; value2 防止形参改变实参<br>函数中利用常量引用防止误操作修改实参<br>引用的好处之一就是在函数调用时在内存中不会生成副本。<br>用引用传递函数的参数，能保证参数传递中不产生副本，提高传递的效率，且通过const的使用，保证了引用传递的安全性。<br>流操作符&lt;&lt;和&gt;&gt;、赋值操作符=的返回值、拷贝构造函数的参数、赋值操作符=的参数</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span><span class="token operator">&amp;</span> <span class="token function">firstref</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">&amp;</span> value1<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">int</span><span class="token operator">&amp;</span> value2<span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     <span class="token keyword">int</span> value5 <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">;</span>
@@ -355,8 +355,8 @@
     <span class="token keyword">return</span> c<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//注意：不要返回局部变量引用  可以返回静态变量</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h2><p>提高可复用性<br>同一个作用域下<br>函数名称相同<br>函数参数类型不同 或者 个数不同 或者 顺序不同</p>
-<h2 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h2><p>类成员函数<br>类外友元函数<br>函数运算符重载 </p>
+<h3 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h3><p>提高可复用性<br>同一个作用域下<br>函数名称相同<br>函数参数类型不同 或者 个数不同 或者 顺序不同</p>
+<h3 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h3><p>类成员函数<br>类外友元函数<br>函数运算符重载 </p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">function</span>
 <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
@@ -368,7 +368,7 @@
 <span class="token comment" spellcheck="true">//demo("hello world");</span>
 <span class="token comment" spellcheck="true">//operator() 让对象变得像函数，这个运算符也被称为 operator() 函数。</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="友元"><a href="#友元" class="headerlink" title="友元"></a>友元</h2><p>在程序里，有些私有属性 也想让类外特殊的一些函数或者类进行访问，就需要用到友元的技术<br>友元的目的就是让一个函数或者类 访问另一个类中私有成员<br>全局函数做友元<br>friend void goodGay(calss * calssone);<br>函数访问类中私有成员<br>类做友元</p>
+<h3 id="友元"><a href="#友元" class="headerlink" title="友元"></a>友元</h3><p>在程序里，有些私有属性 也想让类外特殊的一些函数或者类进行访问，就需要用到友元的技术<br>友元的目的就是让一个函数或者类 访问另一个类中私有成员<br>全局函数做友元<br>friend void goodGay(calss * calssone);<br>函数访问类中私有成员<br>类做友元</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">friend2</span> 
 <span class="token punctuation">{</span>
     <span class="token keyword">friend</span> <span class="token keyword">class</span> <span class="token class-name">friend1</span><span class="token punctuation">;</span>
@@ -410,7 +410,7 @@
     <span class="token comment" spellcheck="true">//friend void friend1::visit();</span>
     <span class="token comment" spellcheck="true">//类中的某一个成员函数，可以访问私有内容</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h2><pre><code>////class 默认private  struct默认public
+<h3 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h3><pre><code>////class 默认private  struct默认public
 //简单类
 </code></pre>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">person</span>
@@ -602,7 +602,7 @@ Animal<span class="token operator">::</span><span class="token operator">~</span
     <span class="token keyword">delete</span> animal<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="new-在堆区开辟数据"><a href="#new-在堆区开辟数据" class="headerlink" title="new 在堆区开辟数据"></a>new 在堆区开辟数据</h2><pre class="line-numbers language-cpp"><code class="language-cpp">定位<span class="token keyword">new</span><span class="token operator">--</span>类<span class="token operator">/</span>结构体
+<h3 id="new-在堆区开辟数据"><a href="#new-在堆区开辟数据" class="headerlink" title="new 在堆区开辟数据"></a>new 在堆区开辟数据</h3><pre class="line-numbers language-cpp"><code class="language-cpp">定位<span class="token keyword">new</span><span class="token operator">--</span>类<span class="token operator">/</span>结构体
 <span class="token keyword">class</span> <span class="token class-name">classnew</span>
 <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
@@ -692,7 +692,7 @@ Animal<span class="token operator">::</span><span class="token operator">~</span
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><h1 id="杂项及其用法：c-11-20-新标准"><a href="#杂项及其用法：c-11-20-新标准" class="headerlink" title="杂项及其用法：c++11-20 新标准"></a>杂项及其用法：c++11-20 新标准</h1><h3 id="auto-amp-amp-constexpr-amp-amp-初始化列表"><a href="#auto-amp-amp-constexpr-amp-amp-初始化列表" class="headerlink" title="auto &amp;&amp; constexpr &amp;&amp; 初始化列表"></a>auto &amp;&amp; constexpr &amp;&amp; 初始化列表</h3><h3 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h3><p>(头文件 <memory>)</p>
+<h2 id="杂项及其用法：c-11-20-新标准"><a href="#杂项及其用法：c-11-20-新标准" class="headerlink" title="杂项及其用法：c++11-20 新标准"></a>杂项及其用法：c++11-20 新标准</h2><h3 id="auto-amp-amp-constexpr-amp-amp-初始化列表"><a href="#auto-amp-amp-constexpr-amp-amp-初始化列表" class="headerlink" title="auto &amp;&amp; constexpr &amp;&amp; 初始化列表"></a>auto &amp;&amp; constexpr &amp;&amp; 初始化列表</h3><h3 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h3><p>(头文件 <memory>)</p>
 <h4 id="Rall-amp-amp-引用计数"><a href="#Rall-amp-amp-引用计数" class="headerlink" title="Rall &amp;&amp; 引用计数"></a>Rall &amp;&amp; 引用计数</h4><p>引用计数是为了防止内存泄露 每当增加一次对同一个对象的引用 引用计数就会增加一次 每删除一次 引用计数就会减1 当引用计数为零时就会自动三处指向堆的内存。</p>
 <h4 id="std-shared-ptr"><a href="#std-shared-ptr" class="headerlink" title="std::shared_ptr"></a>std::shared_ptr</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//简单的使用方法</span>
 <span class="token keyword">void</span> <span class="token function">shared_ptr_foo</span><span class="token punctuation">(</span>shared_ptr<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -840,7 +840,7 @@ Buffer <span class="token function">getBuffer</span><span class="token punctuati
     <span class="token function">setBuffer</span><span class="token punctuation">(</span><span class="token function">getBuffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//调用右值引用</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="STL基础"><a href="#STL基础" class="headerlink" title="STL基础"></a>STL基础</h1><h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h3 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h3><p>并发 两个以上的任何 同时发生<br>并发的假象 需要时间开销 任务切换<br>多个核心cpu  硬件并发<br>任务数少于核心数 可以做到真正的任务并发<br>使用并发的原因 同时执行多个任务 提高性能</p>
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><h2 id="STL基础"><a href="#STL基础" class="headerlink" title="STL基础"></a>STL基础</h2><h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><h3 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h3><p>并发 两个以上的任何 同时发生<br>并发的假象 需要时间开销 任务切换<br>多个核心cpu  硬件并发<br>任务数少于核心数 可以做到真正的任务并发<br>使用并发的原因 同时执行多个任务 提高性能</p>
 <h3 id="可执行程序"><a href="#可执行程序" class="headerlink" title="可执行程序"></a>可执行程序</h3><p>磁盘上的一个文件 windows下 一个扩展名为exe<br>windows下 双击 lunux./</p>
 <h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><p>就是一个可执行程序 运行起来 就创建了一个进程</p>
 <p>进程就是运行起来的可执行程序</p>
