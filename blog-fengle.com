@@ -880,7 +880,7 @@ Buffer <span class="token function">getBuffer</span><span class="token punctuati
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/03/27/cpp_basics/">http://example.com/2022/03/27/cpp_basics/</a>
+                    <a href="http://example.com/blog-fengle.com">http://example.com/blog-fengle.com</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1049,7 +1049,7 @@ Buffer <span class="token function">getBuffer</span><span class="token punctuati
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
                         <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
@@ -1364,7 +1364,7 @@ Buffer <span class="token function">getBuffer</span><span class="token punctuati
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2022/03/27/cpp_basics/">
+                <a href="/blog-fengle.com">
                     <div class="card-image">
                         
                         
