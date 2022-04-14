@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>STM32(缝合技巧)</title>
+      <link href="/2022/04/14/stm32/"/>
+      <url>/2022/04/14/stm32/</url>
+      
+        <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>记录stm32 基础和缝合技巧</p><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><h2 id="缝合"><a href="#缝合" class="headerlink" title="缝合"></a>缝合</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 嵌入式 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> basics </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>QT Basics</title>
       <link href="/2022/04/03/QT/"/>
       <url>/2022/04/03/QT/</url>
