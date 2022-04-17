@@ -316,7 +316,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    865
+                    1.1k
                 </div>
                 
 
@@ -354,7 +354,37 @@
 <h3 id="打开控制台-方便调试"><a href="#打开控制台-方便调试" class="headerlink" title="打开控制台 方便调试"></a>打开控制台 方便调试</h3><p><img src="/medias/qt/qtconsole.png"></p>
 <h2 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h2><p>将VS2019 工程文件relese下的exe 拷贝到任意文件夹<br>QT控制台(msvc 2017 64-bit) cd 到文件夹下<br>执行 windeployqt xxxxx.exe<br>在文件夹下可以找到exe 打包完成</p>
 <h2 id="基础快速飞过"><a href="#基础快速飞过" class="headerlink" title="基础快速飞过"></a>基础快速飞过</h2><h3 id="快速介绍"><a href="#快速介绍" class="headerlink" title="快速介绍"></a>快速介绍</h3><p>Qt 是一个跨平台的 C++ 应用程序开发框架。它提供给开发者建立图形用户界面所需的功能，广泛用于开发 GUI 程序，也可用于开发非 GUI 程序。使用 Qt，在一定程度上你获得的是一个 “一站式” 的解决方案：不再需要研究 STL，不再需要 C++ 的 <string>，不再需要到处去找解析 XML、连接数据库、访问网络的各种第三方库，因为 Qt 自己内置了这些技术。<br>优点：<br>    跨平台 容易扩展<br>    面向对象 好的封装机制 模块化强<br>    丰富的API<br>    提供很多模板 stl<br>    支持2/3D渲染 支持opengl<br>    xml支持 大量开发文档</string></p>
-<h3 id="创建一个按钮的新窗口-amp-amp-对象树概念-amp-amp-信号和槽—连接函数-QT最重要的函数"><a href="#创建一个按钮的新窗口-amp-amp-对象树概念-amp-amp-信号和槽—连接函数-QT最重要的函数" class="headerlink" title="创建一个按钮的新窗口 &amp;&amp; 对象树概念 &amp;&amp; 信号和槽—连接函数(QT最重要的函数)"></a>创建一个按钮的新窗口 &amp;&amp; 对象树概念 &amp;&amp; 信号和槽—连接函数(QT最重要的函数)</h3><h3 id="熟悉参看qt设计师助手的API并且使用"><a href="#熟悉参看qt设计师助手的API并且使用" class="headerlink" title="熟悉参看qt设计师助手的API并且使用"></a>熟悉参看qt设计师助手的API并且使用</h3><h3 id="熟悉QT的UI操作-资源文件-对话框-界面布局-常用控件"><a href="#熟悉QT的UI操作-资源文件-对话框-界面布局-常用控件" class="headerlink" title="熟悉QT的UI操作 资源文件 对话框 界面布局 常用控件"></a>熟悉QT的UI操作 资源文件 对话框 界面布局 常用控件</h3><h3 id="封装自定义控件"><a href="#封装自定义控件" class="headerlink" title="封装自定义控件"></a>封装自定义控件</h3><h3 id="事件处理-amp-事件分发-amp-事件过滤器-amp-定时器-amp-qt简单的绘图-amp-文件读写操作"><a href="#事件处理-amp-事件分发-amp-事件过滤器-amp-定时器-amp-qt简单的绘图-amp-文件读写操作" class="headerlink" title="事件处理 &amp; 事件分发 &amp; 事件过滤器 &amp; 定时器 &amp; qt简单的绘图 &amp; 文件读写操作"></a>事件处理 &amp; 事件分发 &amp; 事件过滤器 &amp; 定时器 &amp; qt简单的绘图 &amp; 文件读写操作</h3><h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><h2 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h2>
+<h3 id="创建一个按钮的新窗口-amp-amp-对象树概念-amp-amp-信号和槽—连接函数-QT最重要的函数"><a href="#创建一个按钮的新窗口-amp-amp-对象树概念-amp-amp-信号和槽—连接函数-QT最重要的函数" class="headerlink" title="创建一个按钮的新窗口 &amp;&amp; 对象树概念 &amp;&amp; 信号和槽—连接函数(QT最重要的函数)"></a>创建一个按钮的新窗口 &amp;&amp; 对象树概念 &amp;&amp; 信号和槽—连接函数(QT最重要的函数)</h3><p>我们试着创建一个主窗口 并且创建一个按钮  然后点击按钮 就会弹出一个新窗口<br>第一步 我们创建一个新按钮<br>第二步 我们创建一个新窗口<br>第三部 用信号和槽 连接按钮和窗口<br>首先新一个窗口 包括了CPP H UI三个文件<br><img src="/medias/qt/newui.png"></p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//主窗口代码</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"review_1.h"</span></span>
+review_1<span class="token operator">::</span><span class="token function">review_1</span><span class="token punctuation">(</span>QWidget <span class="token operator">*</span>parent<span class="token punctuation">)</span>
+    <span class="token operator">:</span> <span class="token function">QWidget</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    ui<span class="token punctuation">.</span><span class="token function">setupUi</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//新建一个按钮</span>
+    QPushButton<span class="token operator">*</span> btn_new_windows <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">QPushButton</span><span class="token punctuation">(</span><span class="token string">"打开新窗口"</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    btn_new_windows<span class="token operator">-</span><span class="token operator">></span><span class="token function">move</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    btn_new_windows<span class="token operator">-</span><span class="token operator">></span><span class="token function">setFixedSize</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//窗口实例化</span>
+    windows_one<span class="token operator">*</span> new_windows <span class="token operator">=</span> <span class="token keyword">new</span> windows_one<span class="token punctuation">;</span>
+
+
+    <span class="token comment" spellcheck="true">//信号和槽函数 点击按钮 窗口实现打开关闭循环</span>
+    <span class="token function">connect</span><span class="token punctuation">(</span>btn_new_windows<span class="token punctuation">,</span> <span class="token operator">&amp;</span>QPushButton<span class="token operator">::</span>clicked<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token operator">=</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>btn_new_windows<span class="token operator">-</span><span class="token operator">></span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"打开新窗口"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            new_windows<span class="token operator">-</span><span class="token operator">></span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            btn_new_windows<span class="token operator">-</span><span class="token operator">></span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">"关闭新窗口"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            new_windows<span class="token operator">-</span><span class="token operator">></span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            btn_new_windows<span class="token operator">-</span><span class="token operator">></span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">"打开新窗口"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="熟悉参看qt设计师助手的API并且使用"><a href="#熟悉参看qt设计师助手的API并且使用" class="headerlink" title="熟悉参看qt设计师助手的API并且使用"></a>熟悉参看qt设计师助手的API并且使用</h3><h3 id="熟悉QT的UI操作-资源文件-对话框-界面布局-常用控件"><a href="#熟悉QT的UI操作-资源文件-对话框-界面布局-常用控件" class="headerlink" title="熟悉QT的UI操作 资源文件 对话框 界面布局 常用控件"></a>熟悉QT的UI操作 资源文件 对话框 界面布局 常用控件</h3><h3 id="封装自定义控件"><a href="#封装自定义控件" class="headerlink" title="封装自定义控件"></a>封装自定义控件</h3><h3 id="事件处理-amp-事件分发-amp-事件过滤器-amp-定时器-amp-qt简单的绘图-amp-文件读写操作"><a href="#事件处理-amp-事件分发-amp-事件过滤器-amp-定时器-amp-qt简单的绘图-amp-文件读写操作" class="headerlink" title="事件处理 &amp; 事件分发 &amp; 事件过滤器 &amp; 定时器 &amp; qt简单的绘图 &amp; 文件读写操作"></a>事件处理 &amp; 事件分发 &amp; 事件过滤器 &amp; 定时器 &amp; qt简单的绘图 &amp; 文件读写操作</h3><h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><h2 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h2>
                 
             </div>
             <hr/>
@@ -1151,7 +1181,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">6.1k</span>
+                        class="white-color">6.3k</span>
             
             
             
