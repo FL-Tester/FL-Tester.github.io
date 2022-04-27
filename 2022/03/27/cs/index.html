@@ -316,14 +316,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.2k
+                    5.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    21 分
+                    23 分
                 </div>
                 
 
@@ -1062,7 +1062,65 @@ condition_variable cond<span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="原子-atomic"><a href="#原子-atomic" class="headerlink" title="原子 atomic"></a>原子 atomic</h5><h1 id="End"><a href="#End" class="headerlink" title="End!"></a>End!</h1><p>高级语言涉及太多<br>而主流高级语言中CPP为最<br>只能龟速更新😂</p>
+<h5 id="原子-atomic"><a href="#原子-atomic" class="headerlink" title="原子 atomic"></a>原子 atomic</h5><h2 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h2><h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> time
+<span class="token keyword">class</span> <span class="token class-name">solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> a <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1001</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> b <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1001</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">for</span> c <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1001</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    <span class="token keyword">if</span> a<span class="token operator">**</span><span class="token number">2</span> <span class="token operator">+</span> b<span class="token operator">**</span><span class="token number">2</span> <span class="token operator">==</span> c<span class="token operator">**</span><span class="token number">2</span> <span class="token operator">and</span> a<span class="token operator">+</span>b<span class="token operator">+</span>c <span class="token operator">==</span> <span class="token number">1000</span><span class="token punctuation">:</span>
+                        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"a, b, c: %d, %d, %d"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">func1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> a <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1001</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> b <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1001</span><span class="token operator">-</span>a<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                c <span class="token operator">=</span> <span class="token number">1000</span> <span class="token operator">-</span> a <span class="token operator">-</span> b
+                <span class="token keyword">if</span> a<span class="token operator">**</span><span class="token number">2</span> <span class="token operator">+</span> b<span class="token operator">**</span><span class="token number">2</span> <span class="token operator">==</span> c<span class="token operator">**</span><span class="token number">2</span><span class="token punctuation">:</span>
+                    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"a, b, c: %d, %d, %d"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+
+    <span class="token comment" spellcheck="true">### 没有优化的方法所需时间</span>
+    start1 <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    solution<span class="token punctuation">.</span>func<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    end1 <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true">### 优化的方法所需时间</span>
+    start2 <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    solution<span class="token punctuation">.</span>func1<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    end2 <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"done!"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"it  cost %s s for func running "</span> <span class="token operator">%</span><span class="token punctuation">(</span>end1 <span class="token operator">-</span> start1<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"it  cost %s s for func1 running "</span> <span class="token operator">%</span><span class="token punctuation">(</span>end2 <span class="token operator">-</span> start2<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>时间对比如下<br><img src="/medias/DA/example1.png"><br>可以看出小小的改动 时间相差居然高达千倍</p>
+<h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>算法的五大特性<br>输入: 算法具有0个或多个输入<br>输出: 算法至少有1个或多个输出<br>有穷性: 算法在有限的步骤之后会自动结束而不会无限循环，并且每一个步骤可以在可接受的时间内完成<br>确定性：算法中的每一步都有确定的含义，不会出现二义性<br>可行性：算法的每一步都是可行的，也就是说每一步都能够执行有限的次数完成</p>
+<p>时间比空间重要<br>可以使用空间换时间</p>
+<h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><table>
+<thead>
+<tr>
+<th>执行次数函数举例</th>
+<th>阶</th>
+<th>非正式术语</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>12</td>
+<td>O(1)</td>
+<td>常数阶</td>
+</tr>
+<tr>
+<td>2n+3</td>
+<td>O(n)</td>
+<td>线性阶</td>
+</tr>
+<tr>
+<td>3n^2^+2n+1</td>
+<td>O(n^2^)</td>
+<td>平方阶</td>
+</tr>
+</tbody></table>
+<h4 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h4><h3 id="常用算法"><a href="#常用算法" class="headerlink" title="常用算法"></a>常用算法</h3><h3 id="常用数据结构"><a href="#常用数据结构" class="headerlink" title="常用数据结构"></a>常用数据结构</h3><h2 id="End"><a href="#End" class="headerlink" title="End!"></a>End!</h2><p>CS涉及太多<br>只能龟速更新😂</p>
 
                 
             </div>
@@ -1572,31 +1630,31 @@ condition_variable cond<span class="token punctuation">;</span>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/04/03/QT/">
+                <a href="/2022/04/26/math/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="QT-Basics">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Math">
                         
-                        <span class="card-title">QT-Basics</span>
+                        <span class="card-title">Math</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            QT Basics
+                            Math-Basics
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-03
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-26
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/QT/" class="post-category">
-                                    QT
+                            <a href="/categories/Math-Basics/" class="post-category">
+                                    Math-Basics
                                 </a>
                             
                             
@@ -1606,8 +1664,8 @@ condition_variable cond<span class="token punctuation">;</span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/basics/">
-                        <span class="chip bg-color">basics</span>
+                    <a href="/tags/Math/">
+                        <span class="chip bg-color">Math</span>
                     </a>
                     
                 </div>
@@ -1860,7 +1918,7 @@ condition_variable cond<span class="token punctuation">;</span>
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">7.3k</span>
+                        class="white-color">7.2k</span>
             
             
             
