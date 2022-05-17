@@ -407,14 +407,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    8 分
                 </div>
                 
 
@@ -536,7 +536,13 @@ review_1<span class="token operator">::</span><span class="token function">revie
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>效果如下<br><img src="/medias/qt/qtdialogres.png"></p>
 <p>ui设计 直接点击ui文件 会自动跳转qtdesigner </p>
-<h4 id="封装自定义控件"><a href="#封装自定义控件" class="headerlink" title="封装自定义控件"></a>封装自定义控件</h4><h4 id="事件处理-amp-事件分发-amp-事件过滤器-amp-定时器-amp-qt简单的绘图-amp-文件读写操作"><a href="#事件处理-amp-事件分发-amp-事件过滤器-amp-定时器-amp-qt简单的绘图-amp-文件读写操作" class="headerlink" title="事件处理 &amp; 事件分发 &amp; 事件过滤器 &amp; 定时器 &amp; qt简单的绘图 &amp; 文件读写操作"></a>事件处理 &amp; 事件分发 &amp; 事件过滤器 &amp; 定时器 &amp; qt简单的绘图 &amp; 文件读写操作</h4><h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><h3 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h3><h2 id="Linux-Dirver"><a href="#Linux-Dirver" class="headerlink" title="Linux Dirver"></a>Linux Dirver</h2><h2 id="Sch-amp-amp-PCB-amp-amp-各种协议-amp-amp-MCU"><a href="#Sch-amp-amp-PCB-amp-amp-各种协议-amp-amp-MCU" class="headerlink" title="Sch &amp;&amp; PCB &amp;&amp; 各种协议 &amp;&amp; MCU"></a>Sch &amp;&amp; PCB &amp;&amp; 各种协议 &amp;&amp; MCU</h2>
+<h4 id="封装自定义控件"><a href="#封装自定义控件" class="headerlink" title="封装自定义控件"></a>封装自定义控件</h4><p>新建一个qtwidgetcalss 自定义名称 这里命名为UserDefineControl<br>步骤 右键项目-&gt;添加-&gt;Add Qt Class-&gt; Qt Widget Class<br>会生成<br>UserDefineControl.cpp<br>UserDefineControl.h<br>UserDefineControl.ui<br>在 UserDefineControl.ui 设置自己需要的控件</p>
+<p>在 UserDefineControl.h/cpp<br>设置需要提供的接口(.h函数的声明/.cpp函数的定义)</p>
+<p>在主窗口中添加一个widget 提升为上面命名的类（这里是UserDefineControl）<br>此时.h(项目)中会自动#include&lt;UserDefineControl.h&gt;<br>.cpp(项目)中 此时用UserDefineContro提供的接口</p>
+<p>在使用自定义封装控件提供的接口时<br>不能直接<br>ui.function();<br>而是用<br>ui.widget-&gt;function();<br>因为上面模块话的自动化空间 都被封装到项目UI的widget中<br>此时已经完成了模块化的自定义控件操作</p>
+<p>需要注意的是 添加的类 头文件目录在vs中可能需要自己添加路径(VC++中的包含路径)</p>
+<p>结果如下<br><img src="/medias/qt/userdefine.png" alt="自定义控件"><br><img src="/medias/qt/userdefine_2.png" alt="主窗口widget控件提升"><br><img src="/medias/qt/userdefine_3.png" alt="res"></p>
+<h4 id="事件处理-amp-事件分发-amp-事件过滤器-amp-定时器-amp-qt简单的绘图-amp-文件读写操作"><a href="#事件处理-amp-事件分发-amp-事件过滤器-amp-定时器-amp-qt简单的绘图-amp-文件读写操作" class="headerlink" title="事件处理 &amp; 事件分发 &amp; 事件过滤器 &amp; 定时器 &amp; qt简单的绘图 &amp; 文件读写操作"></a>事件处理 &amp; 事件分发 &amp; 事件过滤器 &amp; 定时器 &amp; qt简单的绘图 &amp; 文件读写操作</h4><h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><h3 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h3><h2 id="Linux-Dirver"><a href="#Linux-Dirver" class="headerlink" title="Linux Dirver"></a>Linux Dirver</h2><h2 id="Sch-amp-amp-PCB-amp-amp-各种协议-amp-amp-MCU"><a href="#Sch-amp-amp-PCB-amp-amp-各种协议-amp-amp-MCU" class="headerlink" title="Sch &amp;&amp; PCB &amp;&amp; 各种协议 &amp;&amp; MCU"></a>Sch &amp;&amp; PCB &amp;&amp; 各种协议 &amp;&amp; MCU</h2>
                 
             </div>
             <hr/>
@@ -1333,7 +1339,7 @@ review_1<span class="token operator">::</span><span class="token function">revie
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">7.6k</span>
+                        class="white-color">7.8k</span>
             
             
             
