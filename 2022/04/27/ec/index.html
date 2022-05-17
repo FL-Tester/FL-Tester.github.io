@@ -414,7 +414,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    7 分
                 </div>
                 
 
@@ -490,6 +490,14 @@ review_1<span class="token operator">::</span><span class="token function">revie
 <h4 id="熟悉参看qt设计师助手的API并且使用"><a href="#熟悉参看qt设计师助手的API并且使用" class="headerlink" title="熟悉参看qt设计师助手的API并且使用"></a>熟悉参看qt设计师助手的API并且使用</h4><p>用宇宙第一IDE VS 开发 虽然很拉风<br>但是如果用QTcreator开发 也是有很多好处的<br>比如代码提示和与QT Assistant联动<br>Qt库文档是由开发者自己在线在.cpp中所写。<br>文档团队修正的文档以确保它是准确和可用的，并提供产品质量的控制。<br>该文档团队还写了大量的文本，如类描述-介绍类与类使用的概念，以及类提供的功能和属性。<br>该文档的重点是API，而不是内部结构，因为需要努力保持API相一致，并与每一个新版本兼容。<br>但可以改变内部结构大大提高性能和增强功能。<br>对于帮助文档查阅运用，首先是要知道自己想达到什么目的、实现什么功能，<br>然后先可以用谷歌百度搜索关键词，得到可能的模块名、类名、函数名，<br>再用 Qt 助手的索引或搜索功能找到具体的文档和示例代码。</p>
 <p>API过于庞大复杂 暂不细说(能力有限)</p>
 <h4 id="熟悉QT的UI操作-资源文件-对话框-界面布局-常用控件"><a href="#熟悉QT的UI操作-资源文件-对话框-界面布局-常用控件" class="headerlink" title="熟悉QT的UI操作 资源文件 对话框 界面布局 常用控件"></a>熟悉QT的UI操作 资源文件 对话框 界面布局 常用控件</h4><h5 id="添加资源文件"><a href="#添加资源文件" class="headerlink" title="添加资源文件"></a>添加资源文件</h5><p>右键项目-&gt;新建-&gt;QT-&gt;QT Resource File<br><img src="/medias/qt/qtres.png"></p>
+<h5 id="对话框"><a href="#对话框" class="headerlink" title="对话框"></a>对话框</h5><p>QT中的对话框有很多种，比如：</p>
+<ul>
+<li>消息框</li>
+<li>文件对话框</li>
+<li>颜色对话框</li>
+<li>输入对话框</li>
+<li>等<br>自行参看qt助手的API</li>
+</ul>
 <p>窗口代码</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp">UI_danlog_src_ctr<span class="token operator">::</span><span class="token function">UI_danlog_src_ctr</span><span class="token punctuation">(</span>QWidget <span class="token operator">*</span>parent<span class="token punctuation">)</span>
     <span class="token operator">:</span> <span class="token function">QWidget</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span>
@@ -526,6 +534,8 @@ review_1<span class="token operator">::</span><span class="token function">revie
     <span class="token comment" spellcheck="true">//其它不举 </span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>效果如下<br><img src="/medias/qt/qtdialogres.png"></p>
+<p>ui设计 直接点击ui文件 会自动跳转qtdesigner </p>
 <h4 id="封装自定义控件"><a href="#封装自定义控件" class="headerlink" title="封装自定义控件"></a>封装自定义控件</h4><h4 id="事件处理-amp-事件分发-amp-事件过滤器-amp-定时器-amp-qt简单的绘图-amp-文件读写操作"><a href="#事件处理-amp-事件分发-amp-事件过滤器-amp-定时器-amp-qt简单的绘图-amp-文件读写操作" class="headerlink" title="事件处理 &amp; 事件分发 &amp; 事件过滤器 &amp; 定时器 &amp; qt简单的绘图 &amp; 文件读写操作"></a>事件处理 &amp; 事件分发 &amp; 事件过滤器 &amp; 定时器 &amp; qt简单的绘图 &amp; 文件读写操作</h4><h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><h3 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h3><h2 id="Linux-Dirver"><a href="#Linux-Dirver" class="headerlink" title="Linux Dirver"></a>Linux Dirver</h2><h2 id="Sch-amp-amp-PCB-amp-amp-各种协议-amp-amp-MCU"><a href="#Sch-amp-amp-PCB-amp-amp-各种协议-amp-amp-MCU" class="headerlink" title="Sch &amp;&amp; PCB &amp;&amp; 各种协议 &amp;&amp; MCU"></a>Sch &amp;&amp; PCB &amp;&amp; 各种协议 &amp;&amp; MCU</h2>
                 
             </div>
@@ -1323,7 +1333,7 @@ review_1<span class="token operator">::</span><span class="token function">revie
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">7.5k</span>
+                        class="white-color">7.6k</span>
             
             
             
