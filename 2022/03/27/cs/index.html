@@ -30,10 +30,10 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.1">
+<meta name="generator" content="Hexo 5.4.1"><link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 
 
 
@@ -453,8 +453,8 @@
 <span class="token keyword">public</span><span class="token operator">:</span>
     <span class="token function">person</span><span class="token punctuation">(</span>string name<span class="token punctuation">,</span> <span class="token keyword">int</span> age<span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">&gt;</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">&gt;</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
         <span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"structure"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">//初始化列表</span>
@@ -465,9 +465,9 @@
     <span class="token comment" spellcheck="true">//3. 没有默认构造函数的类类型，因为使用初始化列表可以不必调用默认构造函数来初始化，而是直接调用拷贝构造函数初始化</span>
     <span class="token function">person</span><span class="token punctuation">(</span><span class="token keyword">const</span> person<span class="token operator">&amp;</span> p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">//如果不利用深拷贝在堆区创建新内存，会导致浅拷贝带来的重复释放堆区问题</span>
-        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>name <span class="token operator">=</span> p<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>age <span class="token operator">=</span> p<span class="token punctuation">.</span>age<span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>temp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token operator">*</span>p<span class="token punctuation">.</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">&gt;</span>name <span class="token operator">=</span> p<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">&gt;</span>age <span class="token operator">=</span> p<span class="token punctuation">.</span>age<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">&gt;</span>temp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token operator">*</span>p<span class="token punctuation">.</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">//对于含有指针成员的类，直接拷贝可能会出现两个对象的指针成员指向同一个数据区。这时候一般先new个内存，然后复制内容</span>
 
     <span class="token punctuation">}</span>
@@ -478,19 +478,19 @@
     <span class="token punctuation">}</span>
     <span class="token keyword">void</span> <span class="token function">setname</span><span class="token punctuation">(</span>string name<span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">&gt;</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     string  <span class="token function">getname</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>name<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">&gt;</span>name<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">void</span> <span class="token function">setage</span><span class="token punctuation">(</span><span class="token keyword">int</span> age<span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">&gt;</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">int</span>  <span class="token function">getage</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>age<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">&gt;</span>age<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
 <span class="token keyword">private</span><span class="token operator">:</span>
@@ -525,9 +525,9 @@
 <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//创建加法计算器</span>
     AbstractCalculator<span class="token operator">*</span> abc <span class="token operator">=</span> <span class="token keyword">new</span> AddCalculator<span class="token punctuation">;</span>
-    abc<span class="token operator">-</span><span class="token operator">></span>m_Num1 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
-    abc<span class="token operator">-</span><span class="token operator">></span>m_Num2 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
-    cout <span class="token operator">&lt;&lt;</span> abc<span class="token operator">-</span><span class="token operator">></span>m_Num1 <span class="token operator">&lt;&lt;</span> <span class="token string">" + "</span> <span class="token operator">&lt;&lt;</span> abc<span class="token operator">-</span><span class="token operator">></span>m_Num2 <span class="token operator">&lt;&lt;</span> <span class="token string">" = "</span> <span class="token operator">&lt;&lt;</span> abc<span class="token operator">-</span><span class="token operator">></span><span class="token function">getResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    abc<span class="token operator">-</span><span class="token operator">&gt;</span>m_Num1 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    abc<span class="token operator">-</span><span class="token operator">&gt;</span>m_Num2 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> abc<span class="token operator">-</span><span class="token operator">&gt;</span>m_Num1 <span class="token operator">&lt;&lt;</span> <span class="token string">" + "</span> <span class="token operator">&lt;&lt;</span> abc<span class="token operator">-</span><span class="token operator">&gt;</span>m_Num2 <span class="token operator">&lt;&lt;</span> <span class="token string">" = "</span> <span class="token operator">&lt;&lt;</span> abc<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
     <span class="token keyword">delete</span> abc<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//用完了记得销毁</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -581,7 +581,7 @@
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//业务函数 传入子类 new zilei</span>
 <span class="token keyword">void</span> <span class="token function">DoWork</span><span class="token punctuation">(</span>AbstractDrinking<span class="token operator">*</span> drink<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    drink<span class="token operator">-</span><span class="token operator">></span><span class="token function">MakeDrink</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    drink<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">MakeDrink</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">delete</span> drink<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -594,12 +594,16 @@
     <span class="token punctuation">{</span>
         cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Animal 构造函数调用！"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
+
+<span class="token macro property">#<span class="token directive keyword">if</span> 0</span>
     <span class="token comment" spellcheck="true">//virtual void Speak() = 0;</span>
     <span class="token comment" spellcheck="true">//析构函数加上virtual关键字，变成虚析构函数</span>
     <span class="token comment" spellcheck="true">//virtual ~Animal()</span>
     <span class="token comment" spellcheck="true">//{</span>
     <span class="token comment" spellcheck="true">//    cout &lt;&lt; "Animal虚析构函数调用！" &lt;&lt; endl;</span>
     <span class="token comment" spellcheck="true">//}</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+    
     <span class="token keyword">virtual</span> <span class="token operator">~</span><span class="token function">Animal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 Animal<span class="token operator">::</span><span class="token operator">~</span><span class="token function">Animal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -617,7 +621,7 @@ Animal<span class="token operator">::</span><span class="token operator">~</span
     <span class="token operator">~</span><span class="token function">Cat</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
         cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Cat析构函数调用!"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>m_Name <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">&gt;</span>m_Name <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Cat析构函数调用succ!"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
             <span class="token keyword">delete</span> m_Name<span class="token punctuation">;</span>
             m_Name <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
@@ -630,13 +634,13 @@ Animal<span class="token operator">::</span><span class="token operator">~</span
 <span class="token keyword">void</span> <span class="token function">test01</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     Animal<span class="token operator">*</span> animal <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">Cat</span><span class="token punctuation">(</span><span class="token string">"Tom"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//animal->Speak();</span>
+    <span class="token comment" spellcheck="true">//animal-&gt;Speak();</span>
     <span class="token comment" spellcheck="true">//通过父类指针去释放，会导致子类对象可能清理不干净，造成内存泄漏</span>
     <span class="token comment" spellcheck="true">//怎么解决？给基类增加一个虚析构函数</span>
     <span class="token comment" spellcheck="true">//虚析构函数就是用来解决通过父类指针释放子类对象</span>
     <span class="token keyword">delete</span> animal<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="构造函数和析构函数"><a href="#构造函数和析构函数" class="headerlink" title="构造函数和析构函数"></a>构造函数和析构函数</h4><h4 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h4><h4 id="对象数组"><a href="#对象数组" class="headerlink" title="对象数组"></a>对象数组</h4><h4 id="类的作用域"><a href="#类的作用域" class="headerlink" title="类的作用域"></a>类的作用域</h4><h4 id="抽象数据类型"><a href="#抽象数据类型" class="headerlink" title="抽象数据类型"></a>抽象数据类型</h4><h4 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h4><p>类成员函数<br>类外友元函数<br>函数运算符重载 </p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">function</span>
 <span class="token punctuation">{</span>
@@ -656,8 +660,8 @@ Animal<span class="token operator">::</span><span class="token operator">~</span
 <span class="token keyword">public</span><span class="token operator">:</span>
     <span class="token function">friend2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
     <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>name <span class="token operator">=</span> <span class="token string">"zhangsan"</span><span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>age <span class="token operator">=</span> <span class="token number">19</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">&gt;</span>name <span class="token operator">=</span> <span class="token string">"zhangsan"</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">&gt;</span>age <span class="token operator">=</span> <span class="token number">19</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token keyword">private</span><span class="token operator">:</span>
     string name<span class="token punctuation">;</span>
@@ -669,7 +673,7 @@ Animal<span class="token operator">::</span><span class="token operator">~</span
 <span class="token keyword">public</span><span class="token operator">:</span>
     <span class="token function">friend1</span><span class="token punctuation">(</span>friend2 friendorder<span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>friendorder <span class="token operator">=</span> friendorder<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">&gt;</span>friendorder <span class="token operator">=</span> friendorder<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">void</span> <span class="token function">visit</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
@@ -697,8 +701,8 @@ Animal<span class="token operator">::</span><span class="token operator">~</span
 <span class="token keyword">public</span><span class="token operator">:</span>
     <span class="token function">classnew</span><span class="token punctuation">(</span>string charbuf<span class="token punctuation">,</span> <span class="token keyword">int</span> num<span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>charbuf <span class="token operator">=</span> charbuf<span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>num <span class="token operator">=</span> num<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">&gt;</span>charbuf <span class="token operator">=</span> charbuf<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">&gt;</span>num <span class="token operator">=</span> num<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token operator">~</span><span class="token function">classnew</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
@@ -706,11 +710,11 @@ Animal<span class="token operator">::</span><span class="token operator">~</span
     <span class="token punctuation">}</span>
     string <span class="token function">getcharbuf</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>charbuf<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">&gt;</span>charbuf<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">int</span> <span class="token function">getnum</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>num<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">&gt;</span>num<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token keyword">private</span><span class="token operator">:</span>
     string charbuf<span class="token punctuation">;</span>
@@ -753,8 +757,8 @@ Animal<span class="token operator">::</span><span class="token operator">~</span
 
     <span class="token comment" spellcheck="true">//创建类对象</span>
     person<span class="token operator">*</span> pTest <span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token function">person</span><span class="token punctuation">(</span><span class="token string">"fengle"</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">log</span><span class="token punctuation">(</span>pTest<span class="token operator">-</span><span class="token operator">></span><span class="token function">getname</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">log</span><span class="token punctuation">(</span>pTest<span class="token operator">-</span><span class="token operator">></span><span class="token function">getage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">log</span><span class="token punctuation">(</span>pTest<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getname</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">log</span><span class="token punctuation">(</span>pTest<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">delete</span> pTest<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//此处执行类的析构函数 </span>
     <span class="token comment" spellcheck="true">//直接创建类 会在栈区 析构函数不能有程序员执行</span>
     
@@ -767,7 +771,7 @@ Animal<span class="token operator">::</span><span class="token operator">~</span
     <span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">*</span>class1<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getnum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">//但是由于对象的空间不会自动释放 因为是在已经分配好的空间上进行分配</span>
     <span class="token comment" spellcheck="true">//此时析构函数 必须显示调用 不用自动调用</span>
-    class1<span class="token operator">-</span><span class="token operator">></span><span class="token operator">~</span><span class="token function">classnew</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    class1<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token operator">~</span><span class="token function">classnew</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">//placement new 使用场景举例</span>
     <span class="token comment" spellcheck="true">//如果有这样一个场景，我们需要大量的申请一块类似的内存空间，然后又释放掉，</span>
     <span class="token comment" spellcheck="true">//比如在在一个server中对于客户端的请求，每个客户端的每一次上行数据我们都需要</span>
@@ -783,14 +787,14 @@ Animal<span class="token operator">::</span><span class="token operator">~</span
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><h3 id="杂项及其用法：c-11-20-新标准"><a href="#杂项及其用法：c-11-20-新标准" class="headerlink" title="杂项及其用法：c++11-20 新标准"></a>杂项及其用法：c++11-20 新标准</h3><h4 id="语言可用性的强化"><a href="#语言可用性的强化" class="headerlink" title="语言可用性的强化"></a>语言可用性的强化</h4><h5 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h5><h5 id="变量及其初始化"><a href="#变量及其初始化" class="headerlink" title="变量及其初始化"></a>变量及其初始化</h5><h5 id="类型推导"><a href="#类型推导" class="headerlink" title="类型推导"></a>类型推导</h5><h5 id="控制流"><a href="#控制流" class="headerlink" title="控制流"></a>控制流</h5><h5 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h5><h4 id="语言运行期的强化"><a href="#语言运行期的强化" class="headerlink" title="语言运行期的强化"></a>语言运行期的强化</h4><h5 id="Lambda-表达式"><a href="#Lambda-表达式" class="headerlink" title="Lambda 表达式"></a>Lambda 表达式</h5><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//lamdba表达式就是匿名函数(没有名字的函数)</span>
     <span class="token comment" spellcheck="true">// </span>
-    <span class="token comment" spellcheck="true">//[]捕获列表 ()参数列表 ->返回值</span>
-    <span class="token keyword">int</span> c <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token keyword">int</span>
+    <span class="token comment" spellcheck="true">//[]捕获列表 ()参数列表 -&gt;返回值</span>
+    <span class="token keyword">int</span> c <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token keyword">int</span>
     <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">//函数体</span>
         <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">//自动推导返回类型 且可以 b(1,3)</span>
-    <span class="token keyword">auto</span> b <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token keyword">int</span>
+    <span class="token keyword">auto</span> b <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token keyword">int</span>
     <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">//函数体</span>
         <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
@@ -800,7 +804,7 @@ Animal<span class="token operator">::</span><span class="token operator">~</span
     <span class="token comment" spellcheck="true">//lamdba嵌套</span>
     <span class="token comment" spellcheck="true">//函数式编程 疯狂嵌套 结果取决于内部的参数  </span>
     <span class="token comment" spellcheck="true">//(外界影响不大 集中内函数内部)  对多线程 并发 天生具有优势</span>
-    <span class="token keyword">int</span> forlamdba <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token keyword">int</span>
+    <span class="token keyword">int</span> forlamdba <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token keyword">int</span>
     <span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
@@ -865,13 +869,13 @@ Buffer <span class="token function">getBuffer</span><span class="token punctuati
 <h4 id="智能指针与内存管理"><a href="#智能指针与内存管理" class="headerlink" title="智能指针与内存管理"></a>智能指针与内存管理</h4><p>(头文件 <memory>)</memory></p>
 <h5 id="Rall-amp-amp-引用计数"><a href="#Rall-amp-amp-引用计数" class="headerlink" title="Rall &amp;&amp; 引用计数"></a>Rall &amp;&amp; 引用计数</h5><p>引用计数是为了防止内存泄露 每当增加一次对同一个对象的引用 引用计数就会增加一次 每删除一次 引用计数就会减1 当引用计数为零时就会自动三处指向堆的内存。</p>
 <h5 id="std-shared-ptr"><a href="#std-shared-ptr" class="headerlink" title="std::shared_ptr"></a>std::shared_ptr</h5><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//简单的使用方法</span>
-<span class="token keyword">void</span> <span class="token function">shared_ptr_foo</span><span class="token punctuation">(</span>shared_ptr<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">void</span> <span class="token function">shared_ptr_foo</span><span class="token punctuation">(</span>shared_ptr<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token punctuation">(</span><span class="token operator">*</span>i<span class="token punctuation">)</span><span class="token operator">++</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">int</span> <span class="token function">shared_ptr_realize</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-    <span class="token keyword">auto</span> pointer <span class="token operator">=</span> make_shared<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">auto</span> pointer <span class="token operator">=</span> make_shared<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">shared_ptr_foo</span><span class="token punctuation">(</span>pointer<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">log</span><span class="token punctuation">(</span><span class="token operator">*</span>pointer<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
@@ -879,7 +883,7 @@ Buffer <span class="token function">getBuffer</span><span class="token punctuati
 
 <span class="token keyword">int</span> <span class="token function">shared_ptr_function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-    <span class="token keyword">auto</span> pointer1 <span class="token operator">=</span> make_shared<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">auto</span> pointer1 <span class="token operator">=</span> make_shared<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">auto</span> pointer2 <span class="token operator">=</span> pointer1<span class="token punctuation">;</span>
     <span class="token keyword">auto</span> pointer3 <span class="token operator">=</span> pointer1<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">//获得原始指针</span>
@@ -909,7 +913,7 @@ Buffer <span class="token function">getBuffer</span><span class="token punctuati
 <span class="token comment" spellcheck="true">//是一种独占的智能指针，它禁止其他智能指针与其共享同一个对象，从而保证代码的安全</span>
 <span class="token keyword">int</span> <span class="token function">unique_ptr_func</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-    <span class="token keyword">auto</span> pointers <span class="token operator">=</span> make_unique<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">auto</span> pointers <span class="token operator">=</span> make_unique<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">//auto pointers1 = pointers; 无法复制 因为unique独占 </span>
     <span class="token comment" spellcheck="true">//可以用 std::move 转移</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
@@ -920,21 +924,21 @@ Buffer <span class="token function">getBuffer</span><span class="token punctuati
     <span class="token keyword">struct</span> A<span class="token punctuation">;</span>
     <span class="token keyword">struct</span> B<span class="token punctuation">;</span>
     <span class="token keyword">struct</span> A <span class="token punctuation">{</span>
-        shared_ptr<span class="token operator">&lt;</span>B<span class="token operator">></span> pointer<span class="token punctuation">;</span>
+        shared_ptr<span class="token operator">&lt;</span>B<span class="token operator">&gt;</span> pointer<span class="token punctuation">;</span>
         <span class="token operator">~</span><span class="token function">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"A 被销毁"</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span><span class="token punctuation">;</span>
     <span class="token keyword">struct</span> B <span class="token punctuation">{</span>
-        shared_ptr<span class="token operator">&lt;</span>A<span class="token operator">></span> pointer<span class="token punctuation">;</span>
+        shared_ptr<span class="token operator">&lt;</span>A<span class="token operator">&gt;</span> pointer<span class="token punctuation">;</span>
         <span class="token operator">~</span><span class="token function">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"B 被销毁"</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token keyword">auto</span> a <span class="token operator">=</span> std<span class="token operator">::</span>make_shared<span class="token operator">&lt;</span>A<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//引用计数一次</span>
-    <span class="token keyword">auto</span> b <span class="token operator">=</span> std<span class="token operator">::</span>make_shared<span class="token operator">&lt;</span>B<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//引用计数一次</span>
-    a<span class="token operator">-</span><span class="token operator">></span>pointer <span class="token operator">=</span> b<span class="token punctuation">;</span>                  <span class="token comment" spellcheck="true">//引用计数两次</span>
-    b<span class="token operator">-</span><span class="token operator">></span>pointer <span class="token operator">=</span> a<span class="token punctuation">;</span>                     <span class="token comment" spellcheck="true">//引用计数两次</span>
+    <span class="token keyword">auto</span> a <span class="token operator">=</span> std<span class="token operator">::</span>make_shared<span class="token operator">&lt;</span>A<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//引用计数一次</span>
+    <span class="token keyword">auto</span> b <span class="token operator">=</span> std<span class="token operator">::</span>make_shared<span class="token operator">&lt;</span>B<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//引用计数一次</span>
+    a<span class="token operator">-</span><span class="token operator">&gt;</span>pointer <span class="token operator">=</span> b<span class="token punctuation">;</span>                  <span class="token comment" spellcheck="true">//引用计数两次</span>
+    b<span class="token operator">-</span><span class="token operator">&gt;</span>pointer <span class="token operator">=</span> a<span class="token punctuation">;</span>                     <span class="token comment" spellcheck="true">//引用计数两次</span>
     <span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span><span class="token function">use_count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//2</span>
     <span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span><span class="token function">use_count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//2</span>
     <span class="token comment" spellcheck="true">//退出作用域时 引用减少一次 则为1 无法释放内存</span>
@@ -944,21 +948,21 @@ Buffer <span class="token function">getBuffer</span><span class="token punctuati
     <span class="token keyword">struct</span> C<span class="token punctuation">;</span>
     <span class="token keyword">struct</span> D<span class="token punctuation">;</span>
     <span class="token keyword">struct</span> C <span class="token punctuation">{</span>
-        weak_ptr<span class="token operator">&lt;</span>D<span class="token operator">></span> pointer<span class="token punctuation">;</span>
+        weak_ptr<span class="token operator">&lt;</span>D<span class="token operator">&gt;</span> pointer<span class="token punctuation">;</span>
         <span class="token operator">~</span><span class="token function">C</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"A 被销毁"</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span><span class="token punctuation">;</span>
     <span class="token keyword">struct</span> D <span class="token punctuation">{</span>
-        weak_ptr<span class="token operator">&lt;</span>C<span class="token operator">></span> pointer<span class="token punctuation">;</span>
+        weak_ptr<span class="token operator">&lt;</span>C<span class="token operator">&gt;</span> pointer<span class="token punctuation">;</span>
         <span class="token operator">~</span><span class="token function">D</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"B 被销毁"</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token keyword">auto</span> c <span class="token operator">=</span> std<span class="token operator">::</span>make_shared<span class="token operator">&lt;</span>C<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
-    <span class="token keyword">auto</span> d <span class="token operator">=</span> std<span class="token operator">::</span>make_shared<span class="token operator">&lt;</span>D<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
-    c<span class="token operator">-</span><span class="token operator">></span>pointer <span class="token operator">=</span> d<span class="token punctuation">;</span>                  
-    d<span class="token operator">-</span><span class="token operator">></span>pointer <span class="token operator">=</span> c<span class="token punctuation">;</span>                     
+    <span class="token keyword">auto</span> c <span class="token operator">=</span> std<span class="token operator">::</span>make_shared<span class="token operator">&lt;</span>C<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token keyword">auto</span> d <span class="token operator">=</span> std<span class="token operator">::</span>make_shared<span class="token operator">&lt;</span>D<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    c<span class="token operator">-</span><span class="token operator">&gt;</span>pointer <span class="token operator">=</span> d<span class="token punctuation">;</span>                  
+    d<span class="token operator">-</span><span class="token operator">&gt;</span>pointer <span class="token operator">=</span> c<span class="token punctuation">;</span>                     
     <span class="token function">log</span><span class="token punctuation">(</span>c<span class="token punctuation">.</span><span class="token function">use_count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//1</span>
     <span class="token function">log</span><span class="token punctuation">(</span>d<span class="token punctuation">.</span><span class="token function">use_count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//1</span>
 
@@ -987,14 +991,14 @@ Buffer <span class="token function">getBuffer</span><span class="token punctuati
 <p>std::unique_lock 与std::lock_guard都能实现自动加锁与解锁功能，但是std::unique_lock要比std::lock_guard更灵活，但是更灵活的代价是占用空间相对更大一点且相对更慢一点。</p>
 <h5 id="future"><a href="#future" class="headerlink" title="future"></a>future</h5><p>主线程获得子线程的值 —— 线程之间的通信</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//头文件</span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;thread></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;mutex></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;chrono></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;fstream></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;future></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;thread&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;mutex&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;chrono&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;fstream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;future&gt;</span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>future引出<br>condition mutex 写法</p>
@@ -1008,7 +1012,7 @@ condition_variable cond<span class="token punctuation">;</span>
         res <span class="token operator">*</span><span class="token operator">=</span> i<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">//cout &lt;&lt; "Result is" &lt;&lt; res &lt;&lt; endl;</span>
-    std<span class="token operator">::</span>unique_lock<span class="token operator">&lt;</span>std<span class="token operator">::</span>mutex<span class="token operator">></span> <span class="token function">lock</span><span class="token punctuation">(</span>mu<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    std<span class="token operator">::</span>unique_lock<span class="token operator">&lt;</span>std<span class="token operator">::</span>mutex<span class="token operator">&gt;</span> <span class="token function">lock</span><span class="token punctuation">(</span>mu<span class="token punctuation">)</span><span class="token punctuation">;</span>
     result <span class="token operator">=</span> res<span class="token punctuation">;</span>
     notified <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
     cond<span class="token punctuation">.</span><span class="token function">notify_all</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1020,7 +1024,7 @@ condition_variable cond<span class="token punctuation">;</span>
     <span class="token keyword">int</span> result <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
     thread <span class="token function">t1</span><span class="token punctuation">(</span>factorial<span class="token punctuation">,</span> N<span class="token punctuation">,</span> <span class="token function">ref</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     t1<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    std<span class="token operator">::</span>unique_lock<span class="token operator">&lt;</span>std<span class="token operator">::</span>mutex<span class="token operator">></span> <span class="token function">lock</span><span class="token punctuation">(</span>mu<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    std<span class="token operator">::</span>unique_lock<span class="token operator">&lt;</span>std<span class="token operator">::</span>mutex<span class="token operator">&gt;</span> <span class="token function">lock</span><span class="token punctuation">(</span>mu<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>notified<span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">// 避免虚假唤醒</span>
          cond<span class="token punctuation">.</span><span class="token function">wait</span><span class="token punctuation">(</span>lock<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
@@ -1045,7 +1049,7 @@ condition_variable cond<span class="token punctuation">;</span>
 <span class="token punctuation">{</span>
     <span class="token keyword">int</span> x<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">//从未来获取某一个变量的类 future get只能调用一次</span>
-    future<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> fu <span class="token operator">=</span> <span class="token function">async</span><span class="token punctuation">(</span>factorial<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    future<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> fu <span class="token operator">=</span> <span class="token function">async</span><span class="token punctuation">(</span>factorial<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">//async(launch::async, factorial, 5);  此时创建了一个子线程</span>
     x <span class="token operator">=</span> fu<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Result is"</span> <span class="token operator">&lt;&lt;</span> x <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
@@ -1053,7 +1057,7 @@ condition_variable cond<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>子线程获得主线程的值、</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">factorial</span><span class="token punctuation">(</span>future<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> fu<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">factorial</span><span class="token punctuation">(</span>future<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> fu<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token keyword">int</span> N <span class="token operator">=</span> fu<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> N<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -1063,7 +1067,7 @@ condition_variable cond<span class="token punctuation">;</span>
     <span class="token keyword">return</span> res<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">int</span> <span class="token function">factorial_shared</span><span class="token punctuation">(</span>shared_future<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> fu<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">int</span> <span class="token function">factorial_shared</span><span class="token punctuation">(</span>shared_future<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> fu<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token keyword">int</span> N <span class="token operator">=</span> fu<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> N<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -1076,9 +1080,9 @@ condition_variable cond<span class="token punctuation">;</span>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token keyword">const</span><span class="token operator">*</span> argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     <span class="token keyword">int</span> x<span class="token punctuation">;</span>
-    promise<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> p<span class="token punctuation">;</span>
-    future<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> fp <span class="token operator">=</span> p<span class="token punctuation">.</span><span class="token function">get_future</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    future<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> fu <span class="token operator">=</span> <span class="token function">async</span><span class="token punctuation">(</span>factorial<span class="token punctuation">,</span> <span class="token function">ref</span><span class="token punctuation">(</span>fp<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    promise<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> p<span class="token punctuation">;</span>
+    future<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> fp <span class="token operator">=</span> p<span class="token punctuation">.</span><span class="token function">get_future</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    future<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> fu <span class="token operator">=</span> <span class="token function">async</span><span class="token punctuation">(</span>factorial<span class="token punctuation">,</span> <span class="token function">ref</span><span class="token punctuation">(</span>fp<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token comment" spellcheck="true">//promise future 无法被复制   可以使用shared_future 重复赋值</span>
     <span class="token comment" spellcheck="true">//声明了promise 必须给值  不然无法调用</span>
@@ -1090,16 +1094,16 @@ condition_variable cond<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="条件变量-condition-variable"><a href="#条件变量-condition-variable" class="headerlink" title="条件变量 condition_variable"></a>条件变量 condition_variable</h5><p>简单实现</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;queue></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;chrono></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;mutex></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;thread></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;condition_variable></span></span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;queue&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;chrono&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;mutex&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;thread&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;condition_variable&gt;</span></span>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token keyword">const</span><span class="token operator">*</span> argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//STL队列 只能从容器末尾添加 并且只能从容器头部删除  </span>
     <span class="token comment" spellcheck="true">//生产者队列</span>
-    std<span class="token operator">::</span>queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> produced_nums<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> produced_nums<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">//互斥量</span>
     std<span class="token operator">::</span>mutex mtx<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">//条件变量</span>
@@ -1110,7 +1114,7 @@ condition_variable cond<span class="token punctuation">;</span>
     <span class="token keyword">auto</span> producer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">&amp;</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             std<span class="token operator">::</span>this_thread<span class="token operator">::</span><span class="token function">sleep_for</span><span class="token punctuation">(</span>std<span class="token operator">::</span>chrono<span class="token operator">::</span><span class="token function">milliseconds</span><span class="token punctuation">(</span><span class="token number">900</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            std<span class="token operator">::</span>unique_lock<span class="token operator">&lt;</span>std<span class="token operator">::</span>mutex<span class="token operator">></span> <span class="token function">lock</span><span class="token punctuation">(</span>mtx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            std<span class="token operator">::</span>unique_lock<span class="token operator">&lt;</span>std<span class="token operator">::</span>mutex<span class="token operator">&gt;</span> <span class="token function">lock</span><span class="token punctuation">(</span>mtx<span class="token punctuation">)</span><span class="token punctuation">;</span>
             std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"producing "</span> <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
             produced_nums<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
             notified <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
@@ -1120,7 +1124,7 @@ condition_variable cond<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 消费者</span>
     <span class="token keyword">auto</span> consumer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">&amp;</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            std<span class="token operator">::</span>unique_lock<span class="token operator">&lt;</span>std<span class="token operator">::</span>mutex<span class="token operator">></span> <span class="token function">lock</span><span class="token punctuation">(</span>mtx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            std<span class="token operator">::</span>unique_lock<span class="token operator">&lt;</span>std<span class="token operator">::</span>mutex<span class="token operator">&gt;</span> <span class="token function">lock</span><span class="token punctuation">(</span>mtx<span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>notified<span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">// 避免虚假唤醒</span>
                 cv<span class="token punctuation">.</span><span class="token function">wait</span><span class="token punctuation">(</span>lock<span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
@@ -2009,7 +2013,7 @@ condition_variable cond<span class="token punctuation">;</span>
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">8.1k</span>
+                        class="white-color">8.2k</span>
             
             
             

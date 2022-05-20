@@ -30,10 +30,10 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.1">
+<meta name="generator" content="Hexo 5.4.1"><link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 
 
 
@@ -407,7 +407,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2.5k
                 </div>
                 
 
@@ -454,8 +454,8 @@ review_1<span class="token operator">::</span><span class="token function">revie
 
     <span class="token comment" spellcheck="true">//新建一个按钮</span>
     QPushButton<span class="token operator">*</span> btn_new_windows <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">QPushButton</span><span class="token punctuation">(</span><span class="token string">"打开新窗口"</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    btn_new_windows<span class="token operator">-</span><span class="token operator">></span><span class="token function">move</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    btn_new_windows<span class="token operator">-</span><span class="token operator">></span><span class="token function">setFixedSize</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    btn_new_windows<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">move</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    btn_new_windows<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">setFixedSize</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token comment" spellcheck="true">//窗口实例化</span>
     windows_one<span class="token operator">*</span> new_windows <span class="token operator">=</span> <span class="token keyword">new</span> windows_one<span class="token punctuation">;</span>
@@ -463,13 +463,13 @@ review_1<span class="token operator">::</span><span class="token function">revie
 
     <span class="token comment" spellcheck="true">//信号和槽函数 点击按钮 窗口实现打开关闭循环</span>
     <span class="token function">connect</span><span class="token punctuation">(</span>btn_new_windows<span class="token punctuation">,</span> <span class="token operator">&amp;</span>QPushButton<span class="token operator">::</span>clicked<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token operator">=</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>btn_new_windows<span class="token operator">-</span><span class="token operator">></span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"打开新窗口"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            new_windows<span class="token operator">-</span><span class="token operator">></span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            btn_new_windows<span class="token operator">-</span><span class="token operator">></span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">"关闭新窗口"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>btn_new_windows<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"打开新窗口"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            new_windows<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            btn_new_windows<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">"关闭新窗口"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
         <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            new_windows<span class="token operator">-</span><span class="token operator">></span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            btn_new_windows<span class="token operator">-</span><span class="token operator">></span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">"打开新窗口"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            new_windows<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            btn_new_windows<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">"打开新窗口"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -506,9 +506,9 @@ review_1<span class="token operator">::</span><span class="token function">revie
 
     <span class="token comment" spellcheck="true">//使用添加的资源文件 设置背景图片</span>
     QPalette palette<span class="token punctuation">;</span>
-    palette<span class="token punctuation">.</span><span class="token function">setBrush</span><span class="token punctuation">(</span>QPalette<span class="token operator">::</span>Background<span class="token punctuation">,</span> <span class="token function">QBrush</span><span class="token punctuation">(</span><span class="token function">QPixmap</span><span class="token punctuation">(</span><span class="token string">":/src/16.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">scaled</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Qt<span class="token operator">::</span>IgnoreAspectRatio<span class="token punctuation">,</span> Qt<span class="token operator">::</span>SmoothTransformation<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">setPalette</span><span class="token punctuation">(</span>palette<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">setAutoFillBackground</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    palette<span class="token punctuation">.</span><span class="token function">setBrush</span><span class="token punctuation">(</span>QPalette<span class="token operator">::</span>Background<span class="token punctuation">,</span> <span class="token function">QBrush</span><span class="token punctuation">(</span><span class="token function">QPixmap</span><span class="token punctuation">(</span><span class="token string">":/src/16.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">scaled</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Qt<span class="token operator">::</span>IgnoreAspectRatio<span class="token punctuation">,</span> Qt<span class="token operator">::</span>SmoothTransformation<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">setPalette</span><span class="token punctuation">(</span>palette<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">setAutoFillBackground</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token comment" spellcheck="true">//新建一个文件对话框 连接消息框按键 </span>
     <span class="token function">connect</span><span class="token punctuation">(</span>ui<span class="token punctuation">.</span>pushButton_8<span class="token punctuation">,</span> <span class="token operator">&amp;</span>QPushButton<span class="token operator">::</span>clicked<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token operator">=</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -555,59 +555,60 @@ QTTimerStudy<span class="token operator">::</span><span class="token function">Q
     <span class="token comment" spellcheck="true">//定时器类的写法</span>
     QTimer<span class="token operator">*</span> timer3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">QTimer</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">//启动定时器</span>
-    timer3<span class="token operator">-</span><span class="token operator">></span><span class="token function">start</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    timer3<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">//信号连接写法  lambda yyds</span>
     <span class="token function">connect</span><span class="token punctuation">(</span>timer3<span class="token punctuation">,</span> <span class="token operator">&amp;</span>QTimer<span class="token operator">::</span>timeout<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token operator">=</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">static</span> <span class="token keyword">int</span> num <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        ui<span class="token punctuation">.</span>label_3<span class="token operator">-</span><span class="token operator">></span><span class="token function">setText</span><span class="token punctuation">(</span>QString<span class="token operator">::</span><span class="token function">number</span><span class="token punctuation">(</span>num<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ui<span class="token punctuation">.</span>label_3<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">setText</span><span class="token punctuation">(</span>QString<span class="token operator">::</span><span class="token function">number</span><span class="token punctuation">(</span>num<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token comment" spellcheck="true">//点击按钮 停止定时器</span>
     <span class="token function">connect</span><span class="token punctuation">(</span>ui<span class="token punctuation">.</span>pushButton<span class="token punctuation">,</span> <span class="token operator">&amp;</span>QPushButton<span class="token operator">::</span>clicked<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token operator">=</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        timer3<span class="token operator">-</span><span class="token operator">></span><span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        timer3<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//QTimer* timer = new QTimer(this);</span>
-    <span class="token comment" spellcheck="true">//QTimer::timeout</span>
-    <span class="token comment" spellcheck="true">//timer->start(xms);</span>
-    <span class="token comment" spellcheck="true">//timer->stop();</span>
-    <span class="token comment" spellcheck="true">//</span>
-    ui<span class="token punctuation">.</span>label_2<span class="token operator">-</span><span class="token operator">></span><span class="token function">installEventFilter</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">if</span> 0 </span>
+    QTimer<span class="token operator">*</span> timer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">QTimer</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    QTimer<span class="token operator">::</span>timeout
+    timer<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">start</span><span class="token punctuation">(</span>xms<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    timer<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+    ui<span class="token punctuation">.</span>label_2<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">installEventFilter</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token comment" spellcheck="true">//ev->timerId() 判断返回的定时器ID</span>
+<span class="token comment" spellcheck="true">//ev-&gt;timerId() 判断返回的定时器ID</span>
 <span class="token keyword">void</span> QTTimerStudy<span class="token operator">::</span><span class="token function">timerEvent</span><span class="token punctuation">(</span>QTimerEvent<span class="token operator">*</span> ev<span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>ev<span class="token operator">-</span><span class="token operator">></span><span class="token function">timerId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> timer1<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>ev<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">timerId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> timer1<span class="token punctuation">)</span><span class="token punctuation">{</span>
         <span class="token keyword">static</span> <span class="token keyword">int</span> num1 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        ui<span class="token punctuation">.</span>label<span class="token operator">-</span><span class="token operator">></span><span class="token function">setText</span><span class="token punctuation">(</span>QString<span class="token operator">::</span><span class="token function">number</span><span class="token punctuation">(</span>num1<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ui<span class="token punctuation">.</span>label<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">setText</span><span class="token punctuation">(</span>QString<span class="token operator">::</span><span class="token function">number</span><span class="token punctuation">(</span>num1<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
         
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>ev<span class="token operator">-</span><span class="token operator">></span><span class="token function">timerId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> timer2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>ev<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">timerId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> timer2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">static</span> <span class="token keyword">int</span> num2 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        ui<span class="token punctuation">.</span>label_2<span class="token operator">-</span><span class="token operator">></span><span class="token function">setText</span><span class="token punctuation">(</span>QString<span class="token operator">::</span><span class="token function">number</span><span class="token punctuation">(</span>num2<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ui<span class="token punctuation">.</span>label_2<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">setText</span><span class="token punctuation">(</span>QString<span class="token operator">::</span><span class="token function">number</span><span class="token punctuation">(</span>num2<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">//过滤</span>
 <span class="token keyword">bool</span> QTTimerStudy<span class="token operator">::</span><span class="token function">eventFilter</span><span class="token punctuation">(</span>QObject<span class="token operator">*</span> obj<span class="token punctuation">,</span> QEvent<span class="token operator">*</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>obj <span class="token operator">==</span> ui<span class="token punctuation">.</span>label_2<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token operator">-</span><span class="token operator">></span><span class="token function">type</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> QEvent<span class="token operator">::</span>Timer<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">type</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> QEvent<span class="token operator">::</span>Timer<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token function">qDebug</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token string">"事件过滤器已经过滤"</span><span class="token punctuation">;</span>
             <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>   
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> QTTimerStudy<span class="token operator">::</span><span class="token function">eventFilter</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>窗口头文件 </p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
 <span class="token macro property">#<span class="token directive keyword">pragma</span> execution_character_set("utf-8")</span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;QtWidgets/QWidget></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;QtWidgets/QWidget&gt;</span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"ui_QTTimerStudy.h"</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;QTimer></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;QPushButton></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;QEvent></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;QDebug></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;QTimer&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;QPushButton&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;QEvent&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;QDebug&gt;</span></span>
 <span class="token keyword">class</span> <span class="token class-name">QTTimerStudy</span> <span class="token operator">:</span> <span class="token keyword">public</span> QWidget
 <span class="token punctuation">{</span>
     Q_OBJECT
@@ -621,7 +622,7 @@ QTTimerStudy<span class="token operator">::</span><span class="token function">Q
     Ui<span class="token operator">::</span>QTTimerStudyClass <span class="token class-name">ui</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><h4 id="引入第三方库"><a href="#引入第三方库" class="headerlink" title="引入第三方库"></a>引入第三方库</h4><h3 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h3><h2 id="Linux-Dirver"><a href="#Linux-Dirver" class="headerlink" title="Linux Dirver"></a>Linux Dirver</h2><h2 id="Sch-amp-amp-PCB-amp-amp-各种协议-amp-amp-MCU"><a href="#Sch-amp-amp-PCB-amp-amp-各种协议-amp-amp-MCU" class="headerlink" title="Sch &amp;&amp; PCB &amp;&amp; 各种协议 &amp;&amp; MCU"></a>Sch &amp;&amp; PCB &amp;&amp; 各种协议 &amp;&amp; MCU</h2>
+<h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><h4 id="引入第三方库"><a href="#引入第三方库" class="headerlink" title="引入第三方库"></a>引入第三方库</h4><h4 id="太多了-简单入门了而已"><a href="#太多了-简单入门了而已" class="headerlink" title="太多了 简单入门了而已"></a>太多了 简单入门了而已</h4><h3 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h3><h2 id="Linux-Dirver"><a href="#Linux-Dirver" class="headerlink" title="Linux Dirver"></a>Linux Dirver</h2><h2 id="Sch-amp-amp-PCB-amp-amp-各种协议-amp-amp-MCU"><a href="#Sch-amp-amp-PCB-amp-amp-各种协议-amp-amp-MCU" class="headerlink" title="Sch &amp;&amp; PCB &amp;&amp; 各种协议 &amp;&amp; MCU"></a>Sch &amp;&amp; PCB &amp;&amp; 各种协议 &amp;&amp; MCU</h2>
                 
             </div>
             <hr/>
@@ -1418,7 +1419,7 @@ QTTimerStudy<span class="token operator">::</span><span class="token function">Q
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">8.1k</span>
+                        class="white-color">8.2k</span>
             
             
             
