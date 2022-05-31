@@ -407,7 +407,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.5k
+                    7.4k
                 </div>
                 
 
@@ -1215,15 +1215,12 @@ condition_variable cond<span class="token punctuation">;</span>
 <td>平方阶</td>
 </tr>
 </tbody></table>
-<h4 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h4><h3 id="常用算法"><a href="#常用算法" class="headerlink" title="常用算法"></a>常用算法</h3><h3 id="常用数据结构"><a href="#常用数据结构" class="headerlink" title="常用数据结构"></a>常用数据结构</h3><h2 id="compilation"><a href="#compilation" class="headerlink" title="compilation"></a>compilation</h2><h2 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h2><h3 id="MySQL概述"><a href="#MySQL概述" class="headerlink" title="MySQL概述"></a>MySQL概述</h3><p>通过sql操作数据库管理系统<br>数据库管理系统操作数据库/数据库中的数据</p>
+<h4 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h4><h3 id="常用算法"><a href="#常用算法" class="headerlink" title="常用算法"></a>常用算法</h3><h3 id="常用数据结构"><a href="#常用数据结构" class="headerlink" title="常用数据结构"></a>常用数据结构</h3><h2 id="compilation"><a href="#compilation" class="headerlink" title="compilation"></a>compilation</h2><h2 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h2><h3 id="基础-1"><a href="#基础-1" class="headerlink" title="基础"></a>基础</h3><h4 id="MySQL概述"><a href="#MySQL概述" class="headerlink" title="MySQL概述"></a>MySQL概述</h4><p>通过sql操作数据库管理系统<br>数据库管理系统操作数据库/数据库中的数据</p>
 <p>数据库：数据存储的仓库<br>数据库管理系统：操纵和管理数据库的大型软件<br>SQL：操作关系型数据库的编程语言，是一套标准</p>
 <p>关系型数据库(RDBMS)<br>建立在关系模型的基础上，由多张相互连接的二维表组成的数据库<br>![[关系型数据库.png]]</p>
 <p>![[数据库服务器管理系统数据库.png]]<br>通过客户端连接数据库管理系统(DBMS)<br>使用SQL语句 通过数据库管理系统 操作数据库<br>一个数据服务器中 可以创建多个数据库<br>一个数据库中 可以创建多个表格(二维表)</p>
 <p>开发安装流程：<br>mysql 社区版<br>启动 客户端连接<br>mysql数据模型<br>数据库 表</p>
-<h3 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h3><h4 id="通用语法"><a href="#通用语法" class="headerlink" title="通用语法"></a>通用语法</h4><h5 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h5><p>数值类型<br>![[数值类型.png]]</p>
-<p>字符串类型<br>![[字符串类型.png]]<br>注意定长与边长字符串的应用场景</p>
-<p>时间类型<br>![[时间类型.png]]</p>
-<h4 id="SQL分类"><a href="#SQL分类" class="headerlink" title="SQL分类"></a>SQL分类</h4><h5 id="DDL"><a href="#DDL" class="headerlink" title="DDL"></a>DDL</h5><p>data definition language·<br>数据定义语言 用来定义数据库对象</p>
+<h4 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h4><h4 id="SQL分类"><a href="#SQL分类" class="headerlink" title="SQL分类"></a>SQL分类</h4><h5 id="DDL"><a href="#DDL" class="headerlink" title="DDL"></a>DDL</h5><p>data definition language·<br>数据定义语言 用来定义数据库对象</p>
 <pre class="line-numbers language-mysql"><code class="language-mysql">## 在数据库内 创建表
 create table database_name_user(
     name varchar(10) COMMENT 'name', 
@@ -1622,8 +1619,7 @@ grant all ON *.* to 'user_name'@'host';
 revoke all on fengle_test.emp from 'user_fengle'@'localhost';
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>root 用户可以访问所有数据库的所有表格<br>创建用户 创建表 设置用户权限<br>总结<br>用户管理<br>权限控制<br>DBA对DCL需要掌握 开发人员一般不用</p>
-<h3 id="函数-1"><a href="#函数-1" class="headerlink" title="函数"></a>函数</h3><h4 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h4><p>![[字符串函数.png]]</p>
-<h4 id="数值函数"><a href="#数值函数" class="headerlink" title="数值函数"></a>数值函数</h4><h4 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h4><h4 id="流程函数"><a href="#流程函数" class="headerlink" title="流程函数"></a>流程函数</h4><h3 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h3><h3 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h3><h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><h3 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h3><h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><h3 id="SQL优化"><a href="#SQL优化" class="headerlink" title="SQL优化"></a>SQL优化</h3><h3 id="视图-存储过程-触发器"><a href="#视图-存储过程-触发器" class="headerlink" title="视图/存储过程/触发器"></a>视图/存储过程/触发器</h3><h3 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h3><h3 id="InnDB核心"><a href="#InnDB核心" class="headerlink" title="InnDB核心"></a>InnDB核心</h3><h3 id="MySQL管理"><a href="#MySQL管理" class="headerlink" title="MySQL管理"></a>MySQL管理</h3><h2 id="运维篇"><a href="#运维篇" class="headerlink" title="运维篇"></a>运维篇</h2><h3 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h3><h3 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h3><h3 id="分库分表"><a href="#分库分表" class="headerlink" title="分库分表"></a>分库分表</h3><h3 id="读写分离"><a href="#读写分离" class="headerlink" title="读写分离"></a>读写分离</h3><h2 id="End"><a href="#End" class="headerlink" title="End!"></a>End!</h2><p>CS涉及太多<br>只能龟速更新😂</p>
+<h4 id="函数-1"><a href="#函数-1" class="headerlink" title="函数"></a>函数</h4><h4 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h4><h4 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h4><h4 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h4><h3 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h3><h4 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h4><h4 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h4><h4 id="SQL优化"><a href="#SQL优化" class="headerlink" title="SQL优化"></a>SQL优化</h4><h4 id="视图-存储过程-触发器"><a href="#视图-存储过程-触发器" class="headerlink" title="视图/存储过程/触发器"></a>视图/存储过程/触发器</h4><h4 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h4><h4 id="InnDB核心"><a href="#InnDB核心" class="headerlink" title="InnDB核心"></a>InnDB核心</h4><h4 id="MySQL管理"><a href="#MySQL管理" class="headerlink" title="MySQL管理"></a>MySQL管理</h4><h2 id="End"><a href="#End" class="headerlink" title="End!"></a>End!</h2><p>CS涉及太多<br>只能龟速更新😂</p>
 
                 
             </div>
@@ -2421,7 +2417,7 @@ revoke all on fengle_test.emp from 'user_fengle'@'localhost';
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">10.1k</span>
+                        class="white-color">10k</span>
             
             
             
