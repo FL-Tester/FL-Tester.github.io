@@ -407,14 +407,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    874
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    5 分
                 </div>
                 
 
@@ -445,9 +445,19 @@
 <p>数据类型构成：<br>数据类型一：特征值+目标值（目标值是连续的和离散的）<br>数据类型二：只有特征值，没有目标值</p>
 <p>数据分割：<br>机器学习一般的数据集会划分为两个部分：<br>训练数据：用于训练，构建模型<br>测试数据：在模型检验时使用，用于评估模型是否有效<br>划分比例：<br>训练集：70% 80% 75%<br>测试集：30% 20% 25%</p>
 <h3 id="数据基本处理"><a href="#数据基本处理" class="headerlink" title="数据基本处理"></a>数据基本处理</h3><p>即对数据进行缺失值、去除异常值等处理</p>
-<h3 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h3><p>特征工程是使用专业背景知识和技巧处理数据，使得特征能在机器学习算法上发挥更好的作用的过程。<br>特征工程包括 特征提取 特征预处理 特征降维<br>不懂不表</p>
-<h4 id="PCA-课堂上唯一讲过的一个数据处理的算法"><a href="#PCA-课堂上唯一讲过的一个数据处理的算法" class="headerlink" title="PCA (课堂上唯一讲过的一个数据处理的算法)"></a>PCA (课堂上唯一讲过的一个数据处理的算法)</h4><h3 id="机器学习的几个算法-课程主要内容"><a href="#机器学习的几个算法-课程主要内容" class="headerlink" title="机器学习的几个算法(课程主要内容)"></a>机器学习的几个算法(课程主要内容)</h3><h4 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h4><h4 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h4><h4 id="KNN-K-近邻算法"><a href="#KNN-K-近邻算法" class="headerlink" title="KNN(K-近邻算法)"></a>KNN(K-近邻算法)</h4><h4 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h4><h4 id="SVM-支持向量机"><a href="#SVM-支持向量机" class="headerlink" title="SVM(支持向量机)"></a>SVM(支持向量机)</h4><p>这个算法要弄懂 比其他5个加起来估计还要难 课堂上我tamiao听到直接睡着了</p>
-<h4 id="K-means"><a href="#K-means" class="headerlink" title="K-means"></a>K-means</h4>
+<h3 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h3><p>特征工程是使用专业背景知识和技巧处理数据，使得特征能在机器学习算法上发挥更好的作用的过程。<br>特征工程包括<br>特征提取<br>特征预处理<br>特征降维</p>
+<p>不懂不表</p>
+<h4 id="PCA-主成分分析法-课堂上唯一讲过的一个数据处理的算法"><a href="#PCA-主成分分析法-课堂上唯一讲过的一个数据处理的算法" class="headerlink" title="PCA 主成分分析法 (课堂上唯一讲过的一个数据处理的算法)"></a>PCA 主成分分析法 (课堂上唯一讲过的一个数据处理的算法)</h4><p>PCA算法实现一般流程：　　　　<br>对数据进行归一化处理；<br>计算归一化后的数据集的协方差矩阵；<br>计算协方差矩阵的特征值和特征向量；<br>保留最重要的k个特征（通常k要小于n）；<br>找出k个特征值相应的特征向量<br>将m * n的数据集乘以k个n维的特征向量的特征向量（n * k）,得到最后降维的数据。</p>
+<h3 id="机器学习的几个算法-课程主要内容"><a href="#机器学习的几个算法-课程主要内容" class="headerlink" title="机器学习的几个算法(课程主要内容)"></a>机器学习的几个算法(课程主要内容)</h3><p>手推这些算法 估计要等一段时间 先了解大概<br>毕竟本人线代和概率的知识不够 推导会卡很久 </p>
+<h4 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h4><p>解决问题: 回归<br>线性回归模型是利用线性函数对一个或多个自变量和因变量（y）之间关系进行拟合的模型。<br>优化目标: 均方差<br>优化算法: 梯度下降法 最小二乘法</p>
+<h4 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h4><p>解决问题: 分类<br>线性回归+sigmoid函数<br>优化目标: 最大化似然函数<br>优化算法: 梯度下降法 </p>
+<h4 id="KNN-K-近邻算法"><a href="#KNN-K-近邻算法" class="headerlink" title="KNN(K-近邻算法)"></a>KNN(K-近邻算法)</h4><p>解决问题: 分类和回归<br>优化目标: 没有吧<br>算法: 暴力循环 或者 构造合适的数据结构或者算法 提高速度</p>
+<p>简述算法过程：<br>计算待分类点与已知类别的点之间的距离（这个距离需要一个标准 比如欧式距离 求相关性等）<br>按照距离递增次序排序<br>选取与待分类点距离最小的K个点<br>确定前K个点所在类别的出现次数(分类问题)  或者  求均值(回归问题) 中间可以根据距离 加权重<br>返回前K个点出现次数最高的类别作为待分类点的预测分类</p>
+<h4 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h4><p>对每个类别计算先验概率P(y)<br>对每个类别计算条件概率P(x|y)<br>对每个类别计算后验概率P(y|x)  根据贝叶斯公式 计算的是P(x|y)p(y)<br>取最大值作为预测结果<br>分类离散和连续的数据 处理的方法不同 连续需要引用概率密度函数 </p>
+<h4 id="SVM-支持向量机"><a href="#SVM-支持向量机" class="headerlink" title="SVM(支持向量机)"></a>SVM(支持向量机)</h4><p>这个算法要弄懂 比其他5个加起来估计还要难 课堂上我tamiao听到直接睡着了</p>
+<h4 id="K-means"><a href="#K-means" class="headerlink" title="K-means"></a>K-means</h4><p>k均值聚类算法（k-means clustering algorithm）是一种迭代求解的聚类分析算法，其步骤是，预将数据分为K组，则随机选取K个对象作为初始的聚类中心，然后计算每个对象与各个种子聚类中心之间的距离，把每个对象分配给距离它最近的聚类中心。 聚类中心以及分配给它们的对象就代表一个聚类。</p>
+<p>首先确认k值 k就是分类的种数<br>人为/随机 的选取k的中心点<br>根据这些中心点 计算样本和这k个点的距离<br>算完后分类完成 根据类内的样本出重新计算k值的中心点<br>一直迭代到分类没有变化<br>就是完成了分类</p>
+
                 
             </div>
             <hr/>
@@ -1246,7 +1256,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">11k</span>
+                        class="white-color">11.8k</span>
             
             
             
