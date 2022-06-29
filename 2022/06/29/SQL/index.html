@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="机器学习(兴趣记录), FengLE">
-    <meta name="description" content="简单入门">
+    <meta name="keywords" content="SQL, FengLE">
+    <meta name="description" content="基础学习">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>机器学习(兴趣记录) | FengLE</title>
+    <title>SQL | FengLE</title>
     <link rel="icon" type="image/jpeg" href="/medias/logo.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -252,12 +252,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">机器学习(兴趣记录)</h1>
+                    <h1 class="description center-align post-title">SQL</h1>
                 </div>
             </div>
         </div>
@@ -373,8 +373,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Machine-Learning/">
-                                <span class="chip bg-color">Machine-Learning</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
                             </a>
                         
                     </div>
@@ -385,8 +385,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Other-Project/" class="post-category">
-                                Other-Project
+                            <a href="/categories/CS-Basics/" class="post-category">
+                                CS-Basics
                             </a>
                         
                     </div>
@@ -398,7 +398,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-06-03
+                    2022-06-29
                 </div>
                 
 
@@ -407,14 +407,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    9 分
                 </div>
                 
 
@@ -434,33 +434,411 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><h3 id="start"><a href="#start" class="headerlink" title="start"></a>start</h3><p>感兴趣是因为<br>都在吹人工智能 深度学习 神经网络 大数据····<br>真正进入这个行业的门槛却很高<br>数学基础和学历的要求都是不低的<br>所以只能是兴趣点</p>
-<p>记得第一次老师提问我线性回归是什么<br>我给出的回答是一条线 坐标系的点贴近这条线 如今回想起来确实尬得失禁!<br>现在我给出的回答可能是:<br>特征值与目标值之间可以一个线性方程 f(x) = WTX + b (WT = 列向量)<br>可以是一条线一个平面或者是一个超平面<br>尽量让这个线性方程拟合数据的标准 我们采用的是均方差(损失函数)<br>算法要做的就是让这个均方差最小<br>可以采用 最小二乘法和梯度下降法<br>还是很笼统 不说了 尬住了 哈哈哈</p>
-<h3 id="一些概念"><a href="#一些概念" class="headerlink" title="一些概念"></a>一些概念</h3><p>发展史和一些关系 暂不表<br>机器学习是从数据中自动分析获得模型，并利用模型对未知数据进行预测。</p>
-<p>给定一个样本特征,我们希望预测其对应的属性值,如果是离散的,那么这就是一个分类问题，<br>反之，如果是连续的实数,这就是一个回归问题。</p>
-<p>如果给定一组样本特征,我们没有对应的属性值,而是想发掘这组样本在维空间的分布,<br>比如分析哪些样本靠的更近，哪些样本之间离得很远,这就是属于聚类问题。</p>
-<p>如果我们想用维数更低的子空间来表示原来高维的特征空间,<br>那么这就是降维问题。<br>算法主要有 线性 回归 聚类三种 好像是吧</p>
-<p>在数据集中一般：<br>一行数据我们称为一个样本<br>一列数据我们称为一个特征<br>有些数据有目标值（标签值），有些数据没有目标值</p>
-<p>数据类型构成：<br>数据类型一：特征值+目标值（目标值是连续的和离散的）<br>数据类型二：只有特征值，没有目标值</p>
-<p>数据分割：<br>机器学习一般的数据集会划分为两个部分：<br>训练数据：用于训练，构建模型<br>测试数据：在模型检验时使用，用于评估模型是否有效<br>划分比例：<br>训练集：70% 80% 75%<br>测试集：30% 20% 25% 等</p>
-<p>机器学习算法<br>机器学习算法可以大致分为以下三种类型之一：</p>
-<p>监督学习<br>是一种机器学习任务，建立输入X和输出Y变量之间的数学（映射）关系。这样的(X、Y)对构成了用于建立模型的标签数据，以便学习如何从输入中预测输出。<br>在监督学习中，两个常见的机器学习任务包括分类和回归。</p>
-<p>无监督学习<br>是一种只利用输入X变量的机器学习任务。X变量是未标记的数据，学习算法在建模时使用的是数据的固有结构。</p>
-<p>强化学习<br>是一种决定下一步行动方案的机器学习任务，它通过试错学习（trial and error learning）来实现这一目标，努力使reward回报最大化。</p>
-<h3 id="机器学习工作流程总结"><a href="#机器学习工作流程总结" class="headerlink" title="机器学习工作流程总结"></a>机器学习工作流程总结</h3><p>1.获取数据<br>2.数据基本处理<br>即对数据进行缺失值、去除异常值等处理<br>3.特征工程<br>特征工程是使用专业背景知识和技巧处理数据，使得特征能在机器学习算法上发挥更好的作用的过程。<br>特征工程包括<br>特征提取<br>特征预处理<br>特征降维<br>4.机器学习(模型训练)<br>5.模型评估</p>
-<h3 id="机器学习的几个算法-课程主要内容-传统"><a href="#机器学习的几个算法-课程主要内容-传统" class="headerlink" title="机器学习的几个算法(课程主要内容) 传统"></a>机器学习的几个算法(课程主要内容) 传统</h3><p>手推这些算法 估计要等一段时间 先了解大概<br>毕竟本人线代和概率的知识不够 推导会卡很久 </p>
-<h4 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h4><p>解决问题: 回归<br>线性回归模型是利用线性函数对一个或多个自变量和因变量（y）之间关系进行拟合的模型。<br>优化目标: 均方差<br>优化算法: 梯度下降法 最小二乘法</p>
-<h4 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h4><p>解决问题: 分类<br>线性回归+sigmoid函数<br>优化目标: 最大化似然函数<br>优化算法: 梯度下降法 </p>
-<h4 id="KNN-K-最近邻算法"><a href="#KNN-K-最近邻算法" class="headerlink" title="KNN(K-最近邻算法)"></a>KNN(K-最近邻算法)</h4><p>解决问题: 分类和回归<br>优化目标: 没有吧<br>算法: 暴力循环 或者 构造合适的数据结构或者算法 提高速度</p>
-<p>简述算法过程：<br>计算待分类点与已知类别的点之间的距离（这个距离需要一个标准 比如欧式距离 求相关性等）<br>按照距离递增次序排序<br>选取与待分类点距离最小的K个点<br>确定前K个点所在类别的出现次数(分类问题)  或者  求均值(回归问题) 中间可以根据距离 加权重<br>返回前K个点出现次数最高的类别作为待分类点的预测分类</p>
-<h4 id="PCA-主成分分析法-课堂上唯一讲过的一个数据处理的算法"><a href="#PCA-主成分分析法-课堂上唯一讲过的一个数据处理的算法" class="headerlink" title="PCA 主成分分析法 (课堂上唯一讲过的一个数据处理的算法)"></a>PCA 主成分分析法 (课堂上唯一讲过的一个数据处理的算法)</h4><p>PCA算法实现一般流程：　　　　<br>对数据进行归一化处理；<br>计算归一化后的数据集的协方差矩阵；<br>计算协方差矩阵的特征值和特征向量；<br>保留最重要的k个特征（通常k要小于n）；<br>找出k个特征值相应的特征向量<br>将m * n的数据集乘以k个n维的特征向量的特征向量（n * k）,得到最后降维的数据。</p>
-<h4 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h4><p>朴素贝叶斯的核心思想: 是每个条件独立的</p>
-<p>对每个类别计算先验概率P(y)<br>对每个类别计算条件概率P(x|y)<br>对每个类别计算后验概率P(y|x)  根据贝叶斯公式 计算的是P(x|y)p(y)<br>取最大值作为预测结果<br>离散和连续的数据 处理的方法不同 连续需要引用概率密度函数<br><img src="/medias/ML/GNB.png" alt="朴素贝叶斯推导过程"></p>
-<p>贝叶斯公式不单单是一个公式 他表达的意思其实非常深刻</p>
-<h4 id="SVM-支持向量机"><a href="#SVM-支持向量机" class="headerlink" title="SVM(支持向量机)"></a>SVM(支持向量机)</h4><p>解决问题: 二分类<br>这个算法要弄懂 比其他5个加起来估计还要难 课堂上我tamiao听到直接睡着了</p>
-<h4 id="K-means"><a href="#K-means" class="headerlink" title="K-means++"></a>K-means++</h4><p>k均值聚类算法（k-means clustering algorithm）是一种迭代求解的聚类分析算法，其步骤是，预将数据分为K组，则随机选取K个对象作为初始的聚类中心，然后计算每个对象与各个种子聚类中心之间的距离，把每个对象分配给距离它最近的聚类中心。 聚类中心以及分配给它们的对象就代表一个聚类。</p>
-<p>首先确认k值 k就是分类的种数<br>人为/随机 的选取k的中心点<br>根据这些中心点 计算样本和这k个点的距离<br>算完后分类完成 根据类内的样本出重新计算k值的中心点<br>一直迭代到分类没有变化<br>就是完成了分类</p>
-<h4 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h4><h4 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h4><h4 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h4><h3 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h3><h4 id="卷积神经网络-–-CNN"><a href="#卷积神经网络-–-CNN" class="headerlink" title="卷积神经网络 – CNN"></a>卷积神经网络 – CNN</h4><h4 id="生成对抗网络-–-GANs"><a href="#生成对抗网络-–-GANs" class="headerlink" title="生成对抗网络 – GANs"></a>生成对抗网络 – GANs</h4>
+                <h2 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h2><h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><h4 id="MySQL概述"><a href="#MySQL概述" class="headerlink" title="MySQL概述"></a>MySQL概述</h4><p>通过sql操作数据库管理系统<br>数据库管理系统操作数据库/数据库中的数据</p>
+<p>数据库：数据存储的仓库<br>数据库管理系统：操纵和管理数据库的大型软件<br>SQL：操作关系型数据库的编程语言，是一套标准</p>
+<p>关系型数据库(RDBMS)<br>建立在关系模型的基础上，由多张相互连接的二维表组成的数据库<br>![[关系型数据库.png]]</p>
+<p>![[数据库服务器管理系统数据库.png]]<br>通过客户端连接数据库管理系统(DBMS)<br>使用SQL语句 通过数据库管理系统 操作数据库<br>一个数据服务器中 可以创建多个数据库<br>一个数据库中 可以创建多个表格(二维表)</p>
+<p>开发安装流程：<br>mysql 社区版<br>启动 客户端连接<br>mysql数据模型<br>数据库 表</p>
+<h4 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h4><h4 id="SQL分类"><a href="#SQL分类" class="headerlink" title="SQL分类"></a>SQL分类</h4><h5 id="DDL"><a href="#DDL" class="headerlink" title="DDL"></a>DDL</h5><p>data definition language·<br>数据定义语言 用来定义数据库对象</p>
+<pre class="line-numbers language-mysql"><code class="language-mysql">## 在数据库内 创建表
+create table database_name_user(
+    name varchar(10) COMMENT 'name', 
+    ht int COMMENT 'ht', 
+    mq int COMMENT 'gas'
+)COMMENT 'user_table';
+
+
+
+## 显示数据库内的表
+show tables;
+
+## 参看指定表结构 
+desc database_name_user;
+
+show create table database_name_user;
+
+## show create table database_name_user; 结果
+CREATE TABLE `database_name_user` (
+  `name` varchar(10) DEFAULT NULL COMMENT 'name',
+  `ht` int(11) DEFAULT NULL COMMENT 'ht',
+  `mq` int(11) DEFAULT NULL COMMENT 'gas'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='user_table'
+
+## 数据类型
+数值类型
+
+字符串类型
+
+
+
+create table database_name_user(
+    name varchar(10) COMMENT '名字', 
+    ht smallint COMMENT '温湿度', 
+    mq smallint COMMENT '气体',
+    score DOUBLE COMMENT '分数'
+)COMMENT 'user_table';
+
+
+
+create table emp_table(
+    id int comment '编号',
+    name varchar(10) comment '姓名',
+    age TINYINT UNSIGNED,
+    idcard  char(18) comment '身份证号',
+    entrydata  date comment '入职时间'
+) comment '员工信息表';
+
+
+
+show tables;
+
+desc emp_table;
+
+
+## 表结构的修改
+### 添加字段
+alter table emp_table  add add_char varchar(20);
+desc emp_table;
+
+### 删除
+alter table emp_table drop ziduanname;
+
+
+### 修改
+# 修改字段的数据类型
+alter table emp_table modify add_char varchar(5);
+desc emp_table;
+
+## 建议直接用change
+alter table emp_table change add_char add_rename char;
+desc emp_table;
+# 修改字段名和字段类型
+### 修改表名
+
+alter table emp_table rename to emp_rename;
+
+desc emp_table;
+desc emp_rename;
+
+
+## 删除表
+## 如果存在删除 不存在也不报错
+drop table if exists emp_table;  
+
+## 删除表 重新建表 但是里面数据没有了 留下表结构
+create table emp_table(
+    id int comment '编号',
+    name varchar(10) comment '姓名',
+    age TINYINT UNSIGNED,
+    idcard  char(18) comment '身份证号',
+    entrydata  date comment '入职时间'
+) comment '员工信息表';
+
+truncate table emp_table;
+
+desc emp_table;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>总结<br>![[DDL总结.png]]</p>
+<h5 id="DML"><a href="#DML" class="headerlink" title="DML"></a>DML</h5><p>manipulateion<br>数据操作语言 用来对数据库表中的数据进行增删改<br>插入<br>修改</p>
+<pre class="line-numbers language-mysql"><code class="language-mysql">-- 给指定字段添加数据
+insert  into table_name () values ();
+一一对应
+-- 给全部字段添加数据
+insert into table_name values ();
+
+-- 批量添加数据 
+-- 批量指定
+insert  into table_name () values (),(),();
+
+-- 批量全部
+insert  into table_name  values (),(),();
+
+insert into emp_table (id, name , age) values (123,'fengle', 99); 
+
+desc emp_table;
+
+select * from emp_table;
+
+insert into emp_table values (123,'fengle', 99, '441223200704010234', '2022-01-01');
+-- 添加多条 每条记录之间 添加逗号即可
+
+-- 修改数据 
+update table set 字段1 = 字段名  where id = 1
+
+update emp_table set name = 'fengle' where idcard = 441223200704010234;
+
+
+update emp_table set name = 'fengkai', age = 89 where idcard = 441223200704010234;
+
+-- 修改一个属性的所有数据
+
+update emp_table set entrydata = '2022-06-01';
+-- 没有where条件 会更新整张表该属性的记录
+
+
+-- 删除数据
+delete from emp_table where age = 89;
+
+-- 删除所有数据  表结构还在
+delete from emp_table;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>总结<br>添加数据<br>insert into table_name  xxxx values xxxx;</p>
+<p>修改数据<br>update table_name xxxx values;</p>
+<p>删除数据<br>delete from tabe_name where condition;</p>
+<h5 id="DQL"><a href="#DQL" class="headerlink" title="DQL"></a>DQL</h5><p>query<br>数据查询语言 用来查询数据库表中的数据<br>![[条件查询运算符.png]]<br>![[聚合函数.png]]</p>
+<pre class="line-numbers language-mysql"><code class="language-mysql">select * from emp_table;
+DQL 语法
+SELECT
+            字段列表
+FROM
+            表名列表        
+WHERE
+            条件列表    
+GROUP BY
+            分组后条件列表    
+HAVING 
+            排序字段列表    
+ORDER BY
+            排序字段列表    
+LIMIT        
+            分页参数
+基本查询
+条件查询
+聚合函数
+分组查询
+拍讯查询
+分页查询
+
+-- 查询多个字段
+select 字段1, 字段2,·····, from table_name;
+select * from table_name;
+-- 设置别名  查询结果显示的字段名称自定义
+select 字段1 as 别名1, 字段2 as 别名2,·····, from table_name;
+-- 去除重复记录 
++ distinct 
+select distinct 字段列表 from table_name;
+select * from emp_table; 
+-- 查询emp_table中 字段name age 的所有字段
+select  name, age from emp_table;
+-- 查询emp_table中 字段name的所有字段 重复不返回
+select distinct name from emp_table;
+-- 查询emp_table中 字段name age 的所有字段 重复不返回
+select distinct name, age from emp_table;
+如果name 相同 age有不同  select distinct name  select distinct name, age 放回结果有不同
+select 
+    distinct name as '姓名', age as '年龄'
+from     
+    emp_table
+-- condition
+where 
+    name = 'fengle';
+所有为 * 
+开发当中 尽量不要写* 
+
+-- 条件查询 WHERE
+-- 条件
+比较运算符
+select 
+    distinct name as '姓名', age as '年龄'
+from     
+    emp_table
+-- condition
+where 
+    age = 89;
+-- 其它运算符 同理
+查询没有改字段的信息的
+select 
+    *
+from     
+    emp_table
+-- condition
+where 
+    idcard is null;
+-- 这里是 IS 不是 = 
+-- 范围查询
+select 
+    *
+from     
+    emp_table
+-- condition
+where 
+    age &gt;= 89 &amp;&amp; age &lt;= 99 &amp;&amp; name = 'fengle';
+    
+where 
+    age 89 and 99 &amp;&amp; name = 'fengle';
+--  between 闭区间
+-- condition
+where 
+    age &gt;= 89 &amp;&amp; age &lt;= 99 &amp;&amp; name = 'fengle';
+    
+    age = 89  or age =  99 &amp;&amp; name = 'fengle';
+    
+--  between 闭区间
+
+模糊匹配 
+6个下划线 6个字符
+select * from emp_table where name like '______';
+8个下划线 8个字符
+select * from emp_table where name like '________';
+查询 idcaed 最后一位是x的员工
+前面多少是很么不管 最后一位是x就可以
+select * from emp_table where idcard like '%x';
+
+如果用下划线 前面就是17个斜划线
+select * from emp_table where idcard like '_____x';
+insert into emp_table values (1312,'fengle', 77, '44122320070401023x', '2022-01-01');
+查询 名字
+select * from emp_table;
+-- 聚合函数
+将一列数据作为一个整体 进行纵向的计算
+作用与字段 就是 整个表的某一列数据
+NULL值 不参与聚合函数的计算
+select count(*) from emp_table;
+select count(idcard) from emp_table;
+select avg(age) from emp_table;
+select min(age) from emp_table;
+select sum(age) from emp_table where name = 'fengle';
+-- 分组查询
+select 
+    字段列表 
+from table_name 
+where
+        condition
+group by 
+        分组名字名
+HAVING
+        分组后过滤条件
+;
+
+where 和 HAVING的区别:
+执行时机不一样 where 是分组之前进行过滤，不满足where条件 不参与分组 而HAVING之后过滤的
+判断条件不一样 where 不能对聚合函数进行判断 而having可以
+select * from emp_table;
+
+根据一个字段分组 分别求它们的某一个特性(最大值 求和等)
+select idcard , count(idcard) from emp_table group by idcard;
+select name , avg(age)  from emp_table group by name;
+
+查询过滤
+select 
+from
+where 
+
+查询后过滤和整理
+group by 
+
+## 查询 名字为fengle 年龄大于77 的个数 
+select 
+        name as '名字',
+      count(*) as '人数'
+from
+        emp_table
+where 
+        age &gt; 77
+group by
+        name
+HAVING
+        name = 'fengle'
+;
+需要主要注意的是执行顺序
+where 再到 聚合函数 再到 having
+
+
+select * from emp_table;
+
+
+-- 排序查询
+
+select * from emp_table order by age desc;
+select * from emp_table order by age asc, entrydata asc;
+如果是多字段排序 优先级 按顺序
+
+desc 降序
+asc 升序
+
+-- 分页查询
+limit 关键字
+
+ 起始索引  = (页码 - 1) * 每一页展示的记录数 
+select 字段 from table_name limit 起始索引,  查询记录数;
+
+select * from emp_table;
+select * from emp_table limit 2, 2; 
+
+需要注意的是 不同的数据库 分页查询不一样 mysql中用到的是关键字limit
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>DQL 语句的执行顺序</p>
+<pre class="line-numbers language-mysql"><code class="language-mysql">4 SELECT
+            字段列表
+1 FROM
+            表名列表        
+2 WHERE
+            条件列表    
+3 GROUP BY
+            分组后条件列表    
+  HAVING 
+            排序字段列表    
+5 ORDER BY
+            排序字段列表    
+6 LIMIT        
+            分页参数
+
+            
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>使用别名的时候 可以按照执行顺序 产生相关代码</p>
+<p>总结</p>
+<pre class="line-numbers language-mysql"><code class="language-mysql">select * from emp_table;
+DQL 语法
+SELECT
+            字段列表  as 别名
+FROM
+            表名列表  as 别名    
+WHERE
+            条件列表    运算符
+GROUP BY
+            分组后条件列表    
+HAVING 
+            排序字段列表    分组过滤之后
+ORDER BY
+            排序字段列表    升序 asc 降序 desc
+LIMIT        
+            分页参数   两个参数 起始索引 每页展示数
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="DCL"><a href="#DCL" class="headerlink" title="DCL"></a>DCL</h5><p>control<br>数据控制语言 用来创建数据库用户 控制数据库的访问权限<br>用来管理数据库用户 控制数据库的访问权限</p>
+<p>通过用户 访问mysql服务器<br>每个用户可以设置不同的访问权限</p>
+<p>DCL 控制 有那些用户访问mysql服务器<br>可以操作 哪几个数据库</p>
+<p>DCL - 用户管理</p>
+<pre class="line-numbers language-mysql"><code class="language-mysql">-- 查询用户
+use mysql;
+select * from user;
+
+-- 创建用户
+create user 'user_name'@'host' identified by 'passwd'
+host 填% 代表任意主机都可以访问
+
+-- 修改用户密码
+alter user 'user_fengle'@'localhost' identified with mysql_native_password by '1234';
+
+
+-- 删除用户
+drop user 'user_fengle'@'localhost';
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>DCL 权限控制<br>![[DCL权限控制.png]]</p>
+<pre class="line-numbers language-mysql"><code class="language-mysql">DCL - 权限控制
+-- 查询权限
+show grants for 'user_fengle'@'localhost';
+
+-- 授予权限
+grant all ON fengle_test.emp to 'user_fengle'@'localhost';
+
+grant all ON *.* to 'user_name'@'host';
+*.* 代表给此用户 所有数据库的所有表的权限 就是root 用户了 超级管理员
+
+-- 撤销权限
+revoke all on fengle_test.emp from 'user_fengle'@'localhost';
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>root 用户可以访问所有数据库的所有表格<br>创建用户 创建表 设置用户权限<br>总结<br>用户管理<br>权限控制<br>DBA对DCL需要掌握 开发人员一般不用</p>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><h4 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h4><h4 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h4><h4 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h4><h3 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h3><h4 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h4><h4 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h4><h4 id="SQL优化"><a href="#SQL优化" class="headerlink" title="SQL优化"></a>SQL优化</h4><h4 id="视图-存储过程-触发器"><a href="#视图-存储过程-触发器" class="headerlink" title="视图/存储过程/触发器"></a>视图/存储过程/触发器</h4><h4 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h4><h4 id="InnDB核心"><a href="#InnDB核心" class="headerlink" title="InnDB核心"></a>InnDB核心</h4><h4 id="MySQL管理"><a href="#MySQL管理" class="headerlink" title="MySQL管理"></a>MySQL管理</h4><h3 id="运维"><a href="#运维" class="headerlink" title="运维"></a>运维</h3><h4 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h4><h4 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h4><h4 id="分库分表"><a href="#分库分表" class="headerlink" title="分库分表"></a>分库分表</h4><h4 id="读写分离"><a href="#读写分离" class="headerlink" title="读写分离"></a>读写分离</h4>
                 
             </div>
             <hr/>
@@ -486,7 +864,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog-fengle.com/2022/06/03/ML/">https://blog-fengle.com/2022/06/03/ML/</a>
+                    <a href="https://blog-fengle.com/2022/06/29/SQL/">https://blog-fengle.com/2022/06/29/SQL/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -524,8 +902,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Machine-Learning/">
-                                    <span class="chip bg-color">Machine-Learning</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
                                 </a>
                             
                         </div>
@@ -969,13 +1347,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/06/29/SQL/">
+                <a href="/2022/06/29/DSA/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="SQL">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="数据结构和算法">
                         
-                        <span class="card-title">SQL</span>
+                        <span class="card-title">数据结构和算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1003,8 +1381,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
+                    <a href="/tags/data-structure-algorithm/">
+                        <span class="chip bg-color">data-structure algorithm</span>
                     </a>
                     
                 </div>
@@ -1018,24 +1396,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/05/06/project/">
+                <a href="/2022/06/03/ML/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Other Project">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="机器学习(兴趣记录)">
                         
-                        <span class="card-title">Other Project</span>
+                        <span class="card-title">机器学习(兴趣记录)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Other-Project
+                            简单入门
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-03
                             </span>
                         <span class="publish-author">
                             
@@ -1052,8 +1430,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Other/">
-                        <span class="chip bg-color">Other</span>
+                    <a href="/tags/Machine-Learning/">
+                        <span class="chip bg-color">Machine-Learning</span>
                     </a>
                     
                 </div>
