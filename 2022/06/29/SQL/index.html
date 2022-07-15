@@ -30,10 +30,10 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.1"><link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css">
+<meta name="generator" content="Hexo 5.4.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 
@@ -407,7 +407,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    2.2k
                 </div>
                 
 
@@ -438,7 +438,6 @@
 <p>数据库：数据存储的仓库<br>数据库管理系统：操纵和管理数据库的大型软件<br>SQL：操作关系型数据库的编程语言，是一套标准</p>
 <p>关系型数据库(RDBMS)<br>建立在关系模型的基础上，由多张相互连接的二维表组成的数据库<br>![[关系型数据库.png]]</p>
 <p>![[数据库服务器管理系统数据库.png]]<br>通过客户端连接数据库管理系统(DBMS)<br>使用SQL语句 通过数据库管理系统 操作数据库<br>一个数据服务器中 可以创建多个数据库<br>一个数据库中 可以创建多个表格(二维表)</p>
-<p>开发安装流程：<br>mysql 社区版<br>启动 客户端连接<br>mysql数据模型<br>数据库 表</p>
 <h4 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h4><h4 id="SQL分类"><a href="#SQL分类" class="headerlink" title="SQL分类"></a>SQL分类</h4><h5 id="DDL"><a href="#DDL" class="headerlink" title="DDL"></a>DDL</h5><p>data definition language·<br>数据定义语言 用来定义数据库对象</p>
 <pre class="line-numbers language-mysql"><code class="language-mysql">## 在数据库内 创建表
 create table database_name_user(
@@ -662,16 +661,16 @@ from
     emp_table
 -- condition
 where 
-    age &gt;= 89 &amp;&amp; age &lt;= 99 &amp;&amp; name = 'fengle';
+    age >= 89 && age <= 99 && name = 'fengle';
     
 where 
-    age 89 and 99 &amp;&amp; name = 'fengle';
+    age 89 and 99 && name = 'fengle';
 --  between 闭区间
 -- condition
 where 
-    age &gt;= 89 &amp;&amp; age &lt;= 99 &amp;&amp; name = 'fengle';
+    age >= 89 && age <= 99 && name = 'fengle';
     
-    age = 89  or age =  99 &amp;&amp; name = 'fengle';
+    age = 89  or age =  99 && name = 'fengle';
     
 --  between 闭区间
 
@@ -734,7 +733,7 @@ select
 from
         emp_table
 where 
-        age &gt; 77
+        age > 77
 group by
         name
 HAVING
@@ -838,7 +837,144 @@ grant all ON *.* to 'user_name'@'host';
 revoke all on fengle_test.emp from 'user_fengle'@'localhost';
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>root 用户可以访问所有数据库的所有表格<br>创建用户 创建表 设置用户权限<br>总结<br>用户管理<br>权限控制<br>DBA对DCL需要掌握 开发人员一般不用</p>
-<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><h4 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h4><h4 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h4><h4 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h4><h3 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h3><h4 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h4><h4 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h4><h4 id="SQL优化"><a href="#SQL优化" class="headerlink" title="SQL优化"></a>SQL优化</h4><h4 id="视图-存储过程-触发器"><a href="#视图-存储过程-触发器" class="headerlink" title="视图/存储过程/触发器"></a>视图/存储过程/触发器</h4><h4 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h4><h4 id="InnDB核心"><a href="#InnDB核心" class="headerlink" title="InnDB核心"></a>InnDB核心</h4><h4 id="MySQL管理"><a href="#MySQL管理" class="headerlink" title="MySQL管理"></a>MySQL管理</h4><h3 id="运维"><a href="#运维" class="headerlink" title="运维"></a>运维</h3><h4 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h4><h4 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h4><h4 id="分库分表"><a href="#分库分表" class="headerlink" title="分库分表"></a>分库分表</h4><h4 id="读写分离"><a href="#读写分离" class="headerlink" title="读写分离"></a>读写分离</h4>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><p>函数有字符函数 数值函数 日期函数 流程函数 在select中执行<br>函数可以嵌套</p>
+<pre class="line-numbers language-mysql"><code class="language-mysql">-- 字符函数
+select concat('Hello', 'MySQL');
+select upper('Hello');
+select lower('Hello');
+select lpad('fengle', 10, 'x');
+select rpad('fengle', 10, 'x');
+select ' sssss ';
+select trim(' sssss ');
+select substring(rpad('fengle', 10, 'x'), 1, 7);
+select substring('fengle', 1, 6);
+-- 索引值从1开始
+引用 
+update emp_table set name = rpad(name, 6, 'e');
+select * from emp_table;
+-- 数值函数
+ceil(x) 向上取整
+floor(x) 向下取整
+mod(x,y) 返回x/y 的模
+rand() 返回0—1内的随机数
+round(x,y) 求参数x的四舍五入的值 保留y位小数
+select ceil(9.54);
+select floor(9.54);
+select mod(9, 2);
+select rpad(round(rand() * 100000, 0), 6, '0');
+select round(9.99903,4);
+-- 日期函数
+curdate()             返回当前日期
+curtime()                返回当前时间
+now()                 返回当前日期和时间
+year(date)            获取指点年
+month(date)
+day(date)
+date_add(date, interval expr type) 返回一个日期/时间值加上一个时间间隔expr后的时间值
+datediff(date1, date2)    返回起始时间data1 和 date2 之间的天数
+select curdate();
+select curtime();
+select year(curdate());
+select  datediff('2022-05-31', '2023-05-31');
+select  datediff(date_add(now(), interval 70 day), now());
+select date_add(now(), interval 70 year);
+根据时间差 列出姓名 显示为降序排序
+select 
+    name, datediff(curdate(), entrydata) as 'entrydatas' 
+from 
+    emp_table
+order by 
+    entrydatas desc;    
+-- 流程函数
+IF(value , t , f) 如果value为true 则返回0 否则返回1
+select if(true, 'fengle', 'fenglee');
+select ifnull('ok', 'fengle');
+select ifnull(null, 'fengle');
+case when [val1] then [res1], 多个 逗号区分, else [default]  end 
+select * from emp_table;
+select 
+    age, 
+    (case name when 'fengle' then '一流的名字'  
+    when 'zhange' then '二流的名字'
+    else '其它名字'
+    end)
+    as '名字' 
+from emp_table;
+-- 大于90岁为老东西  否则为年轻人
+select 
+    name, 
+    (
+        case  
+        when age>=90 then '老东西'  
+        when age<90 then '年轻人'  
+        end
+    ) as '芳龄',
+    (
+        case  
+        when id>123 then '错误的'  
+        when id<=123 then '正确的'  
+        end
+    ) as 'id分类' 
+from emp_table;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h4><p>概述<br>约束是作用域表中字段删的规则 用于限制存储在表中的数据<br>约束的是表格的结构 对其插入 删除等 进行约束<br>目的：<br>保证数据库中数据的正确、有效性和完整性<br>分类：<br>非空约束<br>唯一约束<br>主键约束   非空唯一<br>默认约束   字段采用默认值<br>检查约束     保证字段值满足某一个条件<br>外键约束      用来让两张表的数据之间建立连接，保证数据的一致性和完整性  键约束条件 至少两张表</p>
+<pre class="line-numbers language-mysql"><code class="language-mysql">有约束条件的表结构
+create table emp_2(
+    id int primary key auto_increment comment '主键',
+    name varchar(10) not null comment '姓名',
+    age int check (age > 0 && age <= 120) comment '年龄',
+    status char(1)  default '1' comment '状态 ',
+    gender char(1) comment '性别'
+) comment '用户表';
+select * from emp_2;
+insert into emp_2
+(name, age, status, gender)
+values('fengle', 19, '1', '男');
+## 数据库的插入 会根据约束过滤
+外键约束
+具有外键的这张表 称为子表
+外键关联的这张表 称为父表
+建立外键关联
+alter table 子表 add constraint 父亲 foreign key ()
+references 
+有约束条件的表结构
+create table emp_3(
+    id int primary key auto_increment comment '主键',
+    name varchar(10) not null comment '姓名',
+    age int check (age > 0 && age <= 120) comment '年龄',
+    status char(1)  default '1' comment '状态 ',
+    gender char(1) comment '性别',
+    dept_id int comment '部门ID'
+) comment '有外键用户表';
+create table emp_4(
+    id int primary key auto_increment comment '主键',
+    name varchar(10) not null comment '姓名'
+) comment '外键表';
+insert into emp_3
+(name, age, status, gender, dept_id)
+values('fengla', 20, '1', '男', 2);
+insert into emp_4
+(name)
+values('销售部');
+alter table emp_3 add constraint fk_emp_3_dept_id foreign key 
+(dept_id) references emp_4(id);
+## 外键删除/更新行为
+alter table emp_3 add constraint fk_emp_3_dept_id foreign key 
+(dept_id) references emp_4(id);
+cascade 当父表中删除/更新对应记录时 
+首先检查改记录是否有对应外键 如果有
+则也删除/更新 子表的外键记录
+set NULL 当父表中删对应记录时 
+首先检查改记录是否有对应外键
+如果有外键会设置为NULL
+alter table emp_3 add constraint fk_emp_3_dept_id foreign key 
+(dept_id) references emp_4(id) 
+on update cascade on delete cascade;
+alter table emp_3 add constraint fk_emp_3_dept_id foreign key 
+(dept_id) references emp_4(id) 
+on update  set null on delete cascade;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h4><h4 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h4><h3 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h3><h4 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h4><h4 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h4><h4 id="SQL优化"><a href="#SQL优化" class="headerlink" title="SQL优化"></a>SQL优化</h4><h4 id="视图-存储过程-触发器"><a href="#视图-存储过程-触发器" class="headerlink" title="视图/存储过程/触发器"></a>视图/存储过程/触发器</h4><h4 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h4><h4 id="InnDB核心"><a href="#InnDB核心" class="headerlink" title="InnDB核心"></a>InnDB核心</h4><h4 id="MySQL管理"><a href="#MySQL管理" class="headerlink" title="MySQL管理"></a>MySQL管理</h4><h3 id="运维"><a href="#运维" class="headerlink" title="运维"></a>运维</h3><h4 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h4><h4 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h4><h4 id="分库分表"><a href="#分库分表" class="headerlink" title="分库分表"></a>分库分表</h4><h4 id="读写分离"><a href="#读写分离" class="headerlink" title="读写分离"></a>读写分离</h4>
                 
             </div>
             <hr/>
