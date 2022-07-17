@@ -407,14 +407,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    851
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    5 分
                 </div>
                 
 
@@ -520,27 +520,70 @@ list <span class="token operator">=</span> <span class="token punctuation">[</sp
 <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">10000</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="利用循环-初始化列表"><a href="#利用循环-初始化列表" class="headerlink" title="利用循环 初始化列表"></a>利用循环 初始化列表</h1><h4 id="顺序查找"><a href="#顺序查找" class="headerlink" title="顺序查找"></a>顺序查找</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">liner_serch</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<h1 id="利用循环-初始化列表"><a href="#利用循环-初始化列表" class="headerlink" title="利用循环 初始化列表"></a>利用循环 初始化列表</h1><h4 id="顺序查找"><a href="#顺序查找" class="headerlink" title="顺序查找"></a>顺序查找</h4><h2 id="顾名思义-暴力遍历"><a href="#顾名思义-暴力遍历" class="headerlink" title="顾名思义  暴力遍历"></a>顾名思义  暴力遍历</h2><pre class="line-numbers language-python"><code class="language-python">```python
+<span class="token keyword">def</span> <span class="token function">liner_serch</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">if</span> list<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> value<span class="token punctuation">:</span>
             <span class="token keyword">return</span> i
     <span class="token keyword">return</span> None
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">binary_search</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    low <span class="token operator">=</span> <span class="token number">0</span>
-    high <span class="token operator">=</span> len<span class="token punctuation">(</span>list<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span>
-    <span class="token keyword">while</span> low <span class="token operator">&lt;=</span> high<span class="token punctuation">:</span>
-        mid <span class="token operator">=</span> <span class="token punctuation">(</span>low <span class="token operator">+</span> high<span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">2</span>
-        <span class="token keyword">if</span> list<span class="token punctuation">[</span>mid<span class="token punctuation">]</span> <span class="token operator">==</span> value<span class="token punctuation">:</span>
-            <span class="token keyword">return</span> mid
-        <span class="token keyword">elif</span> list<span class="token punctuation">[</span>mid<span class="token punctuation">]</span> <span class="token operator">></span> value<span class="token punctuation">:</span>
-            high <span class="token operator">=</span> mid <span class="token operator">-</span> <span class="token number">1</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">## 二分查找的速度是暴力查找的指数倍</span>
+<span class="token keyword">def</span> <span class="token function">binary_search</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    low <span class="token operator">=</span> <span class="token number">0</span> 
+    hight <span class="token operator">=</span> len<span class="token punctuation">(</span>list<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token number">1</span> 
+    <span class="token keyword">while</span> low <span class="token operator">&lt;=</span> hight<span class="token punctuation">:</span>
+        mid <span class="token operator">=</span> <span class="token punctuation">(</span>low <span class="token operator">+</span> hight<span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">2</span>
+        <span class="token keyword">if</span> list<span class="token punctuation">[</span>mid<span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> mid 
+        <span class="token keyword">elif</span> list<span class="token punctuation">[</span>mid<span class="token punctuation">]</span> <span class="token operator">&lt;</span> value<span class="token punctuation">:</span>
+            low <span class="token operator">=</span> mid <span class="token operator">+</span><span class="token number">1</span> 
         <span class="token keyword">else</span><span class="token punctuation">:</span>
-            low <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span>
-    <span class="token keyword">return</span> None
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+            hight <span class="token operator">=</span> mid <span class="token operator">-</span> <span class="token number">1</span>
+    <span class="token keyword">return</span> None 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>排序</p>
-<h4 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h4><h4 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h4><h4 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h4><h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><h4 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h4><h4 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h4><h4 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h4><h4 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h4><h4 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h4><h4 id="查找排序"><a href="#查找排序" class="headerlink" title="查找排序"></a>查找排序</h4><h3 id="常用数据结构"><a href="#常用数据结构" class="headerlink" title="常用数据结构"></a>常用数据结构</h3><h4 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h4><h4 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h4><h4 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h4><h4 id="双链表"><a href="#双链表" class="headerlink" title="双链表"></a>双链表</h4><h4 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h4><h4 id="树"><a href="#树" class="headerlink" title="树"></a>树</h4><h4 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h4><h4 id="AVL树"><a href="#AVL树" class="headerlink" title="AVL树"></a>AVL树</h4><h4 id="图"><a href="#图" class="headerlink" title="图"></a>图</h4>
+<h4 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">##  冒泡排序 每一轮遍历 把最大的放到最后得后</span>
+<span class="token keyword">def</span> <span class="token function">bubble_sort</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">-</span> i<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> list<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">></span>  list<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                list<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> list<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> list<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> list<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+    <span class="token keyword">return</span> list
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">### 遍历 把最小的放到最前</span>
+<span class="token keyword">def</span> <span class="token function">selection_sort</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        min_index <span class="token operator">=</span> i
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> list<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;</span> list<span class="token punctuation">[</span>min_index<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                min_index <span class="token operator">=</span> j
+        list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> list<span class="token punctuation">[</span>min_index<span class="token punctuation">]</span> <span class="token operator">=</span> list<span class="token punctuation">[</span>min_index<span class="token punctuation">]</span><span class="token punctuation">,</span> list<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+    <span class="token keyword">return</span> list
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">### 第一次遍历顺序  第二次遍历最小值弄到前面 二次遍历的索引需要跟前情况而定range(i, 0, -1)</span>
+<span class="token keyword">def</span> <span class="token function">select_sort</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>list<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        min_index <span class="token operator">=</span> i
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> list<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;</span> list<span class="token punctuation">[</span>min_index<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                min_index <span class="token operator">=</span> j
+        list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> list<span class="token punctuation">[</span>min_index<span class="token punctuation">]</span> <span class="token operator">=</span> list<span class="token punctuation">[</span>min_index<span class="token punctuation">]</span><span class="token punctuation">,</span> list<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">### 递归思想 分治思想</span>
+<span class="token keyword">def</span> <span class="token function">quick_sort</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">:</span> 
+    <span class="token keyword">if</span> len<span class="token punctuation">(</span>list<span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token number">1</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> list
+    pivot <span class="token operator">=</span> list<span class="token punctuation">[</span>len<span class="token punctuation">(</span>list<span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">2</span><span class="token punctuation">]</span>
+    <span class="token comment" spellcheck="true"># 存比基准值小的数字   就是赋值一个列表</span>
+    left <span class="token operator">=</span> <span class="token punctuation">[</span>x <span class="token keyword">for</span> x <span class="token keyword">in</span> list <span class="token keyword">if</span> x <span class="token operator">&lt;</span> pivot<span class="token punctuation">]</span>
+    <span class="token comment" spellcheck="true"># 存放基准值的列表</span>
+    middle <span class="token operator">=</span> <span class="token punctuation">[</span>x <span class="token keyword">for</span> x <span class="token keyword">in</span> list <span class="token keyword">if</span> x <span class="token operator">==</span> pivot<span class="token punctuation">]</span>
+    <span class="token comment" spellcheck="true"># 存比基准值大的数字</span>
+    right <span class="token operator">=</span> <span class="token punctuation">[</span>x <span class="token keyword">for</span> x <span class="token keyword">in</span> list <span class="token keyword">if</span> x <span class="token operator">></span> pivot<span class="token punctuation">]</span>
+    <span class="token comment" spellcheck="true"># 对除了存基准值的列表进行递归（为什么要用一个单独的列表去存基准值? 因为列表之间可以用+去拼接）</span>
+    <span class="token keyword">return</span> quick_sort<span class="token punctuation">(</span>left<span class="token punctuation">)</span> <span class="token operator">+</span> middle <span class="token operator">+</span> quick_sort<span class="token punctuation">(</span>right<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h4><h4 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h4><h3 id="常用数据结构"><a href="#常用数据结构" class="headerlink" title="常用数据结构"></a>常用数据结构</h3><h4 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h4><h4 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h4><h4 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h4><h4 id="双链表"><a href="#双链表" class="headerlink" title="双链表"></a>双链表</h4><h4 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h4><h4 id="树"><a href="#树" class="headerlink" title="树"></a>树</h4><h4 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h4><h4 id="AVL树"><a href="#AVL树" class="headerlink" title="AVL树"></a>AVL树</h4><h4 id="图"><a href="#图" class="headerlink" title="图"></a>图</h4>
                 
             </div>
             <hr/>
@@ -1339,7 +1382,7 @@ list <span class="token operator">=</span> <span class="token punctuation">[</sp
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">12.8k</span>
+                        class="white-color">13.1k</span>
             
             
             
