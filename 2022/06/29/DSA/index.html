@@ -30,10 +30,10 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.1">
+<meta name="generator" content="Hexo 5.4.1"><link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 
 
 
@@ -435,7 +435,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h2><p>用python实现 原因:快速入门<br>在CPP中 甚至已经封装好了 晚点在C/CPP实现</p>
-<h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> time
+<h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> time
 <span class="token keyword">class</span> <span class="token class-name">solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">pass</span>
@@ -471,7 +471,7 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>时间对比如下<br><img src="/medias/DA/example1.png"><br>可以看出小小的改动 时间相差居然高达千倍</p>
 <h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>算法的五大特性<br>输入: 算法具有0个或多个输入<br>输出: 算法至少有1个或多个输出<br>有穷性: 算法在有限的步骤之后会自动结束而不会无限循环，并且每一个步骤可以在可接受的时间内完成<br>确定性：算法中的每一步都有确定的含义，不会出现二义性<br>可行性：算法的每一步都是可行的，也就是说每一步都能够执行有限的次数完成</p>
-<p>时间比空间重要<br>可以使用空间换时间</p>
+<p>时间比空间重要 可以使用空间换时间</p>
 <h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><p>时间维度：是指执行当前算法所消耗的时间，我们通常用「时间复杂度」来描述。<br>时间复杂度指的是执行一个算法所需要的时间。 这不一定是一个确切的时间，通常，我们需要知道的是一个算法在最坏情况下执行（比如输入规模无限大）所需要的时间，也就是寻找算法执行时间的一个渐进上界来作为算法的时间复杂度，通过比较多个算法的这个上界，可以知道哪个算法执行比较快，哪个比较慢。</p>
 <table>
 <thead>
@@ -547,7 +547,7 @@ list <span class="token operator">=</span> <span class="token punctuation">[</sp
 <span class="token keyword">def</span> <span class="token function">bubble_sort</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">-</span> i<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> list<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">></span>  list<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> list<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&gt;</span>  list<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
                 list<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> list<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> list<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> list<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
     <span class="token keyword">return</span> list
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -580,7 +580,7 @@ list <span class="token operator">=</span> <span class="token punctuation">[</sp
     <span class="token comment" spellcheck="true"># 存放基准值的列表</span>
     middle <span class="token operator">=</span> <span class="token punctuation">[</span>x <span class="token keyword">for</span> x <span class="token keyword">in</span> list <span class="token keyword">if</span> x <span class="token operator">==</span> pivot<span class="token punctuation">]</span>
     <span class="token comment" spellcheck="true"># 存比基准值大的数字</span>
-    right <span class="token operator">=</span> <span class="token punctuation">[</span>x <span class="token keyword">for</span> x <span class="token keyword">in</span> list <span class="token keyword">if</span> x <span class="token operator">></span> pivot<span class="token punctuation">]</span>
+    right <span class="token operator">=</span> <span class="token punctuation">[</span>x <span class="token keyword">for</span> x <span class="token keyword">in</span> list <span class="token keyword">if</span> x <span class="token operator">&gt;</span> pivot<span class="token punctuation">]</span>
     <span class="token comment" spellcheck="true"># 对除了存基准值的列表进行递归（为什么要用一个单独的列表去存基准值? 因为列表之间可以用+去拼接）</span>
     <span class="token keyword">return</span> quick_sort<span class="token punctuation">(</span>left<span class="token punctuation">)</span> <span class="token operator">+</span> middle <span class="token operator">+</span> quick_sort<span class="token punctuation">(</span>right<span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
