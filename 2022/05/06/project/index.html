@@ -407,14 +407,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    364
+                    481
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -434,7 +434,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="基于linux的语音识别项目-科大讯飞离线包"><a href="#基于linux的语音识别项目-科大讯飞离线包" class="headerlink" title="基于linux的语音识别项目(科大讯飞离线包)"></a>基于linux的语音识别项目(科大讯飞离线包)</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>该项目是在linux下科大讯飞离线包和虚拟LCD的基础上完成的</p>
+                <h2 id="基于linux的语音识别项目-科大讯飞离线端"><a href="#基于linux的语音识别项目-科大讯飞离线端" class="headerlink" title="基于linux的语音识别项目(科大讯飞离线端)"></a>基于linux的语音识别项目(科大讯飞离线端)</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>该项目是在linux下科大讯飞离线包和虚拟LCD的基础上完成的</p>
 <h4 id="涉及的知识"><a href="#涉及的知识" class="headerlink" title="涉及的知识:"></a>涉及的知识:</h4><ul>
 <li>linux基本操作/常用命令</li>
 <li>C语言基础</li>
@@ -447,7 +447,7 @@
 <h4 id="工程文件结构"><a href="#工程文件结构" class="headerlink" title="工程文件结构"></a>工程文件结构</h4><p><img src="/project/gcwj.jpg"></p>
 <h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><p>本次开发是在windows下的vscode通过ssh插件远程开发的<br>linux版本为ubuntu16.04 在VMware下运行<br>需要在虚拟机配置好网卡 alsa声音库等 保证tcp通信 和 声音播放以及录入<br>工程文件如上图 需要编写好makefile(工程较小 没用cmake) 以及配置好文件夹</p>
 <h3 id="配置模拟LCD驱动"><a href="#配置模拟LCD驱动" class="headerlink" title="配置模拟LCD驱动"></a>配置模拟LCD驱动</h3><p>模拟只是为了实现两个功能：<br>图像化界面的显示 —- lcd<br>触摸屏按钮的功能 —- 触摸屏</p>
-<h4 id="编译和安装驱动"><a href="#编译和安装驱动" class="headerlink" title="编译和安装驱动"></a>编译和安装驱动</h4><p><img src="/project/lcd1.jpg"></p>
+<h4 id="安装驱动"><a href="#安装驱动" class="headerlink" title="安装驱动"></a>安装驱动</h4><p><img src="/project/lcd1.jpg"></p>
 <ol>
 <li>进入lcd驱动文件夹 cd  mmap_drv  </li>
 <li>sudo make clean 和 sudo make 清除以及重新编译</li>
@@ -459,6 +459,43 @@
 <li>配置语言ID<br><img src="/project/kdxf1.jpg" alt="科大讯飞离线端开启成功"></li>
 <li>测试<br><img src="/project/kdxf2.jpg" alt="与科大讯飞通信成功"></li>
 </ol>
+<p>通信实现如下(主函数部分)</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">main</span> <span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token operator">*</span>argv<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">char</span> recvbuf<span class="token punctuation">[</span>RECV_SIZE<span class="token punctuation">]</span><span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> socket_fd<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> rt<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> len<span class="token punctuation">;</span>
+    socket_fd <span class="token operator">=</span> <span class="token function">socket</span><span class="token punctuation">(</span>AF_INET<span class="token punctuation">,</span>SOCK_STREAM<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>socket_fd<span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">perror</span><span class="token punctuation">(</span><span class="token string">"create socket fail:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">struct</span> sockaddr_in     dest_addr<span class="token punctuation">;</span>
+    dest_addr<span class="token punctuation">.</span>sin_family         <span class="token operator">=</span> AF_INET<span class="token punctuation">;</span>                    
+    dest_addr<span class="token punctuation">.</span>sin_port           <span class="token operator">=</span> <span class="token function">htons</span><span class="token punctuation">(</span><span class="token number">54321</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                
+    dest_addr<span class="token punctuation">.</span>sin_addr<span class="token punctuation">.</span>s_addr    <span class="token operator">=</span> <span class="token function">inet_addr</span><span class="token punctuation">(</span><span class="token string">"127.0.0.1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
+    rt<span class="token operator">=</span><span class="token function">connect</span><span class="token punctuation">(</span>socket_fd<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token keyword">struct</span> sockaddr <span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>dest_addr<span class="token punctuation">,</span><span class="token keyword">sizeof</span> dest_addr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>rt <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">perror</span><span class="token punctuation">(</span><span class="token string">"connect fail:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">"arecord -d4 -c1 -r16000 -traw -fS16_LE live.pcm"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">tcp_send_pcm_file</span><span class="token punctuation">(</span>socket_fd<span class="token punctuation">,</span><span class="token string">"live.pcm"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">recv</span><span class="token punctuation">(</span>socket_fd<span class="token punctuation">,</span> recvbuf<span class="token punctuation">,</span> RECV_SIZE <span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token function">perror</span><span class="token punctuation">(</span><span class="token string">"Receive fail:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>    
+    <span class="token comment" spellcheck="true">//printf("Receive text:\r\n %s\r\n", recvbuf);</span>
+    <span class="token function">strextraction</span><span class="token punctuation">(</span>recvbuf<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">close</span><span class="token punctuation">(</span>socket_fd<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>三个终端控制台 </p>
 <ul>
 <li>终端1: 科大讯飞语音识别端</li>
@@ -1265,7 +1302,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">13.4k</span>
+                        class="white-color">13.5k</span>
             
             
             
