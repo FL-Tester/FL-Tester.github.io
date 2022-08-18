@@ -407,7 +407,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    148
+                    345
                 </div>
                 
 
@@ -444,9 +444,17 @@
 <li>linux简单驱动调用</li>
 </ul>
 
-
 <h4 id="工程文件结构"><a href="#工程文件结构" class="headerlink" title="工程文件结构"></a>工程文件结构</h4><p><img src="/project/gcwj.jpg"></p>
-<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>三个终端控制台 </p>
+<h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><p>本次开发是在windows下的vscode通过ssh插件远程开发的<br>linux版本为ubuntu16.04 在VMware下运行<br>需要在虚拟机配置好网卡 alsa声音库等 保证tcp通信 和 声音播放以及录入<br>工程文件如上图 需要编写好makefile(工程较小 没用cmake) 以及配置好文件夹</p>
+<h3 id="配置模拟LCD驱动"><a href="#配置模拟LCD驱动" class="headerlink" title="配置模拟LCD驱动"></a>配置模拟LCD驱动</h3><p>模拟只是为了实现两个功能：<br>图像化界面的显示 —- lcd<br>触摸屏按钮的功能 —- 触摸屏</p>
+<h4 id="编译和安装驱动"><a href="#编译和安装驱动" class="headerlink" title="编译和安装驱动"></a>编译和安装驱动</h4><p><img src="/project/lcd1.jpg"></p>
+<ol>
+<li>进入lcd驱动文件夹 cd  mmap_drv  </li>
+<li>sudo make clean 和 sudo make 清除以及重新编译</li>
+<li>安装驱动 sudo insmod mmp_drv.ko</li>
+<li>进入模拟器目录 重复以上步骤</li>
+</ol>
+<h3 id="客户端与科大讯飞端建立稳定的TCP通信"><a href="#客户端与科大讯飞端建立稳定的TCP通信" class="headerlink" title="客户端与科大讯飞端建立稳定的TCP通信"></a>客户端与科大讯飞端建立稳定的TCP通信</h3><h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>三个终端控制台 </p>
 <ul>
 <li>终端1: 科大讯飞语音识别端</li>
 <li>终端2: 虚拟lcd驱动端</li>
@@ -1252,7 +1260,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">13.2k</span>
+                        class="white-color">13.4k</span>
             
             
             
