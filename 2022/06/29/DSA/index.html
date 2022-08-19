@@ -30,10 +30,10 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.1">
+<meta name="generator" content="Hexo 5.4.1"><link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 
 
 
@@ -407,14 +407,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    4 分
                 </div>
                 
 
@@ -435,42 +435,8 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h2><p>用python实现 原因:快速入门<br>在CPP中 甚至已经封装好了 晚点在C/CPP实现</p>
-<h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> time
-<span class="token keyword">class</span> <span class="token class-name">solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">pass</span>
-
-    <span class="token keyword">def</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">for</span> a <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1001</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">for</span> b <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1001</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">for</span> c <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1001</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                    <span class="token keyword">if</span> a<span class="token operator">**</span><span class="token number">2</span> <span class="token operator">+</span> b<span class="token operator">**</span><span class="token number">2</span> <span class="token operator">==</span> c<span class="token operator">**</span><span class="token number">2</span> <span class="token operator">and</span> a<span class="token operator">+</span>b<span class="token operator">+</span>c <span class="token operator">==</span> <span class="token number">1000</span><span class="token punctuation">:</span>
-                        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"a, b, c: %d, %d, %d"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">def</span> <span class="token function">func1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">for</span> a <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1001</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">for</span> b <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1001</span><span class="token operator">-</span>a<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                c <span class="token operator">=</span> <span class="token number">1000</span> <span class="token operator">-</span> a <span class="token operator">-</span> b
-                <span class="token keyword">if</span> a<span class="token operator">**</span><span class="token number">2</span> <span class="token operator">+</span> b<span class="token operator">**</span><span class="token number">2</span> <span class="token operator">==</span> c<span class="token operator">**</span><span class="token number">2</span><span class="token punctuation">:</span>
-                    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"a, b, c: %d, %d, %d"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-
-    <span class="token comment" spellcheck="true">### 没有优化的方法所需时间</span>
-    start1 <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    solution<span class="token punctuation">.</span>func<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    end1 <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-    <span class="token comment" spellcheck="true">### 优化的方法所需时间</span>
-    start2 <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    solution<span class="token punctuation">.</span>func1<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    end2 <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"done!"</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"it  cost %s s for func running "</span> <span class="token operator">%</span><span class="token punctuation">(</span>end1 <span class="token operator">-</span> start1<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"it  cost %s s for func1 running "</span> <span class="token operator">%</span><span class="token punctuation">(</span>end2 <span class="token operator">-</span> start2<span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>时间对比如下<br><img src="/medias/DA/example1.png"><br>可以看出小小的改动 时间相差居然高达千倍</p>
-<h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>算法的五大特性<br>输入: 算法具有0个或多个输入<br>输出: 算法至少有1个或多个输出<br>有穷性: 算法在有限的步骤之后会自动结束而不会无限循环，并且每一个步骤可以在可接受的时间内完成<br>确定性：算法中的每一步都有确定的含义，不会出现二义性<br>可行性：算法的每一步都是可行的，也就是说每一步都能够执行有限的次数完成</p>
+<h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><h4 id="计算机思维三大关-递归、分治、平衡"><a href="#计算机思维三大关-递归、分治、平衡" class="headerlink" title="计算机思维三大关 递归、分治、平衡"></a>计算机思维三大关 递归、分治、平衡</h4><p>eee 《浪潮之巅》作者吴军博士说<br>一个人过不了递归这关 计算机这碗饭基本吃不了 这是计算机思维的第一个<br>我的高度来看 他还是有点东西的 虽然貌似他的风评不是很好</p>
+<h5 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h5><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>算法的五大特性<br>输入: 算法具有0个或多个输入<br>输出: 算法至少有1个或多个输出<br>有穷性: 算法在有限的步骤之后会自动结束而不会无限循环，并且每一个步骤可以在可接受的时间内完成<br>确定性：算法中的每一步都有确定的含义，不会出现二义性<br>可行性：算法的每一步都是可行的，也就是说每一步都能够执行有限的次数完成</p>
 <p>时间比空间重要 可以使用空间换时间</p>
 <h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><p>时间维度：是指执行当前算法所消耗的时间，我们通常用「时间复杂度」来描述。<br>时间复杂度指的是执行一个算法所需要的时间。 这不一定是一个确切的时间，通常，我们需要知道的是一个算法在最坏情况下执行（比如输入规模无限大）所需要的时间，也就是寻找算法执行时间的一个渐进上界来作为算法的时间复杂度，通过比较多个算法的这个上界，可以知道哪个算法执行比较快，哪个比较慢。</p>
 <table>
