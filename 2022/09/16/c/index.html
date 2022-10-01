@@ -30,10 +30,10 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.1">
+<meta name="generator" content="Hexo 5.4.1"><link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 
 
 
@@ -407,7 +407,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    10
+                    298
                 </div>
                 
 
@@ -435,6 +435,32 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>记录c的一些基础知识</p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="内存5区"><a href="#内存5区" class="headerlink" title="内存5区"></a>内存5区</h3><ol>
+<li>代码区<br>存放可执行代码</li>
+<li>全局存储区<br>存放所有全局变量和静态变量</li>
+<li>文字常量区<br>常量字符串 </li>
+<li>堆区</li>
+<li>栈区<br>局部变量、函数形参，栈区变量的地址不可通过函数返回      </li>
+</ol>
+<h3 id="字符串定义的三种方式"><a href="#字符串定义的三种方式" class="headerlink" title="字符串定义的三种方式"></a>字符串定义的三种方式</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">char</span> names1<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'j'</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'k'</span><span class="token punctuation">,</span> <span class="token string">'\0'</span><span class="token punctuation">}</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//1</span>
+<span class="token keyword">char</span> names2<span class="token punctuation">[</span>size<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"xxx"</span><span class="token punctuation">;</span>                   <span class="token comment" spellcheck="true">//2         </span>
+<span class="token keyword">char</span> <span class="token operator">*</span> names3 <span class="token operator">=</span> <span class="token string">"xxx"</span><span class="token punctuation">;</span>                       <span class="token comment" spellcheck="true">//3</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>第一第二种 names1 names2是一个指向字符串首地址的常量指针 不可以修改<br>修改的方法 names1[i] = ‘x’;<br>         *(names1 + i) = ‘x’;<br>使用man函数 查看strncpy源码</p>
+<pre class="line-numbers language-C"><code class="language-C">char *strncpy(char *dest, const char *src, size_t n)
+{
+    size_t i;
+    for (i = 0; i &lt; n &amp;&amp; src[i] != '\0'; i++)
+        dest[i] = src[i];
+    for ( ; i &lt; n; i++)
+        dest[i] = '\0';
+    return dest;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>用的方法是 上面 names1[i] = ‘x’;</p>
+<p>印证了names1是一个指针<br>而且是一个不能修改的指针</p>
+<p>第三种 names3 一个栈区的指针 指向常量区的常量 可以再次赋值字符串常量<br>当是常量区不会自动释放</p>
+<p>第三种赋值的方法 是否可以使用str函数呢 答案是不可以的<br>因为str是修改</p>
 
                 
             </div>
@@ -1232,7 +1258,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">14.6k</span>
+                        class="white-color">14.9k</span>
             
             
             
