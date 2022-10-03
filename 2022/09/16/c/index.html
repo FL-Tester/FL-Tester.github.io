@@ -407,7 +407,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    312
+                    435
                 </div>
                 
 
@@ -437,9 +437,16 @@
                 <p>记录c的一些基础知识</p>
 <h2 id="内存5区"><a href="#内存5区" class="headerlink" title="内存5区"></a>内存5区</h2><h3 id="代码区"><a href="#代码区" class="headerlink" title="代码区"></a>代码区</h3><p>存放可执行代码</p>
 <h3 id="全局存储区"><a href="#全局存储区" class="headerlink" title="全局存储区"></a>全局存储区</h3><p>存放所有全局变量和静态变量</p>
-<h3 id="文字常量区"><a href="#文字常量区" class="headerlink" title="文字常量区"></a>文字常量区</h3><p>常量字符串 </p>
+<h3 id="文字常量区"><a href="#文字常量区" class="headerlink" title="文字常量区"></a>文字常量区</h3><p>常量字符串,不可以修改,程序结束后由系统释放。</p>
 <h3 id="堆区"><a href="#堆区" class="headerlink" title="堆区"></a>堆区</h3><p>一般由程序员分配释放，若不手动释放，程序结束时可能由操作系统回收。</p>
 <h3 id="栈区"><a href="#栈区" class="headerlink" title="栈区"></a>栈区</h3><p>局部变量、函数形参，栈区变量的地址不可通过函数返回     </p>
+<h2 id="段错误"><a href="#段错误" class="headerlink" title="段错误"></a>段错误</h2><h3 id="产生原因"><a href="#产生原因" class="headerlink" title="产生原因"></a>产生原因</h3><p>段错误是指访问的内存超出了系统给这个程序所设定的内存空间，例如访问了不存在的内存地址、访问了系统保护的内存地址、访问了只读的内存地址等等情况。</p>
+<ol>
+<li>访问不存在的内存地址</li>
+<li>访问系统保护的内存地址</li>
+<li>访问了只读的内存地址</li>
+<li>栈溢出</li>
+</ol>
 <h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="字符串定义的三种方式"><a href="#字符串定义的三种方式" class="headerlink" title="字符串定义的三种方式"></a>字符串定义的三种方式</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">char</span> names1<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'j'</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'k'</span><span class="token punctuation">,</span> <span class="token string">'\0'</span><span class="token punctuation">}</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//1 </span>
 <span class="token keyword">char</span> names2<span class="token punctuation">[</span>size<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"xxx"</span><span class="token punctuation">;</span>                   <span class="token comment" spellcheck="true">//2         </span>
 <span class="token keyword">char</span> <span class="token operator">*</span> names3 <span class="token operator">=</span> <span class="token string">"xxx"</span><span class="token punctuation">;</span>                       <span class="token comment" spellcheck="true">//3</span>
@@ -1256,7 +1263,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">14.9k</span>
+                        class="white-color">15k</span>
             
             
             
