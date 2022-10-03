@@ -30,10 +30,10 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.1">
+<meta name="generator" content="Hexo 5.4.1"><link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 
 
 
@@ -407,14 +407,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    435
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -455,9 +455,9 @@
 <pre class="line-numbers language-C"><code class="language-C">char *strncpy(char *dest, const char *src, size_t n)
 {
     size_t i;
-    for (i = 0; i < n && src[i] != '\0'; i++)
+    for (i = 0; i &lt; n &amp;&amp; src[i] != '\0'; i++)
         dest[i] = src[i];
-    for ( ; i < n; i++)
+    for ( ; i &lt; n; i++)
         dest[i] = '\0';
     return dest;
 }
@@ -466,6 +466,14 @@
 <p>第三种 names3 一个栈区的指针 指向常量区的常量 可以再次赋值字符串常量</p>
 <p>第三种赋值的方法 是否可以使用str函数呢 答案是不可以的<br><img src="/medias/C/charptr.jpg"></p>
 <p>因为指向的内存是不能修改的文字常量区<br>修改的方法<br>names3 = “yyyyy”; （指向新的常量区）</p>
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><p>void：声明函数无返回值或无参数，声明无类型指针，显式丢弃运算结果<br>char：字符型类型数据，属于整型数据的一种<br>int：整型数据，通常为编译器指定的机器字长<br>float：单精度浮点型数据，属于浮点数据的一种<br>double：双精度浮点型数据，属于浮点数据的一种</p>
+<h3 id="类型修饰符"><a href="#类型修饰符" class="headerlink" title="类型修饰符"></a>类型修饰符</h3><p>short：修饰int，短整型数据，可省略被修饰的int。<br>long：修饰int，长整形数据，可省略被修饰的int。<br>signed：修饰整型数据，有符号数据类型<br>unsigned：修饰整型数据，无符号数据类型</p>
+<h3 id="复杂类型关键字"><a href="#复杂类型关键字" class="headerlink" title="复杂类型关键字"></a>复杂类型关键字</h3><p>struct：结构体声明<br>union：共用体声明<br>enum：枚举声明<br>typedef：声明类型别名<br>sizeof：得到特定类型或特定类型变量的大小</p>
+<h3 id="存储级别关键字"><a href="#存储级别关键字" class="headerlink" title="存储级别关键字"></a>存储级别关键字</h3><p>auto：指定为自动变量，由编译器自动分配及释放。通常在栈上分配  默认不屑就是<br>static：指定为静态变量，分配在静态变量区，修饰函数时，指定函数作用域为文件内部<br>register：指定为寄存器变量，建议编译器将变量存储到寄存器中使用，也可以修饰函数形参，建议编译器通过寄存器而不是堆栈传递参数<br>extern：指定对应变量为外部变量，即在另外的目标文件中定义，可以认为是约定由另外文件声明的对象的一个“引用“<br>const：与volatile合称“cv特性”，指定变量不可被当前线程/进程改变（但有可能被系统或其他线程/进程改变）<br>volatile：与const合称“cv特性”，指定变量的值有可能会被系统或其他进程/线程改变，强制编译器每次从内存中取得该变量的值</p>
+<h3 id="流程控制关键字"><a href="#流程控制关键字" class="headerlink" title="流程控制关键字"></a>流程控制关键字</h3><p>return：用在函数体中，返回特定值（或者是void值，即不返回值）<br>continue：结束当前循环，开始下一轮循环<br>break：跳出当前循环或switch结构<br>goto：无条件跳转语句</p>
+<p>if：条件语句<br>else：条件语句否定分支（与if连用）<br>switch：开关语句（多重分支语句）<br>case：开关语句中的分支标记<br>default：开关语句中的“其他”分治，可选。</p>
+<p>for：for循环结构，for(1;2;3)4;的执行顺序为1-&gt;2-&gt;4-&gt;3-&gt;2…循环，其中2为循环条件<br>do：do循环结构，do 1 while(2);的执行顺序是1-&gt;2-&gt;1…循环，2为循环条件<br>while：while循环结构，while(1) 2;的执行顺序是1-&gt;2-&gt;1…循环，1为循环条件</p>
+<h3 id="变量的定义"><a href="#变量的定义" class="headerlink" title="变量的定义"></a>变量的定义</h3><p>存储类型 特征修饰 数据类型 变量名<br>列如： static volatile int value；</p>
 
                 
             </div>
@@ -1263,7 +1271,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">15k</span>
+                        class="white-color">15.7k</span>
             
             
             
