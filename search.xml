@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>linux</title>
+      <link href="/2022/10/11/LS/"/>
+      <url>/2022/10/11/LS/</url>
+      
+        <content type="html"><![CDATA[<h2 id="linux简介"><a href="#linux简介" class="headerlink" title="linux简介"></a>linux简介</h2><h2 id="linux系统编程"><a href="#linux系统编程" class="headerlink" title="linux系统编程"></a>linux系统编程</h2><h3 id="文件IO"><a href="#文件IO" class="headerlink" title="文件IO"></a>文件IO</h3><h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><h2 id="linux网络编程"><a href="#linux网络编程" class="headerlink" title="linux网络编程"></a>linux网络编程</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> EC-Basics </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> basics </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>通信协议</title>
       <link href="/2022/10/11/tx/"/>
       <url>/2022/10/11/tx/</url>
