@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="个人项目, FengLE">
-    <meta name="description" content="Other-Project">
+    <meta name="keywords" content="通信协议, FengLE">
+    <meta name="description" content="常用的通信协议">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>个人项目 | FengLE</title>
+    <title>通信协议 | FengLE</title>
     <link rel="icon" type="image/jpeg" href="/medias/logo.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -252,12 +252,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">个人项目</h1>
+                    <h1 class="description center-align post-title">通信协议</h1>
                 </div>
             </div>
         </div>
@@ -373,8 +373,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Other/">
-                                <span class="chip bg-color">Other</span>
+                            <a href="/tags/basics/">
+                                <span class="chip bg-color">basics</span>
                             </a>
                         
                     </div>
@@ -385,8 +385,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Other-Project/" class="post-category">
-                                Other-Project
+                            <a href="/categories/EC-Basics/" class="post-category">
+                                EC-Basics
                             </a>
                         
                     </div>
@@ -398,7 +398,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-06
+                    2022-10-11
                 </div>
                 
 
@@ -407,14 +407,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    379
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -434,41 +434,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="基于linux的语音识别项目-科大讯飞离线端"><a href="#基于linux的语音识别项目-科大讯飞离线端" class="headerlink" title="基于linux的语音识别项目(科大讯飞离线端)"></a>基于linux的语音识别项目(科大讯飞离线端)</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>该项目是在linux下科大讯飞离线包和虚拟LCD的基础上完成</p>
-<h4 id="涉及的知识"><a href="#涉及的知识" class="headerlink" title="涉及的知识:"></a>涉及的知识:</h4><ul>
-<li>linux基本操作/常用命令</li>
-<li>C语言基础</li>
-<li>TCP/IP(socket网络编程)</li>
-<li>多线程编程</li>
-<li>makefile</li>
-<li>linux简单驱动调用</li>
-</ul>
-
-<h4 id="工程文件结构"><a href="#工程文件结构" class="headerlink" title="工程文件结构"></a>工程文件结构</h4><p><img src="/project/gcwj.jpg"></p>
-<h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><p>本次开发是在windows下的vscode通过ssh插件远程开发<br>linux版本为ubuntu16.04 在VMware下运行<br>需要在虚拟机配置好网卡 alsa声音库等 保证tcp通信 和 声音播放以及录入<br>工程文件如上图 需要编写好makefile(工程较小 没用cmake) 以及配置好文件夹</p>
-<h3 id="配置模拟LCD驱动"><a href="#配置模拟LCD驱动" class="headerlink" title="配置模拟LCD驱动"></a>配置模拟LCD驱动</h3><p>模拟只是为了实现两个功能：<br>图像化界面的显示 —- lcd<br>触摸屏按钮的功能 —- 触摸屏</p>
-<h4 id="安装驱动"><a href="#安装驱动" class="headerlink" title="安装驱动"></a>安装驱动</h4><p><img src="/project/lcd1.jpg"></p>
-<ol>
-<li>进入lcd驱动文件夹 cd  mmap_drv  </li>
-<li>sudo make clean 和 sudo make 清除以及重新编译</li>
-<li>安装驱动 sudo insmod mmp_drv.ko</li>
-<li>进入模拟器目录 重复以上步骤</li>
-</ol>
-<h3 id="客户端与科大讯飞端建立稳定的TCP通信"><a href="#客户端与科大讯飞端建立稳定的TCP通信" class="headerlink" title="客户端与科大讯飞端建立稳定的TCP通信"></a>客户端与科大讯飞端建立稳定的TCP通信</h3><ol>
-<li>打开科大讯飞本地离线包端</li>
-<li>配置语言ID<br><img src="/project/kdxf1.jpg" alt="科大讯飞离线端开启成功"></li>
-<li>测试<br><img src="/project/kdxf2.jpg" alt="与科大讯飞通信成功"></li>
-</ol>
-<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>三个终端控制台 </p>
-<ul>
-<li>终端1: 科大讯飞语音识别端</li>
-<li>终端2: 虚拟lcd驱动端</li>
-<li>终端3: 主程序</li>
-</ul>
-
-<p><img src="/project/result1.jpg"></p>
-<p>通过语音控制客户端 功能有画图 视频播放 音乐等等<br><img src="/project/result2.jpg"></p>
-<h2 id="基于zigbee和mqtt的宿舍防火防盗-物联网"><a href="#基于zigbee和mqtt的宿舍防火防盗-物联网" class="headerlink" title="基于zigbee和mqtt的宿舍防火防盗(物联网)"></a>基于zigbee和mqtt的宿舍防火防盗(物联网)</h2><h2 id="基于linux和qt的聊天室"><a href="#基于linux和qt的聊天室" class="headerlink" title="基于linux和qt的聊天室"></a>基于linux和qt的聊天室</h2>
+                <h2 id="MCU常用通信协议"><a href="#MCU常用通信协议" class="headerlink" title="MCU常用通信协议"></a>MCU常用通信协议</h2><h3 id="URAT-amp-amp-RS232-amp-amp-RS485"><a href="#URAT-amp-amp-RS232-amp-amp-RS485" class="headerlink" title="URAT &amp;&amp; RS232 &amp;&amp; RS485"></a>URAT &amp;&amp; RS232 &amp;&amp; RS485</h3><h3 id="SPI"><a href="#SPI" class="headerlink" title="SPI"></a>SPI</h3><h3 id="I2C"><a href="#I2C" class="headerlink" title="I2C"></a>I2C</h3><p>总线协议 半双工<br>SDA：串行数据线<br>SCL：串行时钟线<br>用于近距离、低俗的芯片之间的通信；有两跟双向的信号线，一根数据线sda用于收发数据，一根scl用于通信双方时钟同步；I2C总线硬件结构简单，成本较低，因此在各个领域得到了广泛的应用。<br>多主机总线，连接IIC总线上的器件分为主机和从机 主机有权发起和结束一次通信 而从机只能被主机呼唤 每个链接到IIC总线上的期间都有唯一的地址(7bit) ，每个都可以成为主机和从机(同一时刻只能有一个主机)，总线上的器件增加和删除不影响其他器件正常工作；<br>发送器：在通信总线上发送数据的器件<br>接收器：在通信总线上接收数据的器件</p>
+<p>I2C总线存在三种状态：<br>1.空闲                SCL SDA 都为高电平<br>2.工作开始         此时SCL为高，而SDA出现下降沿<br>3.工作停止         此时SCL为高，SDA出现上升沿</p>
+<p>同步信号<br>SCL管理发送和接收数据<br>SCL 低电平 发送器工作 在此期间 SDA数据线的信号 允许变化<br>SLC 高电平 接收器工作<br>每次都是一位 循环八次就是一个字节<br>IIC 总线读写过程：<br>1.主机发送从机地址(7bit)+0(0是写)，所有从机都会接收到这个信息，但是只有地址匹配的从机反馈一个ACK(0)，并准备后面的接收工作，其它地址不对的从机，’早点洗洗睡吧，没咱啥事儿了’。<br>2.主机收到这个ACK，开始发送内存地址(8bit),所有地址匹配的从机(前面说过，一个主机可以匹配多个从机，只要那从机地址相同就行)接收这个8bit的内存地址，在吩咐下去之后，给主机一个反馈ACK(0)，’我OK啦’。<br>3.主机收到这个ACK，开始发送数据给从机，一个字节8bit，从机接收完成，给主机反馈ACK(0)。<br>4.主机收到这个ACK，是继续发送数据，还是发送终止信号，取决于数据是否发送完毕。<br>IIC 总线读写过程：<br>1.主机发送从机地址(7bit)+0(0是写)，这里为啥又是写呢？首先，主机得找到这些从机呀，当然要将从机地址写给各个从机了。所有从机都会接收到这个信息，但是只有地址匹配的从机反馈一个ACK(0)，并准备后面的接收工作，其它地址不对的从机，’诶……早点洗洗睡吧，又没咱啥事儿了’。<br>2.主机接收到这个ACK，开始发送8bit的内存地址给从机，’把这个地址找到，把货给我取出来备着，我一会儿要从你这里提货啊!’。从机找好这些地址后，反馈一个ACK(0)给主机。<br>3.主机收到这个ACK，再发一次从机地址(7bit)，只不过这次最后一个换成1(读)了。从机收到并返回ACK(0)。<br>4.主机收到这个ACK，做好了接收从机信息的准备，这个时候从机信息到了，主机接收完信息后不对从机发送反馈(毕竟人家是老大啊，老大拿好了还要给小喽喽打个报告？)直接发起终止信号，心疼从机3秒钟。<br>1<br>先确认通信的从机<br>2<br>如果是发送数据 直接发送 发送完毕后 从机返回一个ack-0<br>如果是接收数据 再发一次地址和最后一位改为1(接收/读取状态) 从机返回一个ack-0<br>主机收完信息后不用ack给从机<br>补充：I2C通信协议允许暂停功能，就是在主机传输数据时，从机需要进行一个优先级高的事件时，从机通过拉低SCL，迫使主机等待，等到处理完紧急事件后，从机释放SCL，主机继续传输。<br>中断？</p>
+<h2 id="物联网常用通信协议"><a href="#物联网常用通信协议" class="headerlink" title="物联网常用通信协议"></a>物联网常用通信协议</h2><h3 id="MQTT"><a href="#MQTT" class="headerlink" title="MQTT"></a>MQTT</h3><h3 id="ZigBee"><a href="#ZigBee" class="headerlink" title="ZigBee"></a>ZigBee</h3><h3 id="LoRa"><a href="#LoRa" class="headerlink" title="LoRa"></a>LoRa</h3><h3 id="NB-IoT"><a href="#NB-IoT" class="headerlink" title="NB-IoT"></a>NB-IoT</h3>
                 
             </div>
             <hr/>
@@ -494,7 +463,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog-fengle.com/2022/05/06/project/">https://blog-fengle.com/2022/05/06/project/</a>
+                    <a href="https://blog-fengle.com/2022/10/11/tx/">https://blog-fengle.com/2022/10/11/tx/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -532,8 +501,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Other/">
-                                    <span class="chip bg-color">Other</span>
+                                <a href="/tags/basics/">
+                                    <span class="chip bg-color">basics</span>
                                 </a>
                             
                         </div>
@@ -973,46 +942,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/06/03/ML/">
+                <a href="/2022/10/11/tx/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="机器学习(兴趣记录)">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="通信协议">
                         
-                        <span class="card-title">机器学习(兴趣记录)</span>
+                        <span class="card-title">通信协议</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            简单入门
+                            常用的通信协议
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Other-Project/" class="post-category">
-                                    Other-Project
+                            <a href="/categories/EC-Basics/" class="post-category">
+                                    EC-Basics
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Machine-Learning/">
-                        <span class="chip bg-color">Machine-Learning</span>
+                    <a href="/tags/basics/">
+                        <span class="chip bg-color">basics</span>
                     </a>
                     
                 </div>
@@ -1026,24 +997,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/04/27/QT/">
+                <a href="/2022/09/16/LD/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="QT">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="linux driver">
                         
-                        <span class="card-title">QT</span>
+                        <span class="card-title">linux driver</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            EC Basics
+                            史前巨坑
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-16
                             </span>
                         <span class="publish-author">
                             

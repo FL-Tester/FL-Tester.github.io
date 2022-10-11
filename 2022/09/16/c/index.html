@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="C, FengLE">
-    <meta name="description" content="C(linux / vs)">
+    <meta name="description" content="C (wsl / vscode)">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -407,7 +407,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.1k
                 </div>
                 
 
@@ -455,9 +455,9 @@
 <pre class="line-numbers language-C"><code class="language-C">char *strncpy(char *dest, const char *src, size_t n)
 {
     size_t i;
-    for (i = 0; i &lt; n &amp;&amp; src[i] != '\0'; i++)
+    for (i = 0; i < n && src[i] != '\0'; i++)
         dest[i] = src[i];
-    for ( ; i &lt; n; i++)
+    for ( ; i < n; i++)
         dest[i] = '\0';
     return dest;
 }
@@ -1271,7 +1271,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">15.7k</span>
+                        class="white-color">16.8k</span>
             
             
             
