@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="个人项目, FengLE">
-    <meta name="description" content="Other-Project">
+    <meta name="keywords" content="FengLE">
+    <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>个人项目 | FengLE</title>
+    <title>FengLE</title>
     <link rel="icon" type="image/jpeg" href="/medias/logo.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -252,12 +252,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">个人项目</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -371,25 +371,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/Other/">
-                                <span class="chip bg-color">Other</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Other-Project/" class="post-category">
-                                Other-Project
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -398,7 +385,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-06
+                    2022-10-15
                 </div>
                 
 
@@ -407,7 +394,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    395
+                    0
                 </div>
                 
 
@@ -434,41 +421,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="基于linux的语音识别项目-科大讯飞离线端"><a href="#基于linux的语音识别项目-科大讯飞离线端" class="headerlink" title="基于linux的语音识别项目(科大讯飞离线端)"></a>基于linux的语音识别项目(科大讯飞离线端)</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>该项目是在linux下科大讯飞离线包和虚拟LCD的基础上完成</p>
-<h4 id="涉及的知识"><a href="#涉及的知识" class="headerlink" title="涉及的知识:"></a>涉及的知识:</h4><ul>
-<li>linux基本操作/常用命令</li>
-<li>C语言基础</li>
-<li>TCP/IP(socket网络编程)</li>
-<li>多线程编程</li>
-<li>makefile</li>
-<li>linux简单驱动调用</li>
-</ul>
-
-<h4 id="工程文件结构"><a href="#工程文件结构" class="headerlink" title="工程文件结构"></a>工程文件结构</h4><p><img src="/project/gcwj.jpg"></p>
-<h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><p>本次开发是在windows下的vscode通过ssh插件远程开发<br>linux版本为ubuntu16.04 在VMware下运行<br>需要在虚拟机配置好网卡 alsa声音库等 保证tcp通信 和 声音播放以及录入<br>工程文件如上图 需要编写好makefile(工程较小 没用cmake) 以及配置好文件夹</p>
-<h3 id="配置模拟LCD驱动"><a href="#配置模拟LCD驱动" class="headerlink" title="配置模拟LCD驱动"></a>配置模拟LCD驱动</h3><p>模拟只是为了实现两个功能：<br>图像化界面的显示 —- lcd<br>触摸屏按钮的功能 —- 触摸屏</p>
-<h4 id="安装驱动"><a href="#安装驱动" class="headerlink" title="安装驱动"></a>安装驱动</h4><p><img src="/project/lcd1.jpg"></p>
-<ol>
-<li>进入lcd驱动文件夹 cd  mmap_drv  </li>
-<li>sudo make clean 和 sudo make 清除以及重新编译</li>
-<li>安装驱动 sudo insmod mmp_drv.ko</li>
-<li>进入模拟器目录 重复以上步骤</li>
-</ol>
-<h3 id="客户端与科大讯飞端建立稳定的TCP通信"><a href="#客户端与科大讯飞端建立稳定的TCP通信" class="headerlink" title="客户端与科大讯飞端建立稳定的TCP通信"></a>客户端与科大讯飞端建立稳定的TCP通信</h3><ol>
-<li>打开科大讯飞本地离线包端</li>
-<li>配置语言ID<br><img src="/project/kdxf1.jpg" alt="科大讯飞离线端开启成功"></li>
-<li>测试<br><img src="/project/kdxf2.jpg" alt="与科大讯飞通信成功"></li>
-</ol>
-<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>三个进程</p>
-<ul>
-<li>终端1: 科大讯飞语音识别端</li>
-<li>终端2: 虚拟lcd驱动端</li>
-<li>终端3: 主程序</li>
-</ul>
-
-<p><img src="/project/result1.jpg"></p>
-<p>通过语音控制客户端 功能有画图 视频播放 音乐等等<br><img src="/project/result2.jpg"></p>
-<h2 id="基于linux和qt的聊天室"><a href="#基于linux和qt的聊天室" class="headerlink" title="基于linux和qt的聊天室"></a>基于linux和qt的聊天室</h2><h2 id="基于stm32的平衡小车-PID-amp-amp-freertos"><a href="#基于stm32的平衡小车-PID-amp-amp-freertos" class="headerlink" title="基于stm32的平衡小车(PID &amp;&amp; freertos)"></a>基于stm32的平衡小车(PID &amp;&amp; freertos)</h2><h2 id="基于zigbee和mqtt的宿舍防火防盗-物联网"><a href="#基于zigbee和mqtt的宿舍防火防盗-物联网" class="headerlink" title="基于zigbee和mqtt的宿舍防火防盗(物联网)"></a>基于zigbee和mqtt的宿舍防火防盗(物联网)</h2><h2 id="基于imx6ull的视频监控"><a href="#基于imx6ull的视频监控" class="headerlink" title="基于imx6ull的视频监控"></a>基于imx6ull的视频监控</h2>
+                
                 
             </div>
             <hr/>
@@ -484,7 +437,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">FengLE</a>
+                    <a href="/about" rel="external nofollow noreferrer">Feng LE</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -494,7 +447,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog-fengle.com/2022/05/06/project/">https://blog-fengle.com/2022/05/06/project/</a>
+                    <a href="https://blog-fengle.com/2022/10/15/cmake/">https://blog-fengle.com/2022/10/15/cmake/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -507,7 +460,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">FengLE</a>
+                    <a href="/about" target="_blank">Feng LE</a>
                     !
                 </span>
             </div>
@@ -531,11 +484,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/Other/">
-                                    <span class="chip bg-color">Other</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -977,24 +926,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/06/03/ML/">
+                <a href="/2022/10/20/cd/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="机器学习(兴趣记录)">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="课设">
                         
-                        <span class="card-title">机器学习(兴趣记录)</span>
+                        <span class="card-title">课设</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            简单入门
+                            记录、理解碰过的课设
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-03
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-20
                         </span>
                         <span class="publish-author">
                             
@@ -1011,8 +960,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Machine-Learning/">
-                        <span class="chip bg-color">Machine-Learning</span>
+                    <a href="/tags/Other/">
+                        <span class="chip bg-color">Other</span>
                     </a>
                     
                 </div>
@@ -1026,24 +975,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/04/27/QT/">
+                <a href="/2022/10/15/freertos/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="QT">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="浅尝FreeRTOS">
                         
-                        <span class="card-title">QT</span>
+                        <span class="card-title">浅尝FreeRTOS</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            EC Basics
+                            使用ESP32浅尝FreeRTOS
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-15
                             </span>
                         <span class="publish-author">
                             
@@ -1060,8 +1009,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/basics/">
-                        <span class="chip bg-color">basics</span>
+                    <a href="/tags/FreeRTOS/">
+                        <span class="chip bg-color">FreeRTOS</span>
                     </a>
                     
                 </div>
