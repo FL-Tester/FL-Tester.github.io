@@ -407,14 +407,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    9 分
                 </div>
                 
 
@@ -807,7 +807,41 @@ uchar <span class="token function">Single_Read_MPU6050</span><span class="token 
 <p>完成以上步骤 协调器的串口数据如下<br><img src="/medias/cd/zigbeeresult.jpg"></p>
 <h5 id="原理、数据处理、动作捕捉"><a href="#原理、数据处理、动作捕捉" class="headerlink" title="原理、数据处理、动作捕捉"></a>原理、数据处理、动作捕捉</h5><p>参考如下：<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/20082486">https://zhuanlan.zhihu.com/p/20082486</a><br>(<a target="_blank" rel="noopener" href="https://oshwhub.com/Scarling/shen-tai-dian-sai-jian-yi-dong-zuo-bu-zhuo-shou-tao">https://oshwhub.com/Scarling/shen-tai-dian-sai-jian-yi-dong-zuo-bu-zhuo-shou-tao</a>)</p>
 <p>源码链接：<br><a target="_blank" rel="noopener" href="https://github.com/FL-Tester/Course-Design/tree/main/%E6%97%A0%E7%BA%BF%E5%8D%95%E7%89%87%E6%9C%BA/ZStack-CC2530-2.5.1a-MPU6050">https://github.com/FL-Tester/Course-Design/tree/main/%E6%97%A0%E7%BA%BF%E5%8D%95%E7%89%87%E6%9C%BA/ZStack-CC2530-2.5.1a-MPU6050</a></p>
+<h2 id="基于linux的语音识别项目-科大讯飞离线端"><a href="#基于linux的语音识别项目-科大讯飞离线端" class="headerlink" title="基于linux的语音识别项目(科大讯飞离线端)"></a>基于linux的语音识别项目(科大讯飞离线端)</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>该项目是在linux下科大讯飞离线包和虚拟LCD的基础上完成</p>
+<h4 id="涉及的知识"><a href="#涉及的知识" class="headerlink" title="涉及的知识:"></a>涉及的知识:</h4><ul>
+<li>linux基本操作/常用命令</li>
+<li>C语言基础</li>
+<li>TCP/IP(socket网络编程)</li>
+<li>多线程编程</li>
+<li>makefile</li>
+<li>linux简单驱动调用</li>
+</ul>
 
+<h4 id="工程文件结构"><a href="#工程文件结构" class="headerlink" title="工程文件结构"></a>工程文件结构</h4><p><img src="/project/gcwj.jpg"></p>
+<h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><p>本次开发是在windows下的vscode通过ssh插件远程开发<br>linux版本为ubuntu16.04 在VMware下运行<br>需要在虚拟机配置好网卡 alsa声音库等 保证tcp通信 和 声音播放以及录入<br>工程文件如上图 需要编写好makefile(工程较小 没用cmake) 以及配置好文件夹</p>
+<h3 id="配置模拟LCD驱动"><a href="#配置模拟LCD驱动" class="headerlink" title="配置模拟LCD驱动"></a>配置模拟LCD驱动</h3><p>模拟只是为了实现两个功能：<br>图像化界面的显示 —- lcd<br>触摸屏按钮的功能 —- 触摸屏</p>
+<h4 id="安装驱动"><a href="#安装驱动" class="headerlink" title="安装驱动"></a>安装驱动</h4><p><img src="/project/lcd1.jpg"></p>
+<ol>
+<li>进入lcd驱动文件夹 cd  mmap_drv  </li>
+<li>sudo make clean 和 sudo make 清除以及重新编译</li>
+<li>安装驱动 sudo insmod mmp_drv.ko</li>
+<li>进入模拟器目录 重复以上步骤</li>
+</ol>
+<h3 id="客户端与科大讯飞端建立稳定的TCP通信"><a href="#客户端与科大讯飞端建立稳定的TCP通信" class="headerlink" title="客户端与科大讯飞端建立稳定的TCP通信"></a>客户端与科大讯飞端建立稳定的TCP通信</h3><ol>
+<li>打开科大讯飞本地离线包端</li>
+<li>配置语言ID<br><img src="/project/kdxf1.jpg" alt="科大讯飞离线端开启成功"></li>
+<li>测试<br><img src="/project/kdxf2.jpg" alt="与科大讯飞通信成功"></li>
+</ol>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>三个进程</p>
+<ul>
+<li>终端1: 科大讯飞语音识别端</li>
+<li>终端2: 虚拟lcd驱动端</li>
+<li>终端3: 主程序</li>
+</ul>
+
+<p><img src="/project/result1.jpg"></p>
+<p>通过语音控制客户端 功能有画图 视频播放 音乐等等<br><img src="/project/result2.jpg"></p>
+<h2 id="基于zigbee和mqtt的宿舍防火防盗-物联网"><a href="#基于zigbee和mqtt的宿舍防火防盗-物联网" class="headerlink" title="基于zigbee和mqtt的宿舍防火防盗(物联网)"></a>基于zigbee和mqtt的宿舍防火防盗(物联网)</h2>
                 
             </div>
             <hr/>
@@ -1367,19 +1401,19 @@ uchar <span class="token function">Single_Read_MPU6050</span><span class="token 
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/15/cmake/">
+                <a href="/2022/10/15/tool/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="通信协议">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">通信协议</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            一些工具
                         
                     </div>
                     <div class="publish-info">
@@ -1388,11 +1422,23 @@ uchar <span class="token function">Single_Read_MPU6050</span><span class="token 
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Feng LE
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/EC-Basics/" class="post-category">
+                                    EC-Basics
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/basics/">
+                        <span class="chip bg-color">basics</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1594,7 +1640,7 @@ uchar <span class="token function">Single_Read_MPU6050</span><span class="token 
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">19.6k</span>
+                        class="white-color">19.9k</span>
             
             
             
