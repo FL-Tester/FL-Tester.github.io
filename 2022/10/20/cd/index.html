@@ -407,14 +407,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    8 分
                 </div>
                 
 
@@ -740,9 +740,7 @@ uchar <span class="token function">Single_Read_MPU6050</span><span class="token 
   <span class="token keyword">switch</span> <span class="token punctuation">(</span> pkt<span class="token operator">-></span>clusterId <span class="token punctuation">)</span>
   <span class="token punctuation">{</span>
     <span class="token keyword">case</span> SAMPLEAPP_PERIODIC_CLUSTERID<span class="token punctuation">:</span>
-      <span class="token keyword">break</span><span class="token punctuation">;</span>
-      
-    
+      <span class="token keyword">break</span><span class="token punctuation">;</span>                                           
     <span class="token keyword">case</span> SAMPLEAPP_POINT_TO_POINT_CLUSTERID<span class="token punctuation">:</span>
       <span class="token keyword">if</span><span class="token punctuation">(</span>pkt<span class="token operator">-></span>cmd<span class="token punctuation">.</span>Data<span class="token punctuation">[</span><span class="token number">36</span><span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">'X'</span><span class="token punctuation">)</span>
       <span class="token punctuation">{</span>
@@ -793,7 +791,7 @@ uchar <span class="token function">Single_Read_MPU6050</span><span class="token 
       <span class="token keyword">break</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="第二步-1"><a href="#第二步-1" class="headerlink" title="第二步"></a>第二步</h5><p>烧录终端节点时 在点播发送函数 SampleApp_SendPointToPointMessage()<br>设置相对于的id</p>
 <pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">AF_DataRequest</span><span class="token punctuation">(</span> <span class="token operator">&amp;</span>Point_To_Point_DstAddr<span class="token punctuation">,</span>
                        <span class="token operator">&amp;</span>SampleApp_epDesc<span class="token punctuation">,</span>
@@ -808,6 +806,7 @@ uchar <span class="token function">Single_Read_MPU6050</span><span class="token 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>完成以上步骤 协调器的串口数据如下<br><img src="/medias/cd/zigbeeresult.jpg"></p>
 <h5 id="原理、数据处理、动作捕捉"><a href="#原理、数据处理、动作捕捉" class="headerlink" title="原理、数据处理、动作捕捉"></a>原理、数据处理、动作捕捉</h5><p>参考如下：<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/20082486">https://zhuanlan.zhihu.com/p/20082486</a><br>(<a target="_blank" rel="noopener" href="https://oshwhub.com/Scarling/shen-tai-dian-sai-jian-yi-dong-zuo-bu-zhuo-shou-tao">https://oshwhub.com/Scarling/shen-tai-dian-sai-jian-yi-dong-zuo-bu-zhuo-shou-tao</a>)</p>
+<p>源码链接：<br><a target="_blank" rel="noopener" href="https://github.com/FL-Tester/Course-Design/tree/main/%E6%97%A0%E7%BA%BF%E5%8D%95%E7%89%87%E6%9C%BA/ZStack-CC2530-2.5.1a-MPU6050">https://github.com/FL-Tester/Course-Design/tree/main/%E6%97%A0%E7%BA%BF%E5%8D%95%E7%89%87%E6%9C%BA/ZStack-CC2530-2.5.1a-MPU6050</a></p>
 
                 
             </div>
@@ -1595,7 +1594,7 @@ uchar <span class="token function">Single_Read_MPU6050</span><span class="token 
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">19.5k</span>
+                        class="white-color">19.6k</span>
             
             
             
