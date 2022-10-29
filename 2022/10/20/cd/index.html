@@ -407,14 +407,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    10 分
                 </div>
                 
 
@@ -437,7 +437,7 @@
                 <h2 id="无线单片机课程设计"><a href="#无线单片机课程设计" class="headerlink" title="无线单片机课程设计"></a>无线单片机课程设计</h2><h3 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h3><p>(1)至少采用以下传感器其中1种: a.超声波、b.加速度、c.压力。<br>(2)点对点传输，采用LCD或数码管显示传感数据，或者通过串口传输到PC端，由串口调试助手完成。定时采样并刷新显示。<br>(3)设计报告中要清楚描述所用传感器的工作原理以及软硬件设计的具体方案。必须设计清晰、合理的程序流程图。解释关键代码段。<br>(4)全部程序代码作为附录，并要有必要的注释。<br>(5)优良等级的要求：实现多点的无线网络传输，要有自定义数据帧格式(含加密和纠错)。</p>
 <h3 id="选题"><a href="#选题" class="headerlink" title="选题"></a>选题</h3><p>多点动作捕捉 （加速度传感器）</p>
 <h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>此处参考了大佬的代码</p>
-<h4 id="mpu6050适配cc2530的zigbee协议栈"><a href="#mpu6050适配cc2530的zigbee协议栈" class="headerlink" title="mpu6050适配cc2530的zigbee协议栈"></a>mpu6050适配cc2530的zigbee协议栈</h4><p>mpu6050 头文件</p>
+<h4 id="mpu6050适配cc2530-c51"><a href="#mpu6050适配cc2530-c51" class="headerlink" title="mpu6050适配cc2530(c51)"></a>mpu6050适配cc2530(c51)</h4><p>mpu6050 头文件</p>
 <pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">ifndef</span> _MPU6050_H_</span>
 <span class="token macro property">#<span class="token directive keyword">define</span> _MPU6050_H_</span>
 
@@ -792,7 +792,7 @@ uchar <span class="token function">Single_Read_MPU6050</span><span class="token 
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="第二步-1"><a href="#第二步-1" class="headerlink" title="第二步"></a>第二步</h5><p>烧录终端节点时 在点播发送函数 SampleApp_SendPointToPointMessage()<br>设置相对于的id</p>
+<h5 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h5><p>烧录终端节点时 在点播发送函数 SampleApp_SendPointToPointMessage()<br>设置相对于的id</p>
 <pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">AF_DataRequest</span><span class="token punctuation">(</span> <span class="token operator">&amp;</span>Point_To_Point_DstAddr<span class="token punctuation">,</span>
                        <span class="token operator">&amp;</span>SampleApp_epDesc<span class="token punctuation">,</span>
                        <span class="token comment" spellcheck="true">//SAMPLEAPP_POINT_TO_POINT_CLUSTERID,  //节点1</span>
@@ -805,8 +805,7 @@ uchar <span class="token function">Single_Read_MPU6050</span><span class="token 
 <span class="token comment" spellcheck="true">//其余省略 </span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>完成以上步骤 协调器的串口数据如下<br><img src="/medias/cd/zigbeeresult.jpg"></p>
-<h5 id="原理、数据处理、动作捕捉"><a href="#原理、数据处理、动作捕捉" class="headerlink" title="原理、数据处理、动作捕捉"></a>原理、数据处理、动作捕捉</h5><p>参考如下：<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/20082486">https://zhuanlan.zhihu.com/p/20082486</a><br>(<a target="_blank" rel="noopener" href="https://oshwhub.com/Scarling/shen-tai-dian-sai-jian-yi-dong-zuo-bu-zhuo-shou-tao">https://oshwhub.com/Scarling/shen-tai-dian-sai-jian-yi-dong-zuo-bu-zhuo-shou-tao</a>)</p>
-<p>源码链接：<br><a target="_blank" rel="noopener" href="https://github.com/FL-Tester/Course-Design/tree/main/%E6%97%A0%E7%BA%BF%E5%8D%95%E7%89%87%E6%9C%BA/ZStack-CC2530-2.5.1a-MPU6050">https://github.com/FL-Tester/Course-Design/tree/main/%E6%97%A0%E7%BA%BF%E5%8D%95%E7%89%87%E6%9C%BA/ZStack-CC2530-2.5.1a-MPU6050</a></p>
+<h5 id="原理、数据处理、动作捕捉"><a href="#原理、数据处理、动作捕捉" class="headerlink" title="原理、数据处理、动作捕捉"></a>原理、数据处理、动作捕捉</h5><p>参考如下：<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/20082486">https://zhuanlan.zhihu.com/p/20082486</a><br>(<a target="_blank" rel="noopener" href="https://oshwhub.com/Scarling/shen-tai-dian-sai-jian-yi-dong-zuo-bu-zhuo-shou-tao">https://oshwhub.com/Scarling/shen-tai-dian-sai-jian-yi-dong-zuo-bu-zhuo-shou-tao</a>)<br>源码链接：<br><a target="_blank" rel="noopener" href="https://github.com/FL-Tester/Course-Design/tree/main/%E6%97%A0%E7%BA%BF%E5%8D%95%E7%89%87%E6%9C%BA/ZStack-CC2530-2.5.1a-MPU6050">https://github.com/FL-Tester/Course-Design/tree/main/%E6%97%A0%E7%BA%BF%E5%8D%95%E7%89%87%E6%9C%BA/ZStack-CC2530-2.5.1a-MPU6050</a></p>
 <h2 id="基于linux的语音识别项目-科大讯飞离线端"><a href="#基于linux的语音识别项目-科大讯飞离线端" class="headerlink" title="基于linux的语音识别项目(科大讯飞离线端)"></a>基于linux的语音识别项目(科大讯飞离线端)</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>该项目是在linux下科大讯飞离线包和虚拟LCD的基础上完成</p>
 <h4 id="涉及的知识"><a href="#涉及的知识" class="headerlink" title="涉及的知识:"></a>涉及的知识:</h4><ul>
 <li>linux基本操作/常用命令</li>
@@ -841,7 +840,24 @@ uchar <span class="token function">Single_Read_MPU6050</span><span class="token 
 
 <p><img src="/project/result1.jpg"></p>
 <p>通过语音控制客户端 功能有画图 视频播放 音乐等等<br><img src="/project/result2.jpg"></p>
-<h2 id="基于zigbee和mqtt的宿舍防火防盗-物联网"><a href="#基于zigbee和mqtt的宿舍防火防盗-物联网" class="headerlink" title="基于zigbee和mqtt的宿舍防火防盗(物联网)"></a>基于zigbee和mqtt的宿舍防火防盗(物联网)</h2><h2 id="校园打卡"><a href="#校园打卡" class="headerlink" title="校园打卡"></a>校园打卡</h2><h2 id="毕设"><a href="#毕设" class="headerlink" title="毕设"></a>毕设</h2>
+<h2 id="基于zigbee和mqtt的宿舍防火防盗-物联网"><a href="#基于zigbee和mqtt的宿舍防火防盗-物联网" class="headerlink" title="基于zigbee和mqtt的宿舍防火防盗(物联网)"></a>基于zigbee和mqtt的宿舍防火防盗(物联网)</h2><h2 id="校园打卡"><a href="#校园打卡" class="headerlink" title="校园打卡"></a>校园打卡</h2><h3 id="要求-1"><a href="#要求-1" class="headerlink" title="要求"></a>要求</h3><h4 id="分组与选题"><a href="#分组与选题" class="headerlink" title="分组与选题"></a>分组与选题</h4><p>自由组合，8-10人一组，每组推选组长1人；可以在下面的参考选题中自由选题或自拟题目。</p>
+<h4 id="选题-1"><a href="#选题-1" class="headerlink" title="选题"></a>选题</h4><p>基于校园卡的学生考勤系统<br>（1）任务设计制作<br>    基于校园卡的学生考勤系统。<br>（2）要求<br>    1. 以校园卡（RFID卡）作为身份识别卡，刷卡进行签到。<br>    2. 刷卡信息可以传输至WEB服务器（传输方式自拟，可以是有线的，也可以是无线的）进行验证；验证结果可以返回至客服端进行显示（验证成功或失败）。<br>    3. 编写B/S结构的应用程序，可以通过网页浏览器实时查看考勤信息。<br>    4. 电路制作时，必须注明本组成员学号与姓名。</p>
+<h3 id="选题修改"><a href="#选题修改" class="headerlink" title="选题修改"></a>选题修改</h3><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>基于校园卡的学生考勤系统（不变）</p>
+<h5 id="要求-2"><a href="#要求-2" class="headerlink" title="要求"></a>要求</h5><ol>
+<li>以校园卡（RFID卡）作为身份识别卡，刷卡进行签到。</li>
+<li>刷卡信息可以传输至私有服务器数据库和客户端（gec6818）。<br> 板子通过sql插入传到数据库或者tcp到qt小型数据库中</li>
+<li>在开发板屏幕或者上位机（可以是开发板qt程序中）中实时查看考勤信息。<br> qt开发/纯c画图ui</li>
+<li>电路制作时，必须注明本组成员学号与姓名。</li>
+</ol>
+<h3 id="主控"><a href="#主控" class="headerlink" title="主控"></a>主控</h3><p>ESP32 (Xtensa® 双核32 位LX6 微处理器)<br>gec6818开发板 (Cortex-A8 S5PV210)</p>
+<h3 id="外设"><a href="#外设" class="headerlink" title="外设"></a>外设</h3><p>nfc模块:RC522<br>屏幕: 0.96寸OLED屏幕(SSD1306) 2.4寸ST7789屏幕</p>
+<h3 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h3><ol>
+<li>esp32裸机开发(IDE: ESP-IDF &amp; VSCODE)</li>
+<li>FreeRTOS</li>
+<li>LVGL (ui)</li>
+<li>通信协议: SPI I2C UART</li>
+</ol>
+<h3 id="电路设计和打板"><a href="#电路设计和打板" class="headerlink" title="电路设计和打板"></a>电路设计和打板</h3><h2 id="毕设"><a href="#毕设" class="headerlink" title="毕设"></a>毕设</h2>
                 
             </div>
             <hr/>
@@ -1640,7 +1656,7 @@ uchar <span class="token function">Single_Read_MPU6050</span><span class="token 
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">19.8k</span>
+                        class="white-color">20.2k</span>
             
             
             
