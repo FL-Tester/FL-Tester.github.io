@@ -29,31 +29,6 @@
     
     
     <entry>
-      <title>工具语言</title>
-      <link href="/2022/10/15/tool/"/>
-      <url>/2022/10/15/tool/</url>
-      
-        <content type="html"><![CDATA[<h2 id="gcc"><a href="#gcc" class="headerlink" title="gcc"></a>gcc</h2><h2 id="make"><a href="#make" class="headerlink" title="make"></a>make</h2><h2 id="cmake"><a href="#cmake" class="headerlink" title="cmake"></a>cmake</h2><h2 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h2>]]></content>
-      
-      
-      <categories>
-          
-          <category> EC-Basics </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> basics </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>浅尝FreeRTOS</title>
       <link href="/2022/10/15/freertos/"/>
       <url>/2022/10/15/freertos/</url>
