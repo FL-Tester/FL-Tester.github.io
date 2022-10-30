@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="SQL, FengLE">
-    <meta name="description" content="基础学习">
+    <meta name="description" content="基础学习 踩坑记录">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -68,7 +68,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags/basics" class="waves-effect waves-light">
+    <a href="/tags/" class="waves-effect waves-light">
       
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
@@ -79,7 +79,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/categories/CS-Basics" class="waves-effect waves-light">
+    <a href="/categories/" class="waves-effect waves-light">
       
       <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
       
@@ -90,7 +90,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/archives" class="waves-effect waves-light">
+    <a href="/archives/" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
@@ -170,7 +170,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/tags/basics" class="waves-effect waves-light">
+		<a href="/tags/" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-tags"></i>
 			
@@ -181,7 +181,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/categories/CS-Basics" class="waves-effect waves-light">
+		<a href="/categories/" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-bookmark"></i>
 			
@@ -192,7 +192,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/archives" class="waves-effect waves-light">
+		<a href="/archives/" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
@@ -407,14 +407,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    0
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    1 分
                 </div>
                 
 
@@ -434,547 +434,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h2><h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><h4 id="MySQL概述"><a href="#MySQL概述" class="headerlink" title="MySQL概述"></a>MySQL概述</h4><p>通过sql操作数据库管理系统<br>数据库管理系统操作数据库/数据库中的数据</p>
-<p>数据库：数据存储的仓库<br>数据库管理系统：操纵和管理数据库的大型软件<br>SQL：操作关系型数据库的编程语言，是一套标准</p>
-<p>关系型数据库(RDBMS)<br>建立在关系模型的基础上，由多张相互连接的二维表组成的数据库<br>![[关系型数据库.png]]</p>
-<p>![[数据库服务器管理系统数据库.png]]<br>通过客户端连接数据库管理系统(DBMS)<br>使用SQL语句 通过数据库管理系统 操作数据库<br>一个数据服务器中 可以创建多个数据库<br>一个数据库中 可以创建多个表格(二维表)</p>
-<h4 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h4><h4 id="SQL分类"><a href="#SQL分类" class="headerlink" title="SQL分类"></a>SQL分类</h4><h5 id="DDL"><a href="#DDL" class="headerlink" title="DDL"></a>DDL</h5><p>data definition language·<br>数据定义语言 用来定义数据库对象</p>
-<pre class="line-numbers language-mysql"><code class="language-mysql">## 在数据库内 创建表
-create table database_name_user(
-    name varchar(10) COMMENT 'name', 
-    ht int COMMENT 'ht', 
-    mq int COMMENT 'gas'
-)COMMENT 'user_table';
-
-
-
-## 显示数据库内的表
-show tables;
-
-## 参看指定表结构 
-desc database_name_user;
-
-show create table database_name_user;
-
-## show create table database_name_user; 结果
-CREATE TABLE `database_name_user` (
-  `name` varchar(10) DEFAULT NULL COMMENT 'name',
-  `ht` int(11) DEFAULT NULL COMMENT 'ht',
-  `mq` int(11) DEFAULT NULL COMMENT 'gas'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='user_table'
-
-## 数据类型
-数值类型
-
-字符串类型
-
-
-
-create table database_name_user(
-    name varchar(10) COMMENT '名字', 
-    ht smallint COMMENT '温湿度', 
-    mq smallint COMMENT '气体',
-    score DOUBLE COMMENT '分数'
-)COMMENT 'user_table';
-
-
-
-create table emp_table(
-    id int comment '编号',
-    name varchar(10) comment '姓名',
-    age TINYINT UNSIGNED,
-    idcard  char(18) comment '身份证号',
-    entrydata  date comment '入职时间'
-) comment '员工信息表';
-
-
-
-show tables;
-
-desc emp_table;
-
-
-## 表结构的修改
-### 添加字段
-alter table emp_table  add add_char varchar(20);
-desc emp_table;
-
-### 删除
-alter table emp_table drop ziduanname;
-
-
-### 修改
-# 修改字段的数据类型
-alter table emp_table modify add_char varchar(5);
-desc emp_table;
-
-## 建议直接用change
-alter table emp_table change add_char add_rename char;
-desc emp_table;
-# 修改字段名和字段类型
-### 修改表名
-
-alter table emp_table rename to emp_rename;
-
-desc emp_table;
-desc emp_rename;
-
-
-## 删除表
-## 如果存在删除 不存在也不报错
-drop table if exists emp_table;  
-
-## 删除表 重新建表 但是里面数据没有了 留下表结构
-create table emp_table(
-    id int comment '编号',
-    name varchar(10) comment '姓名',
-    age TINYINT UNSIGNED,
-    idcard  char(18) comment '身份证号',
-    entrydata  date comment '入职时间'
-) comment '员工信息表';
-
-truncate table emp_table;
-
-desc emp_table;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>总结<br>![[DDL总结.png]]</p>
-<h5 id="DML"><a href="#DML" class="headerlink" title="DML"></a>DML</h5><p>manipulateion<br>数据操作语言 用来对数据库表中的数据进行增删改<br>插入<br>修改</p>
-<pre class="line-numbers language-mysql"><code class="language-mysql">-- 给指定字段添加数据
-insert  into table_name () values ();
-一一对应
--- 给全部字段添加数据
-insert into table_name values ();
-
--- 批量添加数据 
--- 批量指定
-insert  into table_name () values (),(),();
-
--- 批量全部
-insert  into table_name  values (),(),();
-
-insert into emp_table (id, name , age) values (123,'fengle', 99); 
-
-desc emp_table;
-
-select * from emp_table;
-
-insert into emp_table values (123,'fengle', 99, '441223200704010234', '2022-01-01');
--- 添加多条 每条记录之间 添加逗号即可
-
--- 修改数据 
-update table set 字段1 = 字段名  where id = 1
-
-update emp_table set name = 'fengle' where idcard = 441223200704010234;
-
-
-update emp_table set name = 'fengkai', age = 89 where idcard = 441223200704010234;
-
--- 修改一个属性的所有数据
-
-update emp_table set entrydata = '2022-06-01';
--- 没有where条件 会更新整张表该属性的记录
-
-
--- 删除数据
-delete from emp_table where age = 89;
-
--- 删除所有数据  表结构还在
-delete from emp_table;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>总结<br>添加数据<br>insert into table_name  xxxx values xxxx;</p>
-<p>修改数据<br>update table_name xxxx values;</p>
-<p>删除数据<br>delete from tabe_name where condition;</p>
-<h5 id="DQL"><a href="#DQL" class="headerlink" title="DQL"></a>DQL</h5><p>query<br>数据查询语言 用来查询数据库表中的数据<br>![[条件查询运算符.png]]<br>![[聚合函数.png]]</p>
-<pre class="line-numbers language-mysql"><code class="language-mysql">select * from emp_table;
-DQL 语法
-SELECT
-            字段列表
-FROM
-            表名列表        
-WHERE
-            条件列表    
-GROUP BY
-            分组后条件列表    
-HAVING 
-            排序字段列表    
-ORDER BY
-            排序字段列表    
-LIMIT        
-            分页参数
-基本查询
-条件查询
-聚合函数
-分组查询
-拍讯查询
-分页查询
-
--- 查询多个字段
-select 字段1, 字段2,·····, from table_name;
-select * from table_name;
--- 设置别名  查询结果显示的字段名称自定义
-select 字段1 as 别名1, 字段2 as 别名2,·····, from table_name;
--- 去除重复记录 
-+ distinct 
-select distinct 字段列表 from table_name;
-select * from emp_table; 
--- 查询emp_table中 字段name age 的所有字段
-select  name, age from emp_table;
--- 查询emp_table中 字段name的所有字段 重复不返回
-select distinct name from emp_table;
--- 查询emp_table中 字段name age 的所有字段 重复不返回
-select distinct name, age from emp_table;
-如果name 相同 age有不同  select distinct name  select distinct name, age 放回结果有不同
-select 
-    distinct name as '姓名', age as '年龄'
-from     
-    emp_table
--- condition
-where 
-    name = 'fengle';
-所有为 * 
-开发当中 尽量不要写* 
-
--- 条件查询 WHERE
--- 条件
-比较运算符
-select 
-    distinct name as '姓名', age as '年龄'
-from     
-    emp_table
--- condition
-where 
-    age = 89;
--- 其它运算符 同理
-查询没有改字段的信息的
-select 
-    *
-from     
-    emp_table
--- condition
-where 
-    idcard is null;
--- 这里是 IS 不是 = 
--- 范围查询
-select 
-    *
-from     
-    emp_table
--- condition
-where 
-    age >= 89 && age <= 99 && name = 'fengle';
-    
-where 
-    age 89 and 99 && name = 'fengle';
---  between 闭区间
--- condition
-where 
-    age >= 89 && age <= 99 && name = 'fengle';
-    
-    age = 89  or age =  99 && name = 'fengle';
-    
---  between 闭区间
-
-模糊匹配 
-6个下划线 6个字符
-select * from emp_table where name like '______';
-8个下划线 8个字符
-select * from emp_table where name like '________';
-查询 idcaed 最后一位是x的员工
-前面多少是很么不管 最后一位是x就可以
-select * from emp_table where idcard like '%x';
-
-如果用下划线 前面就是17个斜划线
-select * from emp_table where idcard like '_____x';
-insert into emp_table values (1312,'fengle', 77, '44122320070401023x', '2022-01-01');
-查询 名字
-select * from emp_table;
--- 聚合函数
-将一列数据作为一个整体 进行纵向的计算
-作用与字段 就是 整个表的某一列数据
-NULL值 不参与聚合函数的计算
-select count(*) from emp_table;
-select count(idcard) from emp_table;
-select avg(age) from emp_table;
-select min(age) from emp_table;
-select sum(age) from emp_table where name = 'fengle';
--- 分组查询
-select 
-    字段列表 
-from table_name 
-where
-        condition
-group by 
-        分组名字名
-HAVING
-        分组后过滤条件
-;
-
-where 和 HAVING的区别:
-执行时机不一样 where 是分组之前进行过滤，不满足where条件 不参与分组 而HAVING之后过滤的
-判断条件不一样 where 不能对聚合函数进行判断 而having可以
-select * from emp_table;
-
-根据一个字段分组 分别求它们的某一个特性(最大值 求和等)
-select idcard , count(idcard) from emp_table group by idcard;
-select name , avg(age)  from emp_table group by name;
-
-查询过滤
-select 
-from
-where 
-
-查询后过滤和整理
-group by 
-
-## 查询 名字为fengle 年龄大于77 的个数 
-select 
-        name as '名字',
-      count(*) as '人数'
-from
-        emp_table
-where 
-        age > 77
-group by
-        name
-HAVING
-        name = 'fengle'
-;
-需要主要注意的是执行顺序
-where 再到 聚合函数 再到 having
-
-
-select * from emp_table;
-
-
--- 排序查询
-
-select * from emp_table order by age desc;
-select * from emp_table order by age asc, entrydata asc;
-如果是多字段排序 优先级 按顺序
-
-desc 降序
-asc 升序
-
--- 分页查询
-limit 关键字
-
- 起始索引  = (页码 - 1) * 每一页展示的记录数 
-select 字段 from table_name limit 起始索引,  查询记录数;
-
-select * from emp_table;
-select * from emp_table limit 2, 2; 
-
-需要注意的是 不同的数据库 分页查询不一样 mysql中用到的是关键字limit
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>DQL 语句的执行顺序</p>
-<pre class="line-numbers language-mysql"><code class="language-mysql">4 SELECT
-            字段列表
-1 FROM
-            表名列表        
-2 WHERE
-            条件列表    
-3 GROUP BY
-            分组后条件列表    
-  HAVING 
-            排序字段列表    
-5 ORDER BY
-            排序字段列表    
-6 LIMIT        
-            分页参数
-
-            
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>使用别名的时候 可以按照执行顺序 产生相关代码</p>
-<p>总结</p>
-<pre class="line-numbers language-mysql"><code class="language-mysql">select * from emp_table;
-DQL 语法
-SELECT
-            字段列表  as 别名
-FROM
-            表名列表  as 别名    
-WHERE
-            条件列表    运算符
-GROUP BY
-            分组后条件列表    
-HAVING 
-            排序字段列表    分组过滤之后
-ORDER BY
-            排序字段列表    升序 asc 降序 desc
-LIMIT        
-            分页参数   两个参数 起始索引 每页展示数
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="DCL"><a href="#DCL" class="headerlink" title="DCL"></a>DCL</h5><p>control<br>数据控制语言 用来创建数据库用户 控制数据库的访问权限<br>用来管理数据库用户 控制数据库的访问权限</p>
-<p>通过用户 访问mysql服务器<br>每个用户可以设置不同的访问权限</p>
-<p>DCL 控制 有那些用户访问mysql服务器<br>可以操作 哪几个数据库</p>
-<p>DCL - 用户管理</p>
-<pre class="line-numbers language-mysql"><code class="language-mysql">-- 查询用户
-use mysql;
-select * from user;
-
--- 创建用户
-create user 'user_name'@'host' identified by 'passwd'
-host 填% 代表任意主机都可以访问
-
--- 修改用户密码
-alter user 'user_fengle'@'localhost' identified with mysql_native_password by '1234';
-
-
--- 删除用户
-drop user 'user_fengle'@'localhost';
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>DCL 权限控制<br>![[DCL权限控制.png]]</p>
-<pre class="line-numbers language-mysql"><code class="language-mysql">DCL - 权限控制
--- 查询权限
-show grants for 'user_fengle'@'localhost';
-
--- 授予权限
-grant all ON fengle_test.emp to 'user_fengle'@'localhost';
-
-grant all ON *.* to 'user_name'@'host';
-*.* 代表给此用户 所有数据库的所有表的权限 就是root 用户了 超级管理员
-
--- 撤销权限
-revoke all on fengle_test.emp from 'user_fengle'@'localhost';
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>root 用户可以访问所有数据库的所有表格<br>创建用户 创建表 设置用户权限<br>总结<br>用户管理<br>权限控制<br>DBA对DCL需要掌握 开发人员一般不用</p>
-<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><p>函数有字符函数 数值函数 日期函数 流程函数 在select中执行<br>函数可以嵌套</p>
-<pre class="line-numbers language-mysql"><code class="language-mysql">-- 字符函数
-select concat('Hello', 'MySQL');
-select upper('Hello');
-select lower('Hello');
-select lpad('fengle', 10, 'x');
-select rpad('fengle', 10, 'x');
-select ' sssss ';
-select trim(' sssss ');
-select substring(rpad('fengle', 10, 'x'), 1, 7);
-select substring('fengle', 1, 6);
--- 索引值从1开始
-引用 
-update emp_table set name = rpad(name, 6, 'e');
-select * from emp_table;
--- 数值函数
-ceil(x) 向上取整
-floor(x) 向下取整
-mod(x,y) 返回x/y 的模
-rand() 返回0—1内的随机数
-round(x,y) 求参数x的四舍五入的值 保留y位小数
-select ceil(9.54);
-select floor(9.54);
-select mod(9, 2);
-select rpad(round(rand() * 100000, 0), 6, '0');
-select round(9.99903,4);
--- 日期函数
-curdate()             返回当前日期
-curtime()                返回当前时间
-now()                 返回当前日期和时间
-year(date)            获取指点年
-month(date)
-day(date)
-date_add(date, interval expr type) 返回一个日期/时间值加上一个时间间隔expr后的时间值
-datediff(date1, date2)    返回起始时间data1 和 date2 之间的天数
-select curdate();
-select curtime();
-select year(curdate());
-select  datediff('2022-05-31', '2023-05-31');
-select  datediff(date_add(now(), interval 70 day), now());
-select date_add(now(), interval 70 year);
-根据时间差 列出姓名 显示为降序排序
-select 
-    name, datediff(curdate(), entrydata) as 'entrydatas' 
-from 
-    emp_table
-order by 
-    entrydatas desc;    
--- 流程函数
-IF(value , t , f) 如果value为true 则返回0 否则返回1
-select if(true, 'fengle', 'fenglee');
-select ifnull('ok', 'fengle');
-select ifnull(null, 'fengle');
-case when [val1] then [res1], 多个 逗号区分, else [default]  end 
-select * from emp_table;
-select 
-    age, 
-    (case name when 'fengle' then '一流的名字'  
-    when 'zhange' then '二流的名字'
-    else '其它名字'
-    end)
-    as '名字' 
-from emp_table;
--- 大于90岁为老东西  否则为年轻人
-select 
-    name, 
-    (
-        case  
-        when age>=90 then '老东西'  
-        when age<90 then '年轻人'  
-        end
-    ) as '芳龄',
-    (
-        case  
-        when id>123 then '错误的'  
-        when id<=123 then '正确的'  
-        end
-    ) as 'id分类' 
-from emp_table;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h4><p>概述<br>约束是作用域表中字段删的规则 用于限制存储在表中的数据<br>约束的是表格的结构 对其插入 删除等 进行约束<br>目的：<br>保证数据库中数据的正确、有效性和完整性<br>分类：<br>非空约束<br>唯一约束<br>主键约束   非空唯一<br>默认约束   字段采用默认值<br>检查约束     保证字段值满足某一个条件<br>外键约束      用来让两张表的数据之间建立连接，保证数据的一致性和完整性  键约束条件 至少两张表</p>
-<pre class="line-numbers language-mysql"><code class="language-mysql">有约束条件的表结构
-create table emp_2(
-    id int primary key auto_increment comment '主键',
-    name varchar(10) not null comment '姓名',
-    age int check (age > 0 && age <= 120) comment '年龄',
-    status char(1)  default '1' comment '状态 ',
-    gender char(1) comment '性别'
-) comment '用户表';
-select * from emp_2;
-insert into emp_2
-(name, age, status, gender)
-values('fengle', 19, '1', '男');
-## 数据库的插入 会根据约束过滤
-外键约束
-具有外键的这张表 称为子表
-外键关联的这张表 称为父表
-建立外键关联
-alter table 子表 add constraint 父亲 foreign key ()
-references 
-有约束条件的表结构
-create table emp_3(
-    id int primary key auto_increment comment '主键',
-    name varchar(10) not null comment '姓名',
-    age int check (age > 0 && age <= 120) comment '年龄',
-    status char(1)  default '1' comment '状态 ',
-    gender char(1) comment '性别',
-    dept_id int comment '部门ID'
-) comment '有外键用户表';
-create table emp_4(
-    id int primary key auto_increment comment '主键',
-    name varchar(10) not null comment '姓名'
-) comment '外键表';
-insert into emp_3
-(name, age, status, gender, dept_id)
-values('fengla', 20, '1', '男', 2);
-insert into emp_4
-(name)
-values('销售部');
-alter table emp_3 add constraint fk_emp_3_dept_id foreign key 
-(dept_id) references emp_4(id);
-## 外键删除/更新行为
-alter table emp_3 add constraint fk_emp_3_dept_id foreign key 
-(dept_id) references emp_4(id);
-cascade 当父表中删除/更新对应记录时 
-首先检查改记录是否有对应外键 如果有
-则也删除/更新 子表的外键记录
-set NULL 当父表中删对应记录时 
-首先检查改记录是否有对应外键
-如果有外键会设置为NULL
-alter table emp_3 add constraint fk_emp_3_dept_id foreign key 
-(dept_id) references emp_4(id) 
-on update cascade on delete cascade;
-alter table emp_3 add constraint fk_emp_3_dept_id foreign key 
-(dept_id) references emp_4(id) 
-on update  set null on delete cascade;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h4><h4 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h4>
+                <h2 id=""><a href="#" class="headerlink" title=""></a></h2>
                 
             </div>
             <hr/>
@@ -1495,7 +955,7 @@ on update  set null on delete cascade;
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基础学习
+                            基础学习 踩坑记录
                         
                     </div>
                     <div class="publish-info">
@@ -1532,24 +992,24 @@ on update  set null on delete cascade;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/06/03/ML/">
+                <a href="/2022/05/06/project/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="机器学习(兴趣记录)">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="个人项目">
                         
-                        <span class="card-title">机器学习(兴趣记录)</span>
+                        <span class="card-title">个人项目</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            简单入门
+                            Other-Project
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-06
                             </span>
                         <span class="publish-author">
                             
@@ -1566,8 +1026,8 @@ on update  set null on delete cascade;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Machine-Learning/">
-                        <span class="chip bg-color">Machine-Learning</span>
+                    <a href="/tags/Other/">
+                        <span class="chip bg-color">Other</span>
                     </a>
                     
                 </div>
@@ -1771,7 +1231,7 @@ on update  set null on delete cascade;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">20.2k</span>
+                        class="white-color">8.8k</span>
             
             
             
