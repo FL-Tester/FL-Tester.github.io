@@ -407,14 +407,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    3.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    14 分
                 </div>
                 
 
@@ -805,7 +805,108 @@ uchar <span class="token function">Single_Read_MPU6050</span><span class="token 
 <span class="token comment" spellcheck="true">//其余省略 </span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>完成以上步骤 协调器的串口数据如下<br><img src="/medias/cd/zigbeeresult.jpg"></p>
-<h5 id="原理、数据处理、动作捕捉"><a href="#原理、数据处理、动作捕捉" class="headerlink" title="原理、数据处理、动作捕捉"></a>原理、数据处理、动作捕捉</h5><p>参考如下：<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/20082486">https://zhuanlan.zhihu.com/p/20082486</a><br>(<a target="_blank" rel="noopener" href="https://oshwhub.com/Scarling/shen-tai-dian-sai-jian-yi-dong-zuo-bu-zhuo-shou-tao">https://oshwhub.com/Scarling/shen-tai-dian-sai-jian-yi-dong-zuo-bu-zhuo-shou-tao</a>)<br>源码链接：<br><a target="_blank" rel="noopener" href="https://github.com/FL-Tester/Course-Design/tree/main/%E6%97%A0%E7%BA%BF%E5%8D%95%E7%89%87%E6%9C%BA/ZStack-CC2530-2.5.1a-MPU6050">https://github.com/FL-Tester/Course-Design/tree/main/%E6%97%A0%E7%BA%BF%E5%8D%95%E7%89%87%E6%9C%BA/ZStack-CC2530-2.5.1a-MPU6050</a></p>
+<h4 id="姿态解算方法"><a href="#姿态解算方法" class="headerlink" title="姿态解算方法"></a>姿态解算方法</h4><h5 id="计算正确的三轴加速度和角速度值"><a href="#计算正确的三轴加速度和角速度值" class="headerlink" title="计算正确的三轴加速度和角速度值"></a>计算正确的三轴加速度和角速度值</h5><p>角速度参数为：2000deg/s<br>加速度参数为：2g<br>加速度灵敏度为 ((2^16)/2) / 2    = 16384<br>角速度灵敏度为  ((2^16)/2)  / 2000 = 16.4<br>例如: ED2:  +03284  +07958  +12160  -00082  -00038  +00016<br>+03284  +07958  +12160 为 gx gy gz<br>-00082  -00038  +00016 为 ax ay az<br>则真实gx为：<br>gx = 3284 / 16384 = 0.2004….. （gy gz同理）<br>真实ax为：<br>ax = 82 / 16.4 = 5   (ay az同理)</p>
+<h5 id="计算欧拉角"><a href="#计算欧拉角" class="headerlink" title="计算欧拉角"></a>计算欧拉角</h5><p>根据三轴加速度和角速度得出欧拉角。 </p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> math
+<span class="token keyword">import</span> csv
+<span class="token keyword">import</span> serial
+<span class="token keyword">import</span> time
+<span class="token keyword">class</span> <span class="token class-name">get_Euler_from_serial</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> portx<span class="token punctuation">,</span> bps<span class="token punctuation">,</span> timeout<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>ser <span class="token operator">=</span> serial<span class="token punctuation">.</span>Serial<span class="token punctuation">(</span>portx<span class="token punctuation">,</span> bps<span class="token punctuation">,</span> timeout <span class="token operator">=</span> timeout<span class="token punctuation">)</span> 
+        self<span class="token punctuation">.</span>ser<span class="token punctuation">.</span>flushInput<span class="token punctuation">(</span><span class="token punctuation">)</span> 
+        self<span class="token punctuation">.</span>acceleration_Sensitivity <span class="token operator">=</span> <span class="token number">16384</span>  <span class="token comment" spellcheck="true">## 加速度灵敏度2g</span>
+        self<span class="token punctuation">.</span>Gyroscope_Sensitivity <span class="token operator">=</span> <span class="token number">16.4</span>      <span class="token comment" spellcheck="true">## 加速度灵敏度 2000reg/s</span>
+        self<span class="token punctuation">.</span>gx<span class="token punctuation">,</span> self<span class="token punctuation">.</span>gy<span class="token punctuation">,</span> self<span class="token punctuation">.</span>gz<span class="token punctuation">,</span> self<span class="token punctuation">.</span>ax<span class="token punctuation">,</span> self<span class="token punctuation">.</span>ay<span class="token punctuation">,</span> self<span class="token punctuation">.</span>az <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span>
+        self<span class="token punctuation">.</span>pitch<span class="token punctuation">,</span> self<span class="token punctuation">.</span>roll<span class="token punctuation">,</span> self<span class="token punctuation">.</span>yaw <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span>
+
+    <span class="token keyword">def</span> <span class="token function">get_Euler</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> str<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>gx <span class="token operator">=</span> float<span class="token punctuation">(</span>str<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">:</span><span class="token number">12</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> self<span class="token punctuation">.</span>acceleration_Sensitivity
+        self<span class="token punctuation">.</span>gy <span class="token operator">=</span> float<span class="token punctuation">(</span>str<span class="token punctuation">[</span><span class="token number">13</span><span class="token punctuation">:</span><span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> self<span class="token punctuation">.</span>acceleration_Sensitivity
+        self<span class="token punctuation">.</span>gz <span class="token operator">=</span> float<span class="token punctuation">(</span>str<span class="token punctuation">[</span><span class="token number">21</span><span class="token punctuation">:</span><span class="token number">28</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> self<span class="token punctuation">.</span>acceleration_Sensitivity
+        self<span class="token punctuation">.</span>ax <span class="token operator">=</span> float<span class="token punctuation">(</span>str<span class="token punctuation">[</span><span class="token number">29</span><span class="token punctuation">:</span><span class="token number">36</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> self<span class="token punctuation">.</span>Gyroscope_Sensitivity
+        self<span class="token punctuation">.</span>ay <span class="token operator">=</span> float<span class="token punctuation">(</span>str<span class="token punctuation">[</span><span class="token number">37</span><span class="token punctuation">:</span><span class="token number">44</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> self<span class="token punctuation">.</span>Gyroscope_Sensitivity
+        self<span class="token punctuation">.</span>az <span class="token operator">=</span> float<span class="token punctuation">(</span>str<span class="token punctuation">[</span><span class="token number">45</span><span class="token punctuation">:</span><span class="token number">52</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> self<span class="token punctuation">.</span>Gyroscope_Sensitivity
+        Kp<span class="token operator">=</span><span class="token number">100</span>        <span class="token comment" spellcheck="true">#比例增益控制加速度计/磁强计的收敛速度</span>
+        Ki<span class="token operator">=</span><span class="token number">0.002</span>      <span class="token comment" spellcheck="true">#积分增益控制陀螺仪偏差的收敛速度</span>
+        halft<span class="token operator">=</span><span class="token number">0.001</span>   <span class="token comment" spellcheck="true">#采样周期的一半</span>
+        <span class="token comment" spellcheck="true">#传感器框架相对于辅助框架的四元数（初始化四元数的值）</span>
+        q0<span class="token operator">=</span><span class="token number">1</span>
+        q1<span class="token operator">=</span><span class="token number">0</span>
+        q2<span class="token operator">=</span><span class="token number">0</span>
+        q3<span class="token operator">=</span><span class="token number">0</span>
+        <span class="token comment" spellcheck="true">#由Ki缩放的积分误差项（初始化）</span>
+        exInt<span class="token operator">=</span><span class="token number">0</span>
+        eyInt<span class="token operator">=</span><span class="token number">0</span>
+        ezInt<span class="token operator">=</span><span class="token number">0</span>
+        aax <span class="token operator">=</span> self<span class="token punctuation">.</span>gx
+        aay <span class="token operator">=</span> self<span class="token punctuation">.</span>gy
+        aaz <span class="token operator">=</span> self<span class="token punctuation">.</span>gz
+        ggx <span class="token operator">=</span> self<span class="token punctuation">.</span>ax
+        ggy <span class="token operator">=</span> self<span class="token punctuation">.</span>ay
+        ggz <span class="token operator">=</span> self<span class="token punctuation">.</span>az
+        ax <span class="token operator">=</span> float<span class="token punctuation">(</span>aax<span class="token punctuation">)</span>
+        ay <span class="token operator">=</span> float<span class="token punctuation">(</span>aay<span class="token punctuation">)</span>
+        az <span class="token operator">=</span> float<span class="token punctuation">(</span>aaz<span class="token punctuation">)</span>
+        gx <span class="token operator">=</span> float<span class="token punctuation">(</span>ggx<span class="token punctuation">)</span>
+        gy <span class="token operator">=</span> float<span class="token punctuation">(</span>ggy<span class="token punctuation">)</span>
+        gz <span class="token operator">=</span> float<span class="token punctuation">(</span>ggz<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">#单元化</span>
+        norm<span class="token operator">=</span>math<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span>ax<span class="token operator">*</span>ax<span class="token operator">+</span>ay<span class="token operator">*</span>ay<span class="token operator">+</span>az<span class="token operator">*</span>az<span class="token punctuation">)</span>
+        ax<span class="token operator">=</span>ax<span class="token operator">/</span>norm
+        ay<span class="token operator">=</span>ay<span class="token operator">/</span>norm
+        az<span class="token operator">=</span>az<span class="token operator">/</span>norm
+        <span class="token comment" spellcheck="true">#估计方向的重力</span>
+        vx<span class="token operator">=</span><span class="token number">2</span><span class="token operator">*</span><span class="token punctuation">(</span>q1<span class="token operator">*</span>q3<span class="token operator">-</span>q0<span class="token operator">*</span>q2<span class="token punctuation">)</span>
+        vy<span class="token operator">=</span><span class="token number">2</span><span class="token operator">*</span><span class="token punctuation">(</span>q0<span class="token operator">*</span>q1<span class="token operator">+</span>q2<span class="token operator">*</span>q3<span class="token punctuation">)</span>
+        vz<span class="token operator">=</span>q0<span class="token operator">*</span>q0<span class="token operator">-</span>q1<span class="token operator">*</span>q1<span class="token operator">-</span>q2<span class="token operator">*</span>q2<span class="token operator">+</span>q3<span class="token operator">*</span>q3
+        <span class="token comment" spellcheck="true"># 错误的领域和方向传感器测量参考方向之间的交叉乘积的总和</span>
+        ex<span class="token operator">=</span><span class="token punctuation">(</span>ay<span class="token operator">*</span>vz <span class="token operator">-</span> az<span class="token operator">*</span>vy<span class="token punctuation">)</span>
+        ey<span class="token operator">=</span><span class="token punctuation">(</span>az<span class="token operator">*</span>vx <span class="token operator">-</span> ax<span class="token operator">*</span>vz<span class="token punctuation">)</span>
+        ez<span class="token operator">=</span><span class="token punctuation">(</span>ax<span class="token operator">*</span>vy <span class="token operator">-</span> ay<span class="token operator">*</span>vx<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 积分误差比例积分增益</span>
+        exInt <span class="token operator">+=</span>ex<span class="token operator">*</span>Ki
+        eyInt <span class="token operator">+=</span>ey<span class="token operator">*</span>Ki
+        ezInt <span class="token operator">+=</span>ez<span class="token operator">*</span>Ki
+        <span class="token comment" spellcheck="true"># 调整后的陀螺仪测量</span>
+        gx <span class="token operator">+=</span>Kp<span class="token operator">*</span>ex <span class="token operator">+</span> exInt
+        gy <span class="token operator">+=</span>Kp<span class="token operator">*</span>ey <span class="token operator">+</span> eyInt
+        gz <span class="token operator">+=</span>Kp<span class="token operator">*</span>ez <span class="token operator">+</span>ezInt
+        <span class="token comment" spellcheck="true"># 整合四元数</span>
+        q0 <span class="token operator">+=</span><span class="token punctuation">(</span><span class="token operator">-</span>q1<span class="token operator">*</span>gx <span class="token operator">-</span> q2<span class="token operator">*</span>gy <span class="token operator">-</span> q3<span class="token operator">*</span>gz<span class="token punctuation">)</span><span class="token operator">*</span>halft
+        q1 <span class="token operator">+=</span><span class="token punctuation">(</span>q0<span class="token operator">*</span>gx <span class="token operator">+</span> q2<span class="token operator">*</span>gz <span class="token operator">-</span> q3<span class="token operator">*</span>gy<span class="token punctuation">)</span><span class="token operator">*</span>halft
+        q2 <span class="token operator">+=</span><span class="token punctuation">(</span>q0<span class="token operator">*</span>gy <span class="token operator">-</span> q1<span class="token operator">*</span>gz <span class="token operator">+</span> q3<span class="token operator">*</span>gx<span class="token punctuation">)</span><span class="token operator">*</span>halft
+        q3 <span class="token operator">+=</span><span class="token punctuation">(</span>q0<span class="token operator">*</span>gz <span class="token operator">+</span> q1<span class="token operator">*</span>gy <span class="token operator">-</span> q2<span class="token operator">*</span>gx<span class="token punctuation">)</span><span class="token operator">*</span>halft
+        <span class="token comment" spellcheck="true"># 正常化四元数</span>
+        norm <span class="token operator">=</span> math<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span>q0<span class="token operator">*</span>q0<span class="token operator">+</span>q1<span class="token operator">*</span>q1<span class="token operator">+</span>q2<span class="token operator">*</span>q2<span class="token operator">+</span>q3<span class="token operator">*</span>q3<span class="token punctuation">)</span>
+        q0 <span class="token operator">/=</span>norm
+        q1 <span class="token operator">/=</span>norm
+        q2 <span class="token operator">/=</span>norm
+        q3 <span class="token operator">/=</span>norm
+        <span class="token comment" spellcheck="true"># 获取欧拉角 pitch、roll、yaw</span>
+        pitch <span class="token operator">=</span> math<span class="token punctuation">.</span>asin<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">2</span><span class="token operator">*</span>q1<span class="token operator">*</span>q3<span class="token operator">+</span><span class="token number">2</span><span class="token operator">*</span>q0<span class="token operator">*</span>q2<span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">57.3</span>
+        roll <span class="token operator">=</span> math<span class="token punctuation">.</span>atan2<span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>q2<span class="token operator">*</span>q3<span class="token operator">+</span><span class="token number">2</span><span class="token operator">*</span>q0<span class="token operator">*</span>q1<span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">2</span><span class="token operator">*</span>q1<span class="token operator">*</span>q1<span class="token number">-2</span><span class="token operator">*</span>q2<span class="token operator">*</span>q2<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">57.3</span>
+        yaw <span class="token operator">=</span> math<span class="token punctuation">.</span>atan2<span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span><span class="token punctuation">(</span>q1<span class="token operator">*</span>q2 <span class="token operator">+</span> q0<span class="token operator">*</span>q3<span class="token punctuation">)</span><span class="token punctuation">,</span>q0<span class="token operator">*</span>q0<span class="token operator">+</span>q1<span class="token operator">*</span>q1<span class="token operator">-</span>q2<span class="token operator">*</span>q2<span class="token operator">-</span>q3<span class="token operator">*</span>q3<span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">57.3</span>
+        <span class="token comment" spellcheck="true">#打印姿态角信息以及把姿态角数据写到txt文本中</span>
+        <span class="token keyword">if</span> str<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"ED1"</span> <span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"ED1: Pitch:%.3f,Roll: %.3f,Yaw:%.3f"</span> <span class="token operator">%</span><span class="token punctuation">(</span>pitch<span class="token punctuation">,</span>roll<span class="token punctuation">,</span>yaw<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> str<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"ED2"</span> <span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"ED2: Pitch:%.3f,Roll: %.3f,Yaw:%.3f"</span> <span class="token operator">%</span><span class="token punctuation">(</span>pitch<span class="token punctuation">,</span>roll<span class="token punctuation">,</span>yaw<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+            count <span class="token operator">=</span> self<span class="token punctuation">.</span>ser<span class="token punctuation">.</span>inWaiting<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 获取串口缓冲区数据</span>
+            <span class="token keyword">if</span> count <span class="token operator">!=</span><span class="token number">0</span> <span class="token punctuation">:</span>
+                recv <span class="token operator">=</span> self<span class="token punctuation">.</span>ser<span class="token punctuation">.</span>read<span class="token punctuation">(</span>self<span class="token punctuation">.</span>ser<span class="token punctuation">.</span>in_waiting<span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">"gbk"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 读出串口数据，数据采用gbk编码</span>
+                self<span class="token punctuation">.</span>get_Euler<span class="token punctuation">(</span>recv<span class="token punctuation">)</span>
+            time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0.2</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    get_Euler_from_serial<span class="token punctuation">(</span><span class="token string">"COM10"</span><span class="token punctuation">,</span> <span class="token number">115200</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="得到结果"><a href="#得到结果" class="headerlink" title="得到结果"></a>得到结果</h5><p><img src="/medias/cd/Euler.jpg"></p>
+<h4 id="打板"><a href="#打板" class="headerlink" title="打板"></a>打板</h4><p>终端节点打板就可以<br>所以只需要一个降压模块(ams1117-3.3)和芯片底座以及mpu6050底座<br>能跑就行<br><img src="/medias/cd/board.jpg" alt="立创3d预览图"></p>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/195683958">https://zhuanlan.zhihu.com/p/195683958</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/20082486">https://zhuanlan.zhihu.com/p/20082486</a><br>(<a target="_blank" rel="noopener" href="https://oshwhub.com/Scarling/shen-tai-dian-sai-jian-yi-dong-zuo-bu-zhuo-shou-tao">https://oshwhub.com/Scarling/shen-tai-dian-sai-jian-yi-dong-zuo-bu-zhuo-shou-tao</a>)</p>
 <h2 id="基于linux的语音识别项目-科大讯飞离线端"><a href="#基于linux的语音识别项目-科大讯飞离线端" class="headerlink" title="基于linux的语音识别项目(科大讯飞离线端)"></a>基于linux的语音识别项目(科大讯飞离线端)</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>该项目是在linux下科大讯飞离线包和虚拟LCD的基础上完成</p>
 <h4 id="涉及的知识"><a href="#涉及的知识" class="headerlink" title="涉及的知识:"></a>涉及的知识:</h4><ul>
 <li>linux基本操作/常用命令</li>
@@ -1656,7 +1757,7 @@ uchar <span class="token function">Single_Read_MPU6050</span><span class="token 
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">8.8k</span>
+                        class="white-color">9.6k</span>
             
             
             
