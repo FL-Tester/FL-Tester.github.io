@@ -407,7 +407,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    361
+                    405
                 </div>
                 
 
@@ -436,6 +436,17 @@
             <div id="articleContent">
                 <h2 id="用stm32简单玩一下esp8266-能用mqtt-没有写适配代码"><a href="#用stm32简单玩一下esp8266-能用mqtt-没有写适配代码" class="headerlink" title="用stm32简单玩一下esp8266(能用mqtt 没有写适配代码)"></a>用stm32简单玩一下esp8266(能用mqtt 没有写适配代码)</h2><h3 id="一-固件更新"><a href="#一-固件更新" class="headerlink" title="一. 固件更新"></a>一. 固件更新</h3><p>如果esp8266模块需要使用mqtt协议，一般是需要更新固件的。<br>买到能用mqtt最好不过了<br>参考：<a target="_blank" rel="noopener" href="http://www.piaoyi.org/iot/espressif-ESP8266-MQTT-AT.html">http://www.piaoyi.org/iot/espressif-ESP8266-MQTT-AT.html</a></p>
 <h3 id="二-使用stm32进行串口配置"><a href="#二-使用stm32进行串口配置" class="headerlink" title="二. 使用stm32进行串口配置"></a>二. 使用stm32进行串口配置</h3><p>简单用了一下freertos和串口dma<br>大致就是利用dma 串口1接收到内存<br>开了一个任务 中断发生就通知任务回显接收的数据<br>就实现了通过stm32控制esp8266<br>有点复杂 纯属就是为了玩一下 如果需要移植 还需要修改<br>2.1 stm32cubemx配置<br>就正常配置 开启uart1 rx的dma以及开启uart1 全局中断<br>freertos新建一个任务<br><img src="/project/uart1dma.png" alt="串口dma配置"><br><img src="/project/esp8266_in.png" alt="开启串口1全局中断"><br><img src="/project/freertos_esp8266.png" alt="FreeRTOS新建任务"></p>
+<p>esp8266引脚初始化</p>
+<pre class="line-numbers language-c"><code class="language-c">ESP8266_StatusTypeDef <span class="token function">InitEsp8266</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">HAL_GPIO_WritePin</span><span class="token punctuation">(</span>GPIOE<span class="token punctuation">,</span> GPIO_PIN_10<span class="token punctuation">,</span> GPIO_PIN_SET<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//ESP8266EN</span>
+    <span class="token function">HAL_GPIO_WritePin</span><span class="token punctuation">(</span>GPIOE<span class="token punctuation">,</span> GPIO_PIN_11<span class="token punctuation">,</span> GPIO_PIN_RESET<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">HAL_Delay</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">HAL_GPIO_WritePin</span><span class="token punctuation">(</span>GPIOE<span class="token punctuation">,</span> GPIO_PIN_11<span class="token punctuation">,</span> GPIO_PIN_SET<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// ESP8266 reseted</span>
+    <span class="token function">HAL_Delay</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> ESP8266_OK<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//一个en 一个reset 随便两个引脚即可</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>串口1中断处理函数</p>
 <pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">USART1_IRQHandler</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
@@ -478,7 +489,7 @@
     <span class="token comment" spellcheck="true">/* USER CODE END DriverTaskFunc */</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="三-结果测试"><a href="#三-结果测试" class="headerlink" title="三. 结果测试"></a>三. 结果测试</h3><p>这个时候 接好线 就可以通过stm32控制esp8266了<br>附上AT指令 指令后面记得加上换行符(\r\n)<br><img src="/project/AT.png" alt="AT指令"><br><img src="/project/MQTTRES.png" alt="mqtt测试"></p>
+<h3 id="三-结果测试"><a href="#三-结果测试" class="headerlink" title="三. 结果测试"></a>三. 结果测试</h3><p>这个时候 接好线 就可以通过stm32控制esp8266了<br>附上AT指令 指令后面记得加上换行符(\r\n)<br><img src="/project/AT.png" alt="AT指令"><br><img src="/project/MQTTRES.png" alt="MQTT测试"></p>
 
                 
             </div>
@@ -1276,7 +1287,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">6.5k</span>
+                        class="white-color">6.6k</span>
             
             
             
