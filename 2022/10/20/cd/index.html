@@ -407,14 +407,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.5k
+                    2.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    13 分
                 </div>
                 
 
@@ -941,116 +941,7 @@ uchar <span class="token function">Single_Read_MPU6050</span><span class="token 
 
 <p><img src="/project/result1.jpg"></p>
 <p>通过语音控制客户端 功能有画图 视频播放 音乐等等<br><img src="/project/result2.jpg"></p>
-<h2 id="基于zigbee和mqtt的宿舍防火防盗-物联网"><a href="#基于zigbee和mqtt的宿舍防火防盗-物联网" class="headerlink" title="基于zigbee和mqtt的宿舍防火防盗(物联网)"></a>基于zigbee和mqtt的宿舍防火防盗(物联网)</h2><h2 id="校园打卡"><a href="#校园打卡" class="headerlink" title="校园打卡"></a>校园打卡</h2><h3 id="要求-1"><a href="#要求-1" class="headerlink" title="要求"></a>要求</h3><h4 id="分组与选题"><a href="#分组与选题" class="headerlink" title="分组与选题"></a>分组与选题</h4><p>自由组合，8-10人一组，每组推选组长1人；可以在下面的参考选题中自由选题或自拟题目。</p>
-<h4 id="选题-1"><a href="#选题-1" class="headerlink" title="选题"></a>选题</h4><p>基于校园卡的学生考勤系统<br>（1）任务设计制作<br>    基于校园卡的学生考勤系统。<br>（2）要求<br>    1. 以校园卡（RFID卡）作为身份识别卡，刷卡进行签到。<br>    2. 刷卡信息可以传输至WEB服务器（传输方式自拟，可以是有线的，也可以是无线的）进行验证；验证结果可以返回至客服端进行显示（验证成功或失败）。<br>    3. 编写B/S结构的应用程序，可以通过网页浏览器实时查看考勤信息。<br>    4. 电路制作时，必须注明本组成员学号与姓名。</p>
-<h3 id="选题修改"><a href="#选题修改" class="headerlink" title="选题修改"></a>选题修改</h3><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>基于校园卡的学生考勤系统（不变）</p>
-<h5 id="要求-2"><a href="#要求-2" class="headerlink" title="要求"></a>要求</h5><ol>
-<li>以校园卡（RFID卡）作为身份识别卡，刷卡进行签到。</li>
-<li>刷卡信息可以传输至私有服务器数据库</li>
-<li>在小程序中实时查看考勤信息。</li>
-<li>电路制作时，必须注明本组成员学号与姓名。</li>
-</ol>
-<h3 id="主控"><a href="#主控" class="headerlink" title="主控"></a>主控</h3><p>ESP32 (Xtensa® 双核32 位LX6 微处理器) 240MHZ</p>
-<h3 id="外设"><a href="#外设" class="headerlink" title="外设"></a>外设</h3><p>nfc模块: RC522(SPI)<br>屏幕:    3.2寸 ili9341(SPI) xpt2046(SPI)<br>蜂鸣器：  低电平有效(GPIO)<br>RGB灯：   WS2812B(RMT)</p>
-<h3 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h3><ol>
-<li>esp32(IDE: ESP-IDF &amp; VSCODE)</li>
-<li>FreeRTOS</li>
-<li>LVGL (ui)</li>
-<li>SPI UART RMT</li>
-</ol>
-<h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><h4 id="esp32程序设计"><a href="#esp32程序设计" class="headerlink" title="esp32程序设计"></a>esp32程序设计</h4><h5 id="蜂鸣器和RGB灯io"><a href="#蜂鸣器和RGB灯io" class="headerlink" title="蜂鸣器和RGB灯io"></a>蜂鸣器和RGB灯io</h5><pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">//蜂鸣器</span>
-gpio_config_t user_io_conf <span class="token operator">=</span> <span class="token punctuation">{</span>
-    <span class="token punctuation">.</span>pin_bit_mask <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1ULL</span> <span class="token operator">&lt;&lt;</span> BEEP<span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token punctuation">.</span>mode <span class="token operator">=</span> GPIO_MODE_OUTPUT<span class="token punctuation">,</span>
-    <span class="token punctuation">.</span>pull_up_en <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
-    <span class="token punctuation">.</span>pull_down_en <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
-    <span class="token punctuation">.</span>intr_type <span class="token operator">=</span> GPIO_INTR_DISABLE<span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-esp_err_t <span class="token function">user_gpio_init</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    esp_err_t ret <span class="token operator">=</span> ESP_OK<span class="token punctuation">;</span>
-    ret <span class="token operator">=</span> <span class="token function">gpio_config</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>user_io_conf<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>ret <span class="token operator">!=</span> ESP_OK<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"gpio config error!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token function">gpio_set_level</span><span class="token punctuation">(</span>BEEP<span class="token punctuation">,</span> SET<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//RGB</span>
-<span class="token keyword">void</span> <span class="token function">init_led</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    rmt_config_t config <span class="token operator">=</span> <span class="token function">RMT_DEFAULT_CONFIG_TX</span><span class="token punctuation">(</span>RMT_TX_NUM<span class="token punctuation">,</span> RMT_TX_CHANNEL<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//配置引脚及通道</span>
-    <span class="token comment" spellcheck="true">// set counter clock to 40MHz</span>
-    config<span class="token punctuation">.</span>clk_div <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-    <span class="token function">ESP_ERROR_CHECK</span><span class="token punctuation">(</span><span class="token function">rmt_config</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>config<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">ESP_ERROR_CHECK</span><span class="token punctuation">(</span><span class="token function">rmt_driver_install</span><span class="token punctuation">(</span>config<span class="token punctuation">.</span>channel<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// install ws2812 driver</span>
-    led_strip_config_t strip_config <span class="token operator">=</span> <span class="token function">LED_STRIP_DEFAULT_CONFIG</span><span class="token punctuation">(</span><span class="token number">24</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>led_strip_dev_t<span class="token punctuation">)</span>config<span class="token punctuation">.</span>channel<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    strip <span class="token operator">=</span> <span class="token function">led_strip_new_rmt_ws2812</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>strip_config<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>strip<span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token function">ESP_LOGE</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">"install WS2812 driver failed"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">// Clear LED strip (turn off all LEDs)</span>
-    <span class="token function">ESP_ERROR_CHECK</span><span class="token punctuation">(</span>strip<span class="token operator">-></span><span class="token function">clear</span><span class="token punctuation">(</span>strip<span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">void</span> <span class="token function">set_rgb</span><span class="token punctuation">(</span>uint16_t Red<span class="token punctuation">,</span> uint16_t Green<span class="token punctuation">,</span> uint16_t Blue<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> LED_STRIP_NUM<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        strip<span class="token operator">-></span><span class="token function">set_pixel</span><span class="token punctuation">(</span>strip<span class="token punctuation">,</span> i<span class="token punctuation">,</span> Red<span class="token punctuation">,</span> Green<span class="token punctuation">,</span> Blue<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//设置颜色</span>
-    <span class="token punctuation">}</span>
-    WS2812_RGB<span class="token punctuation">.</span>red <span class="token operator">=</span> Red<span class="token punctuation">;</span>
-    WS2812_RGB<span class="token punctuation">.</span>green <span class="token operator">=</span> Green<span class="token punctuation">;</span>
-    WS2812_RGB<span class="token punctuation">.</span>blue <span class="token operator">=</span> Blue<span class="token punctuation">;</span>
-    strip<span class="token operator">-></span><span class="token function">refresh</span><span class="token punctuation">(</span>strip<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="wifi-mqtt初始化"><a href="#wifi-mqtt初始化" class="headerlink" title="wifi/mqtt初始化"></a>wifi/mqtt初始化</h5><pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">// sta wifi config</span>
-<span class="token keyword">static</span> wifi_sta_config_t wifi_sta_config <span class="token operator">=</span> <span class="token punctuation">{</span>
-        <span class="token punctuation">.</span>ssid <span class="token operator">=</span> <span class="token string">"FengLE"</span><span class="token punctuation">,</span>
-        <span class="token punctuation">.</span>password <span class="token operator">=</span> <span class="token string">"987654321"</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//mqtt config</span>
-esp_mqtt_client_config_t mqtt_config <span class="token operator">=</span> <span class="token punctuation">{</span>
-        <span class="token punctuation">.</span>uri <span class="token operator">=</span> <span class="token string">"mqtt://182.61.xx.xx"</span><span class="token punctuation">,</span>
-        <span class="token comment" spellcheck="true">//.event_handle = mqtt_event_handler, //</span>
-        <span class="token punctuation">.</span>username <span class="token operator">=</span> <span class="token string">"admin"</span><span class="token punctuation">,</span>
-        <span class="token punctuation">.</span>password <span class="token operator">=</span> <span class="token string">"password"</span><span class="token punctuation">,</span>
-        <span class="token punctuation">.</span>port <span class="token operator">=</span> <span class="token number">1883</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-esp_mqtt_client_handle_t client_task<span class="token punctuation">;</span> 
-<span class="token keyword">void</span> <span class="token function">wifi_init</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//1</span>
-    esp_err_t err <span class="token operator">=</span> <span class="token function">nvs_flash_init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>err <span class="token operator">==</span> ESP_ERR_NVS_NO_FREE_PAGES <span class="token operator">||</span> err <span class="token operator">==</span> ESP_ERR_NVS_NEW_VERSION_FOUND<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">ESP_ERROR_CHECK</span><span class="token punctuation">(</span><span class="token function">nvs_flash_erase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        err <span class="token operator">=</span> <span class="token function">nvs_flash_init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token function">ESP_ERROR_CHECK</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//2</span>
-    <span class="token function">esp_netif_init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">esp_event_loop_create_default</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">esp_netif_create_default_wifi_sta</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    wifi_init_config_t cfg <span class="token operator">=</span> <span class="token function">WIFI_INIT_CONFIG_DEFAULT</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">esp_wifi_init</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>cfg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">esp_wifi_set_config</span><span class="token punctuation">(</span>WIFI_IF_STA<span class="token punctuation">,</span> <span class="token punctuation">(</span>wifi_config_t <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>wifi_sta_config<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">esp_wifi_set_mode</span><span class="token punctuation">(</span>WIFI_MODE_STA<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">esp_event_handler_instance_register</span><span class="token punctuation">(</span>WIFI_EVENT<span class="token punctuation">,</span> ESP_EVENT_ANY_ID<span class="token punctuation">,</span> wifi_event_handler<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">esp_event_handler_instance_register</span><span class="token punctuation">(</span>IP_EVENT<span class="token punctuation">,</span> IP_EVENT_STA_GOT_IP<span class="token punctuation">,</span> wifi_event_handler<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">esp_wifi_start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    client_task <span class="token operator">=</span> <span class="token function">esp_mqtt_client_init</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mqtt_config<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">esp_mqtt_client_start</span><span class="token punctuation">(</span>client_task<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="适配RC522"><a href="#适配RC522" class="headerlink" title="适配RC522"></a>适配RC522</h5><p>参考：<a target="_blank" rel="noopener" href="https://github.com/abobija/esp-idf-rc522">https://github.com/abobija/esp-idf-rc522</a> (写得太好了 无法超越)</p>
-<h5 id="移植LVGL"><a href="#移植LVGL" class="headerlink" title="移植LVGL"></a>移植LVGL</h5><p>参考：<br><a target="_blank" rel="noopener" href="https://github.com/lvgl/lvgl">https://github.com/lvgl/lvgl</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/531079101">https://zhuanlan.zhihu.com/p/531079101</a>     </p>
-<h5 id="freertos使用"><a href="#freertos使用" class="headerlink" title="freertos使用"></a>freertos使用</h5><p>暂时不表</p>
-<h4 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h4><p>安装emqx、mysql、配置端口<br>暂不表</p>
-<h4 id="电路设计和打板"><a href="#电路设计和打板" class="headerlink" title="电路设计和打板"></a>电路设计和打板</h4><h5 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h5><p><img src="/medias/stcard/sch.png" alt="原理图"></p>
-<h5 id="pcb"><a href="#pcb" class="headerlink" title="pcb"></a>pcb</h5><p>…</p>
-<h5 id="bom"><a href="#bom" class="headerlink" title="bom"></a>bom</h5><p>····</p>
-<h5 id="实物"><a href="#实物" class="headerlink" title="实物"></a>实物</h5><p><img src="/medias/stcard/res.jpg" alt="实物"></p>
-<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p>…</p>
-<h2 id="融合通信"><a href="#融合通信" class="headerlink" title="融合通信"></a>融合通信</h2><h2 id="毕设"><a href="#毕设" class="headerlink" title="毕设"></a>毕设</h2>
+<h2 id="基于zigbee和mqtt的宿舍防火防盗-物联网"><a href="#基于zigbee和mqtt的宿舍防火防盗-物联网" class="headerlink" title="基于zigbee和mqtt的宿舍防火防盗(物联网)"></a>基于zigbee和mqtt的宿舍防火防盗(物联网)</h2><h2 id="融合通信"><a href="#融合通信" class="headerlink" title="融合通信"></a>融合通信</h2><h2 id="毕设"><a href="#毕设" class="headerlink" title="毕设"></a>毕设</h2>
                 
             </div>
             <hr/>
