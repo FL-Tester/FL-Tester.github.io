@@ -407,14 +407,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.5k
+                    4.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    20 分
+                    19 分
                 </div>
                 
 
@@ -1105,12 +1105,7 @@ uchar <span class="token function">Single_Read_MPU6050</span><span class="token 
 <p>通过语音控制客户端 功能有画图 视频播放 音乐等等<br><img src="/project/result2.jpg"></p>
 <h2 id="基于物联网的温湿度智能大棚"><a href="#基于物联网的温湿度智能大棚" class="headerlink" title="基于物联网的温湿度智能大棚"></a>基于物联网的温湿度智能大棚</h2><h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><p>1.系统中有两个感知与控制节点(MCU2、MCU3)及一个中控节点MCU1。<br>2.MCU2需要感知采集CO2浓度、大气温湿度，当大棚中温湿度及CO2浓度不适宜时，通过控制通风口的开合来改变大棚中的温湿度及CO2浓度，以此改善大棚局部环境适宜度。<br>3.MCU3也需进行温湿度采集。MCU2与MCU3所采集的各项参数通过短距离通信方式传输给MCU1。<br>4.MCU1除了需要在OLED屏中显示采集的数据，还需要通过4G模块将参数数据传输到云端，并可用智能终端(Web端或手机端)查看。值得注意的是，对于MCU3的均匀温湿度控制有两种解决方法：第一，从MCU2将采集的温湿度数据通过短距离通信传输给MCU3，MCU3结合自身采集的温湿度数据进行均匀化处理，再给予控制；第二，MCU3与MCU2同时将温湿度数据上传至MCU1，MCU1处理数据后返回控制指令给MCU3。以上两种方法均可实现均匀。</p>
 <h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>1.温湿度控制。(我们采用第一种解决方案)。舵机反转代表降温，舵机正转代表升温或者抽风降低二氧化碳。<br>2.题目大概意思是通过控制出风口，保持两边温湿度的接近。<br>3.mcu1获取mcu2和mcu3的温湿度数值，显示oled上，并且上传云端显示在上位机上。<br>4.mcu2中，当co2浓度过高时，舵机正转，速度根据浓度。当温度过高时，舵机反转，当温度过低时，舵机正转。湿度突变得不怎么厉害的话，不处理。<br>5.mcu3中，当温度高于mcu2时舵机反转，当温湿度低于mcu2，舵机正转。有一定比例关系。当mcu3和mcu2温湿度差距不大的时候，不进行处理。</p>
-<h3 id="MCU2-MCU3"><a href="#MCU2-MCU3" class="headerlink" title="MCU2/MCU3"></a>MCU2/MCU3</h3><p>1.温湿度传感器（单总线）<br>dht11是单总线的传感器 而且是自定义的通信协议。</p>
-<p>2.二氧化碳传感器(uart)</p>
-<p>3.舵机控制（pwm）</p>
-<p>HAL_TIM_PWM_Start(&amp;htim4,TIM_CHANNEL_1);<br>  uint16_t temp = 0;<br>  uint16_t humi = 0;<br>  /* USER CODE BEGIN StartDefaultTask <em>/<br>  if (DHT11_Init() == DHT11_OK)<br>      printf(“DHT11 init ok\n”);<br>  else<br>      printf(“DHT11  init errro!\n”);<br>  osDelay(500);<br>  /</em> Infinite loop */<br>  ;<br>  start_co2_recv_dma();<br>  osDelay(500);</p>
-<p>  for(;;)<br>  {<br>    if (DHT11_Read_Data(&amp;temp, &amp;humi) == DHT11_OK)<br>        printf(“temp = %d, humi = %d\n”, temp, humi);<br>    else<br>        printf(“read error\n”);<br>    SG90SetDirectionSpeed(FORWARD, 0);<br>    osThreadFlagsWait(0x01, osFlagsWaitAny, osWaitForever);<br>    printf(“co2_value = %d\n”, Co2_rx_data[1]*256+Co2_rx_data[2]);<br>    memset(Co2_rx_data, 0, DMA_RECV_MAX);<br>    U3RxBufferLen = 0;<br>    //osDelay(1000);<br>  }</p>
-<p>  temp = __HAL_UART_GET_FLAG(&amp;huart3, UART_FLAG_IDLE);<br>  if(temp != RESET){<br>    HAL_UART_DMAStop(&amp;huart3);<br>    temp = __HAL_DMA_GET_COUNTER(&amp;hdma_usart3_rx);<br>    U3RxBufferLen = DMA_RECV_MAX - temp;<br>    //osThreadFlagsSet(main_taskHandle, 0x01);  // 通知 DriverTaskHandle task<br>    __HAL_UART_CLEAR_IDLEFLAG(&amp;huart3);<br>    HAL_UART_Receive_DMA(&amp;huart3, Co2_rx_data, DMA_RECV_MAX);<br>  }</p>
+<h3 id="MCU2-MCU3"><a href="#MCU2-MCU3" class="headerlink" title="MCU2/MCU3"></a>MCU2/MCU3</h3><p>1.温湿度传感器（单总线）<br>dht11是单总线的传感器 而且是自定义的通信协议。<br>2.二氧化碳传感器(uart)<br>3.舵机控制（pwm）</p>
 
                 
             </div>
@@ -1908,7 +1903,7 @@ uchar <span class="token function">Single_Read_MPU6050</span><span class="token 
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">7.1k</span>
+                        class="white-color">7k</span>
             
             
             
