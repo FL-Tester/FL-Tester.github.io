@@ -30,10 +30,10 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.1"><link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css">
+<meta name="generator" content="Hexo 5.4.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 
@@ -453,8 +453,6 @@
   <span class="token comment" spellcheck="true">/* USER CODE BEGIN USART1_IRQn 0 */</span>
     temp <span class="token operator">=</span> <span class="token function">__HAL_UART_GET_FLAG</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>huart1<span class="token punctuation">,</span> UART_FLAG_IDLE<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">if</span><span class="token punctuation">(</span>temp <span class="token operator">!=</span> RESET<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        temp <span class="token operator">=</span> huart1<span class="token punctuation">.</span>Instance<span class="token operator">-></span>ISR<span class="token punctuation">;</span>
-        temp <span class="token operator">=</span> huart1<span class="token punctuation">.</span>Instance<span class="token operator">-></span>RDR<span class="token punctuation">;</span>
         <span class="token function">HAL_UART_DMAStop</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>huart1<span class="token punctuation">)</span><span class="token punctuation">;</span>
         temp <span class="token operator">=</span> <span class="token function">__HAL_DMA_GET_COUNTER</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>hdma_usart1_rx<span class="token punctuation">)</span><span class="token punctuation">;</span>
         U1RxBufferLen <span class="token operator">=</span> BUFFER_SIZE_MAX <span class="token operator">-</span> temp<span class="token punctuation">;</span>
@@ -467,7 +465,7 @@
   <span class="token comment" spellcheck="true">/* USER CODE BEGIN USART1_IRQn 1 */</span>
   <span class="token comment" spellcheck="true">/* USER CODE END USART1_IRQn 1 */</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>FreeRTOS任务</p>
 <pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">//copy from freertos.c</span>
 <span class="token keyword">void</span> <span class="token function">DriverTaskFunc</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span>argument<span class="token punctuation">)</span>
@@ -479,8 +477,7 @@
     <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
         <span class="token function">osThreadFlagsWait</span><span class="token punctuation">(</span><span class="token number">0x01</span><span class="token punctuation">,</span> osFlagsWaitAny<span class="token punctuation">,</span> osWaitForever<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token function">HAL_UART_Transmit</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>huart1<span class="token punctuation">,</span> U1RxBuffer<span class="token punctuation">,</span> U1RxBufferLen<span class="token punctuation">,</span> <span class="token number">0xFFFF</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"U1RxBufferLen = %d\n"</span><span class="token punctuation">,</span> U1RxBufferLen<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\nU1RxBufferLen = %d\n"</span><span class="token punctuation">,</span> U1RxBufferLen<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token function">memset</span><span class="token punctuation">(</span>U1RxBuffer<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> BUFFER_SIZE_MAX<span class="token punctuation">)</span><span class="token punctuation">;</span>
         U1RxBufferLen <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
         <span class="token function">osDelay</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -488,7 +485,7 @@
     <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">/* USER CODE END DriverTaskFunc */</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="三-结果测试"><a href="#三-结果测试" class="headerlink" title="三. 结果测试"></a>三. 结果测试</h3><p>这个时候 接好线 就可以通过stm32控制esp8266了<br>附上AT指令 指令后面记得加上换行符(\r\n)<br><img src="/project/AT.png" alt="AT指令"><br><img src="/project/MQTTRES.png" alt="MQTT测试"></p>
 <h2 id="校园打卡"><a href="#校园打卡" class="headerlink" title="校园打卡"></a>校园打卡</h2><h3 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h3><h4 id="分组与选题"><a href="#分组与选题" class="headerlink" title="分组与选题"></a>分组与选题</h4><p>自由组合，8-10人一组，每组推选组长1人；可以在下面的参考选题中自由选题或自拟题目。</p>
 <h4 id="选题"><a href="#选题" class="headerlink" title="选题"></a>选题</h4><p>基于校园卡的学生考勤系统<br>（1）任务设计制作<br>    基于校园卡的学生考勤系统。<br>（2）要求<br>    1. 以校园卡（RFID卡）作为身份识别卡，刷卡进行签到。<br>    2. 刷卡信息可以传输至WEB服务器（传输方式自拟，可以是有线的，也可以是无线的）进行验证；验证结果可以返回至客服端进行显示（验证成功或失败）。<br>    3. 编写B/S结构的应用程序，可以通过网页浏览器实时查看考勤信息。<br>    4. 电路制作时，必须注明本组成员学号与姓名。</p>
